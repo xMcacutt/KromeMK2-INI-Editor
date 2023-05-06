@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TyBNIEditor", "TyBNIEditor\TyBNIEditor.csproj", "{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6DB687F-C4D2-4982-AE21-5821D4DBE7C0}
+	EndGlobalSection
+EndGlobal

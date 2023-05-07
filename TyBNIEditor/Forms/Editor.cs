@@ -1,20 +1,12 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System;
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.CompilerServices;
 using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
+using TyBNIEditor.Forms;
 
 namespace TyBNIEditor
 {
@@ -31,13 +23,16 @@ namespace TyBNIEditor
 
         public Editor()
         {
-            InitializeComponent();
+            Fonts.Setup();
+            Themes.Load();
             SettingsHandler.Setup();
+            InitializeComponent();
             popupMenu = new AutocompleteMenu(FCTB);
             InitializeColors();
-            string[] SectionNames = File.ReadAllLines("./SectionNames.txt");
+            InitializeFonts();
+            string[] SectionNames = File.ReadAllLines("./Data/SectionNames.txt");
             _sectionNamesRegexExp = @"^\b(" + string.Join("|", SectionNames.Select(sn => Regex.Escape(sn))) + @")\b";
-            string[] FieldNames = File.ReadAllLines("./FieldNames.txt");
+            string[] FieldNames = File.ReadAllLines("./Data/FieldNames.txt");
             _fieldNamesRegexExp += @"^\b(" + string.Join("|", FieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
 
             popupMenu.MinFragmentLength = 2;
@@ -65,7 +60,6 @@ namespace TyBNIEditor
             popupMenu.ForeColor = SettingsHandler.Colors.MainText;
             popupMenu.HoveredColor = SettingsHandler.Colors.BackgroundLight;
             popupMenu.SelectedColor = SettingsHandler.Colors.BackgroundLight;
-            popupMenu.Font = new Font("Cascadia Code", 12F);
             FCTB.ForeColor = SettingsHandler.Colors.MainText;
             FCTB.LineNumberColor = SettingsHandler.Colors.MainText;
             FCTB.IndentBackColor = SettingsHandler.Colors.BackgroundSuperLight;
@@ -77,15 +71,37 @@ namespace TyBNIEditor
             ForeColor = SettingsHandler.Colors.MainText;
             BackColor = SettingsHandler.Colors.BackgroundDark;
             Brush keywordsBrush = new SolidBrush(SettingsHandler.Colors.Keywords);
-            KeywordsStyle = new TextStyle(keywordsBrush, null, FontStyle.Regular);
             Brush sectionNamesBrush = new SolidBrush(SettingsHandler.Colors.SectionNames);
-            SectionNamesStyle = new TextStyle(sectionNamesBrush, null, FontStyle.Regular);
             Brush fieldNamesBrush = new SolidBrush(SettingsHandler.Colors.FieldNames);
-            FieldNamesStyle = new TextStyle(fieldNamesBrush, null, FontStyle.Regular);
             Brush fieldTextBrush = new SolidBrush(SettingsHandler.Colors.FieldText);
-            FieldTextStyle = new TextStyle(fieldTextBrush, null, FontStyle.Regular);
             Brush numbersBrush = new SolidBrush(SettingsHandler.Colors.Numbers);
-            NumbersStyle = new TextStyle(numbersBrush, null, FontStyle.Regular);
+            if (KeywordsStyle == null)
+            {
+                KeywordsStyle = new TextStyle(keywordsBrush, null, FontStyle.Regular);
+                SectionNamesStyle = new TextStyle(sectionNamesBrush, null, FontStyle.Regular);
+                FieldNamesStyle = new TextStyle(fieldNamesBrush, null, FontStyle.Regular);
+                FieldTextStyle = new TextStyle(fieldTextBrush, null, FontStyle.Regular);
+                NumbersStyle = new TextStyle(numbersBrush, null, FontStyle.Regular);
+            }
+            else
+            {
+                KeywordsStyle.ForeBrush = keywordsBrush;
+                SectionNamesStyle.ForeBrush = sectionNamesBrush;
+                FieldNamesStyle.ForeBrush = fieldNamesBrush;
+                FieldTextStyle.ForeBrush = fieldTextBrush;
+                NumbersStyle.ForeBrush = numbersBrush;
+            }
+            string text = FCTB.Text;
+            FCTB.Text = "";
+            FCTB.Text = text;
+        }
+
+        private void InitializeFonts()
+        {
+            FCTB.Font = Fonts.Standard;
+            popupMenu.Font = Fonts.Standard;
+            FileNameLabel.Font = Fonts.SmallUI;
+            Menu.Font = Fonts.SmallUI;
         }
 
         private void FCTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -112,6 +128,12 @@ namespace TyBNIEditor
                 popupMenu.Show();
                 e.Handled = true;
             }
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Program.Preferences == null) Program.Preferences = new Preferences();
+            Program.Preferences.Show();
         }
     }
 }

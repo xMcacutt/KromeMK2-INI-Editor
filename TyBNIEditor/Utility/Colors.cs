@@ -40,7 +40,6 @@ namespace TyBNIEditor
             SectionNames = Color.FromArgb(SectionNamesRGB[0], SectionNamesRGB[1], SectionNamesRGB[2]);
             Numbers = Color.FromArgb(NumbersRGB[0], NumbersRGB[1], NumbersRGB[2]);
             Keywords = Color.FromArgb(KeywordsRGB[0], KeywordsRGB[1], KeywordsRGB[2]);
-
         }
     }
 }

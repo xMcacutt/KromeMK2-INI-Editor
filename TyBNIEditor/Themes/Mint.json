@@ -1,0 +1,56 @@
+{
+  "MainText": "18, 63, 19",
+  "BackgroundDark": "221, 236, 222",
+  "BackgroundLight": "208, 230, 209",
+  "BackgroundSuperLight": "173, 211, 174",
+  "FieldNames": "37, 54, 203",
+  "FieldText": "35, 124, 5",
+  "SectionNames": "0, 155, 113",
+  "Numbers": "121, 38, 38",
+  "Keywords": "154, 66, 1",
+  "MainTextRGB": [
+    18,
+    63,
+    19
+  ],
+  "BackgroundDarkRGB": [
+    221,
+    236,
+    222
+  ],
+  "BackgroundLightRGB": [
+    208,
+    230,
+    209
+  ],
+  "BackgroundSuperLightRGB": [
+    173,
+    211,
+    174
+  ],
+  "FieldNamesRGB": [
+    37,
+    54,
+    203
+  ],
+  "FieldTextRGB": [
+    35,
+    124,
+    5
+  ],
+  "SectionNamesRGB": [
+    0,
+    155,
+    113
+  ],
+  "NumbersRGB": [
+    121,
+    38,
+    38
+  ],
+  "KeywordsRGB": [
+    154,
+    66,
+    1
+  ]
+}

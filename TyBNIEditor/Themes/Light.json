@@ -1,11 +1,56 @@
-﻿{
-	"MainTextRGB": [ 180, 170, 200 ],
-	"BackgroundDarkRGB": [ 26, 26, 36 ],
-	"BackgroundSuperLightRGB": [ 55, 55, 75 ],
-	"BackgroundLightRGB": [ 38, 38, 56 ],
-	"FieldNamesRGB": [ 225, 195, 125 ],
-	"FieldTextRGB": [ 0, 225, 225 ],
-	"KeywordsRGB": [ 175, 225, 245 ],
-	"SectionNamesRGB": [ 255, 100, 100 ],
-	"NumbersRGB": [ 200, 240, 190 ]
+{
+  "MainText": "99, 88, 67",
+  "BackgroundDark": "255, 255, 255",
+  "BackgroundLight": "255, 250, 240",
+  "BackgroundSuperLight": "254, 239, 207",
+  "FieldNames": "84, 107, 3",
+  "FieldText": "152, 104, 14",
+  "SectionNames": "196, 0, 0",
+  "Numbers": "128, 0, 128",
+  "Keywords": "0, 0, 160",
+  "MainTextRGB": [
+    99,
+    88,
+    67
+  ],
+  "BackgroundDarkRGB": [
+    255,
+    255,
+    255
+  ],
+  "BackgroundLightRGB": [
+    255,
+    250,
+    240
+  ],
+  "BackgroundSuperLightRGB": [
+    254,
+    239,
+    207
+  ],
+  "FieldNamesRGB": [
+    84,
+    107,
+    3
+  ],
+  "FieldTextRGB": [
+    152,
+    104,
+    14
+  ],
+  "SectionNamesRGB": [
+    196,
+    0,
+    0
+  ],
+  "NumbersRGB": [
+    128,
+    0,
+    128
+  ],
+  "KeywordsRGB": [
+    0,
+    0,
+    160
+  ]
 }

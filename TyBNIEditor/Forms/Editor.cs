@@ -33,7 +33,7 @@ namespace TyBNIEditor
             string[] SectionNames = File.ReadAllLines("./Data/SectionNames.txt");
             _sectionNamesRegexExp = @"^\b(" + string.Join("|", SectionNames.Select(sn => Regex.Escape(sn))) + @")\b";
             string[] FieldNames = File.ReadAllLines("./Data/FieldNames.txt");
-            _fieldNamesRegexExp += @"^\b(" + string.Join("|", FieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
+            _fieldNamesRegexExp += @"^\s*\b(" + string.Join("|", FieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
 
             popupMenu.MinFragmentLength = 2;
             popupMenu.Items.SetAutocompleteItems(SectionNames.Concat(FieldNames).ToArray());
@@ -51,7 +51,7 @@ namespace TyBNIEditor
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
             FileNameLabel.Text = Path.GetFileName(path);
-            FCTB.Text = string.Join("\n", Parser.Import(path));
+            FCTB.Text = string.Join("\n", BNIParser.Import(path));
         }
 
         public void InitializeColors()

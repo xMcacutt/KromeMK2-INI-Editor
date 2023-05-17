@@ -52,6 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BNIHandler\BNI.cs" />
+    <Compile Include="BNIHandler\BNICompiler.cs" />
+    <Compile Include="BNIHandler\BNIParser.cs" />
+    <Compile Include="BNIHandler\Field.cs" />
+    <Compile Include="BNIHandler\Line.cs" />
+    <Compile Include="BNIHandler\Section.cs" />
+    <Compile Include="BNIHandler\SubSection.cs" />
     <Compile Include="Controls\FlatComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -61,7 +68,6 @@
     <Compile Include="Forms\Preferences.Designer.cs">
       <DependentUpon>Preferences.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parser\BNI.cs" />
     <Compile Include="Themes\Fonts.cs" />
     <Compile Include="Themes\Themes.cs" />
     <Compile Include="Utility\Colors.cs" />
@@ -71,9 +77,6 @@
     <Compile Include="Forms\Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parser\Section.cs" />
-    <Compile Include="Parser\Line.cs" />
-    <Compile Include="Parser\Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\SettingsHandler.cs" />

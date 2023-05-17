@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace TyBNIEditor
 {
-    internal class SubSection
+    internal class SubSection : Field
     {
-        public string Name;
-        public int StartLineIndex;
-        public int Index;
         public List<Field> Fields = new List<Field>();
+
+        public List<SubSection> SubSections = new List<SubSection>();
     }
 }

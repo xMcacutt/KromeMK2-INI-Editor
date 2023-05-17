@@ -29,8 +29,7 @@ namespace TyBNIEditor
             };
             ReadLines();
             GenerateSections();
-            GenerateFields();
-            return GenerateOutput();
+            return GenerateOutput().ToArray();
         }
 
         public static void ReadLines()
@@ -56,81 +55,93 @@ namespace TyBNIEditor
             {
                 line = BNI.Lines[sectionIndex];
                 Section section = new Section();
-                if(sectionIndex == BNI.SectionCount - 1) section.LineCount = ((((BNI.ShortTable1Offset - 0x44) / 0x10) - 1) - line.DataStartLineIndex) - 1;
-                else section.LineCount = (BNI.Lines[sectionIndex + 1].DataStartLineIndex - line.DataStartLineIndex) - 1;
                 section.Name = Utility.ReadString(Data, BNI.StringTableOffset + (line.SectionNameOffset * 4));
-                section.DataLines = BNI.Lines.GetRange(line.DataStartLineIndex, section.LineCount - 1);
+                section.Fields = GenerateFields(line.DataStartLineIndex);
                 BNI.Sections.Add(section);
             }
         }
-
-        public static void GenerateFields()
+        public static List<Field> GenerateFields(int startLineIndex)
         {
-            foreach(Section section in BNI.Sections)
+            int lineIndex = startLineIndex;
+            List<Field> fields = new List<Field>();
+            while (BNI.Lines[lineIndex].FieldStringCount != 0xFFFF)
             {
-                foreach(Line line in section.DataLines)
+                Line line = BNI.Lines[lineIndex];
+                lineIndex++;
+                if (line.FieldStringCount == 0 && line.DataStartLineIndex != 0xFFFF)
                 {
-                    if (line.FieldStringCount == 0xFFFF) break;
-                    Field field = new Field();
-                    if (line.FieldStringCount == 0 && line.DataStartLineIndex != 0xFFFF)
-                    {
-                        field.IsSubSection = true;
-                        field.SubSectionIndex = section.SubSections.Count;
-                        field.Name = Utility.ReadString(Data, BNI.StringTableOffset + (line.FieldNameOffset * 4));
-                        section.Fields.Add(field);
-                        SubSection subSection = new SubSection();
-                        subSection.Name = field.Name;
-                        subSection.StartLineIndex = line.DataStartLineIndex;
-                        subSection.Index = section.SubSections.Count;
-                        int lineIndex = subSection.StartLineIndex;
-                        while (BNI.Lines[lineIndex].FieldStringCount != 0xFFFF)
-                        {
-                            Field subField = new Field();
-                            subField.Name = Utility.ReadString(Data, BNI.StringTableOffset + (BNI.Lines[lineIndex].FieldNameOffset * 4));
-                            for (int stringIndex = 0; stringIndex < BNI.Lines[lineIndex].FieldStringCount; stringIndex++)
-                            {
-                                int shortTableOffset = (BNI.Lines[lineIndex].RollingFieldStringCount + stringIndex) * 2;
-                                int stringTableOffset = BitConverter.ToInt16(Data, (BNI.ShortTable1Offset + shortTableOffset)) * 4;
-                                subField.Strings.Add(Utility.ReadString(Data, BNI.StringTableOffset + stringTableOffset));
-                            }
-                            subSection.Fields.Add(subField);
-                            lineIndex++;
-                        }
-                        section.SubSections.Add(subSection);
-                        continue;
-                    }
-                    field.Name = Utility.ReadString(Data, BNI.StringTableOffset + (line.FieldNameOffset * 4));
-                    for(int stringIndex = 0; stringIndex < line.FieldStringCount; stringIndex++)
-                    {
-                        int shortTableOffset = (line.RollingFieldStringCount + stringIndex) * 2;
-                        int stringTableOffset = BitConverter.ToInt16(Data, (BNI.ShortTable1Offset + shortTableOffset)) * 4;
-                        field.Strings.Add(Utility.ReadString(Data, BNI.StringTableOffset + stringTableOffset));
-                    }
-                    section.Fields.Add(field);
+                    string name = Utility.ReadString(Data, BNI.StringTableOffset + (line.FieldNameOffset * 4));
+                    fields.Add(GenerateSubSection(name, line.DataStartLineIndex));
+                    continue;
                 }
+                Field field = new Field
+                {
+                    Name = Utility.ReadString(Data, BNI.StringTableOffset + (line.FieldNameOffset * 4)),
+                    Strings = ReadFieldStrings(line)
+                };
+                fields.Add(field);
             }
+            return fields;
         }
 
-        public static string[] GenerateOutput()
+        public static SubSection GenerateSubSection(string name, int startLineIndex)
+        {
+            SubSection subSection = new SubSection();
+            subSection.Name = name;
+            subSection.Fields = GenerateFields(startLineIndex);
+            return subSection;
+        }
+
+        private static List<string> ReadFieldStrings(Line line)
+        {
+            List<string> strings = new List<string>();
+
+            for (int stringIndex = 0; stringIndex < line.FieldStringCount; stringIndex++)
+            {
+                int shortTableOffset = (line.RollingFieldStringCount + stringIndex) * 2;
+                int stringTableOffset = BitConverter.ToInt16(Data, (BNI.ShortTable1Offset + shortTableOffset)) * 4;
+                strings.Add(Utility.ReadString(Data, BNI.StringTableOffset + stringTableOffset));
+            }
+
+            return strings;
+        }
+
+        public static List<string> GenerateOutput(List<Field> fields, int level)
         {
             List<string> output = new List<string>();
-            foreach(Section section in BNI.Sections)
+            foreach (Field field in fields)
+            {
+                output.AddRange(GenerateFieldOutput(field, level));
+            }
+            return output;
+        }
+
+        public static List<string> GenerateFieldOutput(Field field, int level)
+        {
+            List<string> output = new List<string>();
+            string indent = new string(' ', level * 2);
+            if (field is SubSection subSection)
+            {
+                output.Add(indent + field.Name);
+                output.AddRange(GenerateOutput(subSection.Fields, level + 1));
+            }
+            else
+            {
+                output.Add(indent + field.Name + " " + string.Join(", ", field.Strings));
+            }
+            return output;
+        }
+
+        public static List<string> GenerateOutput()
+        {
+            List<string> output = new List<string>();
+            foreach (Section section in BNI.Sections)
             {
                 output.Add(section.Name);
-                foreach(Field field in section.Fields)
-                {
-                    if (field.IsSubSection)
-                    {
-                        SubSection subSection = section.SubSections.First(x => x.Index == field.SubSectionIndex);
-                        output.Add(subSection.Name);
-                        foreach (Field subField in subSection.Fields) output.Add("    " + subField.Name + " " + string.Join(", ", subField.Strings));
-                        continue;
-                    }
-                    output.Add(field.Name + " " + string.Join(", ", field.Strings));
-                }
-                output.Add(" ");
+                output.AddRange(GenerateOutput(section.Fields, 0));
+                output.Add("");
             }
-            return output.ToArray();
+            return output;
         }
     }
 }

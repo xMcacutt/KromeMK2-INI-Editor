@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TyBNIEditor
 {
-    internal class Section
+    internal class Section 
     {
         public string Name;
 

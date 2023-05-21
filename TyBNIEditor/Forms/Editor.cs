@@ -135,5 +135,10 @@ namespace TyBNIEditor
             if(Program.Preferences == null) Program.Preferences = new Preferences();
             Program.Preferences.Show();
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BNICompiler.Export(FCTB.Text.Split('\n'), "./test.lv3.bni");
+        }
     }
 }

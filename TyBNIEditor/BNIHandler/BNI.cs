@@ -14,9 +14,9 @@ namespace TyBNIEditor
 
         public int StringTableOffset;
 
-        public int ShortTable1Offset;
+        public int ShortTableOffset;
 
-        public int ShortTable2Offset;
+        public int StringTableEndOffset;
 
         public int SectionCount;
 
@@ -25,5 +25,9 @@ namespace TyBNIEditor
         public List<Line> Lines = new List<Line>();
 
         public List<Section> Sections = new List<Section>();
+
+        public HashSet<string> StringHashSet = new HashSet<string>();
+
+        public Dictionary<string, ushort> StringDictionary = new Dictionary<string, ushort>();
     }
 }

@@ -17,5 +17,7 @@ namespace TyBNIEditor
         public ushort RollingFieldStringCount;
 
         public ushort DataStartLineIndex;
+
+        public ushort MaskNameOffset;
     }
 }

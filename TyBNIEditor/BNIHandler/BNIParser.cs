@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using FastColoredTextBoxNS;
 using System.Xml.Linq;
+using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace TyBNIEditor
 {
@@ -23,8 +25,8 @@ namespace TyBNIEditor
                 LineCount = BitConverter.ToInt32(Data, 0x24),
                 DataLength = BitConverter.ToInt32(Data, 0x28),
                 StringTableOffset = 0x44 + BitConverter.ToInt32(Data, 0x2C),
-                ShortTable1Offset = 0x44 + BitConverter.ToInt32(Data, 0x30),
-                ShortTable2Offset = 0x44 + BitConverter.ToInt32(Data, 0x34),
+                ShortTableOffset = 0x44 + BitConverter.ToInt32(Data, 0x30),
+                StringTableEndOffset = 0x44 + BitConverter.ToInt32(Data, 0x34),
                 SectionCount = BitConverter.ToInt32(Data, 0x40)
             };
             ReadLines();
@@ -99,7 +101,7 @@ namespace TyBNIEditor
             for (int stringIndex = 0; stringIndex < line.FieldStringCount; stringIndex++)
             {
                 int shortTableOffset = (line.RollingFieldStringCount + stringIndex) * 2;
-                int stringTableOffset = BitConverter.ToInt16(Data, (BNI.ShortTable1Offset + shortTableOffset)) * 4;
+                int stringTableOffset = BitConverter.ToInt16(Data, (BNI.ShortTableOffset + shortTableOffset)) * 4;
                 strings.Add(Utility.ReadString(Data, BNI.StringTableOffset + stringTableOffset));
             }
 
@@ -135,6 +137,8 @@ namespace TyBNIEditor
         public static List<string> GenerateOutput()
         {
             List<string> output = new List<string>();
+            output.Add(BNI.BNIPath);
+            output.Add("");
             foreach (Section section in BNI.Sections)
             {
                 output.Add(section.Name);

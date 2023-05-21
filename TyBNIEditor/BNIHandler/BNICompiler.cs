@@ -36,8 +36,8 @@ namespace TyBNIEditor
             GenerateLines();
             byte[] lineBytes = CompileLines(BNI.Lines);
             BNI.DataLength = 0x44 + lineBytes.Length + shortTableBytes.Length + stringTableBytes.Length;
-            BNI.StringTableOffset = 0x44 + lineBytes.Length + shortTableBytes.Length;
-            BNI.ShortTableOffset = 0x44 + lineBytes.Length;
+            BNI.StringTableOffset = lineBytes.Length + shortTableBytes.Length;
+            BNI.ShortTableOffset = lineBytes.Length;
             BNI.LineCount = lineBytes.Length / 16;
             BNI.SectionCount = BNI.Sections.Count;
             byte[] headerBytes = CompileHeader();
@@ -194,15 +194,9 @@ namespace TyBNIEditor
                     {
                         section.Fields.Add(GenerateField(fieldName, fieldStrings, fieldStrings.Length));
                     }
-
-                    if(i < sectionLines.Length - 1)
-                    {
-                        i++;
-                        line = sectionLines[i];
-                        currentIndentationLevel = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
-                    }
                 }
             }
+            CurrentLineIndex--;
             return section;
         }
 
@@ -265,7 +259,7 @@ namespace TyBNIEditor
                 {
                     FieldNameOffset = 0xFFFF,
                     MaskNameOffset = 0xFFFF,
-                    SectionNameOffset = stringOffset
+                    SectionNameOffset = (ushort)(stringOffset / 4)
                 };
                 BNI.Lines.Add(sectionNameLine);
             }
@@ -284,7 +278,6 @@ namespace TyBNIEditor
                 int currentSubSection = 0;
                 foreach(SubSection subSection in section.SubSections)
                 {
-                    Console.WriteLine(subSection.Fields.Count);
                     BNI.Lines[SubSectionLineIndices[currentSubSection]].DataStartLineIndex = (ushort)BNI.Lines.Count;
                     currentSubSection++;
                     foreach(Field field in subSection.Fields)
@@ -306,7 +299,7 @@ namespace TyBNIEditor
                 MaskNameOffset = 0xFFFF,
                 DataStartLineIndex = 0xFFFF,
                 FieldStringCount = (ushort)field.Strings.Count,
-                FieldNameOffset = stringOffset,
+                FieldNameOffset = (ushort)(stringOffset / 4),
                 RollingFieldStringCount = RollingStringCount
             };
             RollingStringCount += (ushort)field.Strings.Count;
@@ -314,8 +307,8 @@ namespace TyBNIEditor
             {
                 SubSectionLineIndices.Add((ushort)BNI.Lines.Count);
                 BNI.StringDictionary.TryGetValue(subSection.Name, out stringOffset);
-                fieldLine.FieldNameOffset = 0xFFFF;
-                fieldLine.SectionNameOffset = stringOffset;
+                fieldLine.FieldNameOffset = (ushort)(stringOffset / 4);
+                fieldLine.SectionNameOffset = 0xFFFF;
             }
             return fieldLine;
         }

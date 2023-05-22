@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,17 +23,28 @@ namespace TyBNIEditor
         public static BNI BNI;
         public static int CurrentLineIndex;
         public static ushort RollingStringCount;
-        public static List<ushort> SubSectionLineIndices;
+        public static Line Spacer = new Line { FieldStringCount = 0xFFFF };
 
-        public static void Export(string[] data, string path)
+        public static void Compile(string[] data, string path)
         {
             BNI = new BNI();
+            RollingStringCount = 0;
+            CurrentLineIndex = 0;
             BNI.BNIPath = Regex.Replace(data[0], @"\p{C}+", "");
             InputData = data.Skip(2).ToArray();
             FieldStrings = new List<string>();
             GenerateSections();
             byte[] stringTableBytes = GenerateStringTable();
             byte[] shortTableBytes = GenerateShortTable();
+            /*foreach(Section section in BNI.Sections)
+            {
+                Console.WriteLine(section.Name);
+                foreach(string s in GetStrings(section))
+                {
+                    Console.WriteLine(s);
+                }
+                Console.WriteLine();
+            }*/
             GenerateLines();
             byte[] lineBytes = CompileLines(BNI.Lines);
             BNI.DataLength = 0x44 + lineBytes.Length + shortTableBytes.Length + stringTableBytes.Length;
@@ -47,6 +59,36 @@ namespace TyBNIEditor
                 fs.Write(BNIbytes, 0, BNIbytes.Length);
             }
         }
+
+        /*public static string[] GetStrings(Section section)
+        {
+            List<string> strings = new List<string>();
+            foreach(Field field in section.Fields)
+            {
+                string line = "field " + field.Name;
+                foreach (string s in field.Strings) line += " " + s;
+                strings.Add(line);
+            }
+            foreach(SubSection subSection in section.SubSections)
+            {
+                foreach(Field subField in subSection.Fields)
+                {
+                    string line = "sub_field " + subField.Name;
+                    foreach (string s in subField.Strings) line += " " + s;
+                    strings.Add(line);
+                }
+                foreach(SubSection subSubSection in subSection.SubSections)
+                {
+                    foreach (Field subField in subSubSection.Fields)
+                    {
+                        string line = "sub_sub_field " + subField.Name;
+                        foreach (string s in subField.Strings) line += " " + s;
+                        strings.Add(line);
+                    }
+                }
+            }
+            return strings.ToArray();
+        }*/
 
         public static void GenerateSections()
         {
@@ -92,16 +134,13 @@ namespace TyBNIEditor
                     {
                         //SET SUBSECTION NAME
                         string subSectionName = cleanedLine;
-                        int currentIndentationLevel;
                         List<string> subSectionLines = new List<string>();
                         CurrentLineIndex++;
                         line = sectionLines[CurrentLineIndex];
-                        currentIndentationLevel = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
+                        cleanedLine = Regex.Replace(line, @"\p{C}+", "");
+                        int currentIndentationLevel = cleanedLine.TakeWhile(char.IsWhiteSpace).Count() / 2;
                         while (indentationLevel < currentIndentationLevel && CurrentLineIndex < sectionLines.Length)
                         {
-                            line = sectionLines[CurrentLineIndex];
-                            cleanedLine = Regex.Replace(line, @"\p{C}+", "");
-                            currentIndentationLevel = cleanedLine.TakeWhile(char.IsWhiteSpace).Count() / 2;
                             subSectionLines.Add(cleanedLine);
                             CurrentLineIndex++;
                             if (CurrentLineIndex < sectionLines.Length)
@@ -111,7 +150,8 @@ namespace TyBNIEditor
                                 currentIndentationLevel = cleanedLine.TakeWhile(char.IsWhiteSpace).Count() / 2;
                             }
                         }
-                        if(subSectionLines.Count == 0)
+                        CurrentLineIndex--;
+                        if (subSectionLines.Count == 0)
                         {
                             Field field = new Field();
                             field.Name = subSectionName;
@@ -120,7 +160,7 @@ namespace TyBNIEditor
                         }
                         else
                         {
-                            SubSection subSection = GenerateSubSection(subSectionName, subSectionLines.ToArray(), indentationLevel);
+                            SubSection subSection = GenerateSubSection(subSectionName, subSectionLines.ToArray(), indentationLevel + 1);
                             section.SubSections.Add(subSection);
                             section.Fields.Add(subSection);
                         }
@@ -139,43 +179,46 @@ namespace TyBNIEditor
             SubSection section = new SubSection();
             section.Name = sectionName;
             BNI.StringHashSet.Add(sectionName);
-            int currentIndentationLevel;
             for(int i = 0; i < sectionLines.Length; i++)
             {
                 string line = sectionLines[i];
-                currentIndentationLevel = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
-                if(currentIndentationLevel == baseIndentationLevel + 1)
+                int currentIndentationLevel = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
+                if(currentIndentationLevel == baseIndentationLevel)
                 {
                     //INITIALIZE DATA FOR FIELD WITH NO STRINGS (SUBSECTION)
                     string fieldName;
                     string fieldText = string.Empty;
                     int firstSpaceIndex = line.TrimEnd().TrimStart().IndexOf(' ');
-                    fieldName = line;
+                    fieldName = line.TrimStart();
 
                     //SET STRING DATA FOR FIELD IF PRESENT
                     if (firstSpaceIndex != -1)
                     {
-                        fieldName = line.Substring(0, firstSpaceIndex);
-                        fieldText = line.Substring(firstSpaceIndex + 1);
+                        fieldName = line.TrimStart().Substring(0, firstSpaceIndex);
+                        fieldText = line.TrimStart().Substring(firstSpaceIndex + 1);
                     }
                     string[] fieldStrings = line.Replace(", ", " ").Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries).Skip(1).ToArray();
 
                     //DISCRIMINATE BETWEEN FIELD AND SUBSECTION (SUBSECTION MARKER HAS NO STRINGS)
-                    if (fieldStrings.Length == 0 && i < sectionLines.Length - 1)
+                    if (fieldStrings.Length == 0)
                     {
-                        string subSectionName = line.TrimStart();
-                        int currentIndentation;
+                        string subSectionName = fieldName;
                         List<string> subSectionLines = new List<string>();
                         i++;
                         line = sectionLines[i];
-                        currentIndentation = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
-                        while (currentIndentationLevel < currentIndentation && i < sectionLines.Length)
+                        int subIndentation = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
+
+                        while (currentIndentationLevel < subIndentation && i < sectionLines.Length)
                         {
-                            line = sectionLines[i];
-                            currentIndentation = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
                             subSectionLines.Add(line);
                             i++;
+                            if (i < sectionLines.Length)
+                            {
+                                line = sectionLines[i];
+                                subIndentation = line.TakeWhile(char.IsWhiteSpace).Count() / 2;
+                            }
                         }
+                        i--;
                         if (subSectionLines.Count == 0)
                         {
                             Field field = new Field();
@@ -185,7 +228,7 @@ namespace TyBNIEditor
                         }
                         else
                         {
-                            SubSection subSection = GenerateSubSection(subSectionName, subSectionLines.ToArray(), currentIndentationLevel);
+                            SubSection subSection = GenerateSubSection(subSectionName, subSectionLines.ToArray(), currentIndentationLevel + 1);
                             section.SubSections.Add(subSection);
                             section.Fields.Add(subSection);
                         }
@@ -196,7 +239,6 @@ namespace TyBNIEditor
                     }
                 }
             }
-            CurrentLineIndex--;
             return section;
         }
 
@@ -216,12 +258,12 @@ namespace TyBNIEditor
 
         public static byte[] GenerateStringTable()
         {
-            BNI.StringDictionary = new Dictionary<string, ushort>();
+            BNI.StringDictionary = new Dictionary<string, int>();
             using (MemoryStream stream = new MemoryStream())
             {
                 foreach (string str in BNI.StringHashSet)
                 {
-                    BNI.StringDictionary.Add(str, (ushort)stream.Position);
+                    BNI.StringDictionary.Add(str, (int)stream.Position);
                     stream.Write(Encoding.ASCII.GetBytes(str), 0, Encoding.ASCII.GetBytes(str).Length);
                     stream.WriteByte(0x0);
                     while (stream.Position % 4 != 0)
@@ -239,7 +281,7 @@ namespace TyBNIEditor
             {
                 foreach(string str in FieldStrings)
                 {
-                    if(BNI.StringDictionary.TryGetValue(str, out ushort position))
+                    if(BNI.StringDictionary.TryGetValue(str, out int position))
                     {
                         stream.Write(BitConverter.GetBytes(position / 4), 0, 2);
                     }
@@ -250,11 +292,22 @@ namespace TyBNIEditor
 
         public static void GenerateLines()
         {
-            RollingStringCount = 0;
-            Line spacer = new Line { FieldStringCount = 0xFFFF };
-            foreach(Section section in BNI.Sections)
+            GenerateSectionNameLines();
+            BNI.Lines.Add(Spacer);
+
+            for(int sectionIndex = 0; sectionIndex < BNI.Sections.Count; sectionIndex++)
             {
-                BNI.StringDictionary.TryGetValue(section.Name, out ushort stringOffset);
+                BNI.Lines[sectionIndex].DataStartLineIndex = (ushort)BNI.Lines.Count;
+                Section section = BNI.Sections[sectionIndex];
+                GenerateFieldLines(section);
+            }
+        }
+
+        public static void GenerateSectionNameLines()
+        {
+            foreach (Section section in BNI.Sections)
+            {
+                BNI.StringDictionary.TryGetValue(section.Name, out int stringOffset);
                 Line sectionNameLine = new Line()
                 {
                     FieldNameOffset = 0xFFFF,
@@ -263,54 +316,96 @@ namespace TyBNIEditor
                 };
                 BNI.Lines.Add(sectionNameLine);
             }
-            BNI.Lines.Add(spacer);
-            int currentSection = 0;
-            foreach(Section section in BNI.Sections)
-            {
-                SubSectionLineIndices = new List<ushort>();
-                BNI.Lines[currentSection].DataStartLineIndex = (ushort)BNI.Lines.Count;
-                currentSection++;
-                foreach (Field field in section.Fields)
-                {
-                    BNI.Lines.Add(GenerateFieldLine(field));
-                }
-                BNI.Lines.Add(spacer);
-                int currentSubSection = 0;
-                foreach(SubSection subSection in section.SubSections)
-                {
-                    BNI.Lines[SubSectionLineIndices[currentSubSection]].DataStartLineIndex = (ushort)BNI.Lines.Count;
-                    currentSubSection++;
-                    foreach(Field field in subSection.Fields)
-                    {
-                        BNI.Lines.Add(GenerateFieldLine(field));
-                    }
-                    BNI.Lines.Add(spacer);
-                }
-            }
-        } 
+        }
 
-        public static Line GenerateFieldLine(Field field)
+        public static void GenerateFieldLines(Section section)
         {
-            ushort stringOffset;
-            BNI.StringDictionary.TryGetValue(field.Name, out stringOffset);
-            Line fieldLine = new Line()
+            foreach (Field field in section.Fields)
             {
-                SectionNameOffset = 0xFFFF,
-                MaskNameOffset = 0xFFFF,
-                DataStartLineIndex = 0xFFFF,
-                FieldStringCount = (ushort)field.Strings.Count,
-                FieldNameOffset = (ushort)(stringOffset / 4),
-                RollingFieldStringCount = RollingStringCount
-            };
-            RollingStringCount += (ushort)field.Strings.Count;
-            if (field is SubSection subSection)
-            {
-                SubSectionLineIndices.Add((ushort)BNI.Lines.Count);
-                BNI.StringDictionary.TryGetValue(subSection.Name, out stringOffset);
-                fieldLine.FieldNameOffset = (ushort)(stringOffset / 4);
-                fieldLine.SectionNameOffset = 0xFFFF;
+                int stringOffset;
+                BNI.StringDictionary.TryGetValue(field.Name, out stringOffset);
+                Line fieldLine = new Line()
+                {
+                    SectionNameOffset = 0xFFFF,
+                    MaskNameOffset = 0xFFFF,
+                    DataStartLineIndex = 0xFFFF,
+                    FieldStringCount = (ushort)field.Strings.Count,
+                    FieldNameOffset = (ushort)(stringOffset / 4),
+                    RollingFieldStringCount = RollingStringCount
+                };
+                RollingStringCount += (ushort)field.Strings.Count;
+                if (field is SubSection subSection)
+                {
+                    subSection.MarkerLineNumber = (ushort)BNI.Lines.Count;
+                    subSection.RollingStringCountStart = RollingStringCount;
+                    RollingStringCount += GetSubSectionFieldCount(subSection);
+                    BNI.StringDictionary.TryGetValue(subSection.Name, out stringOffset);
+                    fieldLine.RollingFieldStringCount = 0;
+                    fieldLine.FieldNameOffset = (ushort)(stringOffset / 4);
+                    fieldLine.SectionNameOffset = 0xFFFF;
+                }
+                BNI.Lines.Add(fieldLine);
             }
-            return fieldLine;
+            BNI.Lines.Add(Spacer);
+            foreach(SubSection subSection in section.SubSections)
+            {
+                BNI.Lines[subSection.MarkerLineNumber].DataStartLineIndex = (ushort)BNI.Lines.Count;
+                GenerateFieldLines(subSection);
+            }
+        }
+
+        public static void GenerateFieldLines(SubSection section)
+        {
+            ushort rollingStringCount = RollingStringCount;
+            RollingStringCount = section.RollingStringCountStart;
+            foreach (Field field in section.Fields)
+            {
+                BNI.StringDictionary.TryGetValue(field.Name, out int stringOffset);
+                Line fieldLine = new Line()
+                {
+                    SectionNameOffset = 0xFFFF,
+                    MaskNameOffset = 0xFFFF,
+                    DataStartLineIndex = 0xFFFF,
+                    FieldStringCount = (ushort)field.Strings.Count,
+                    FieldNameOffset = (ushort)(stringOffset / 4),
+                    RollingFieldStringCount = RollingStringCount
+                };
+                RollingStringCount += (ushort)field.Strings.Count;
+                if (field is SubSection subSection)
+                {
+                    subSection.MarkerLineNumber = (ushort)BNI.Lines.Count;
+                    subSection.RollingStringCountStart = RollingStringCount;
+                    RollingStringCount += GetSubSectionFieldCount(subSection);
+
+                    BNI.StringDictionary.TryGetValue(subSection.Name, out stringOffset);
+                    fieldLine.RollingFieldStringCount = 0;
+                    fieldLine.FieldNameOffset = (ushort)(stringOffset / 4);
+                    fieldLine.SectionNameOffset = 0xFFFF;
+                }
+                BNI.Lines.Add(fieldLine);
+            }
+            BNI.Lines.Add(Spacer);
+            foreach (Field field in section.Fields)
+            {
+                if(field is SubSection subSection)
+                {
+                    BNI.Lines[subSection.MarkerLineNumber].DataStartLineIndex = (ushort)BNI.Lines.Count;
+                    GenerateFieldLines(subSection);
+                }
+            }
+            BNI.Lines.Add(Spacer);
+            RollingStringCount = rollingStringCount;
+        }
+
+        public static ushort GetSubSectionFieldCount(SubSection section)
+        {
+            ushort count = 0;
+            foreach(Field field in section.Fields)
+            {
+                if (field is SubSection subSection) count += GetSubSectionFieldCount(subSection);
+                else count += (ushort)field.Strings.Count;
+            }
+            return count;
         }
 
         public static byte[] CompileLines(List<Line> lines)

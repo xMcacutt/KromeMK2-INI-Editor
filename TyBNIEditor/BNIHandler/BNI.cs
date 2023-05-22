@@ -28,6 +28,6 @@ namespace TyBNIEditor
 
         public HashSet<string> StringHashSet = new HashSet<string>();
 
-        public Dictionary<string, ushort> StringDictionary = new Dictionary<string, ushort>();
+        public Dictionary<string, int> StringDictionary = new Dictionary<string, int>();
     }
 }

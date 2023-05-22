@@ -1,4 +1,6 @@
-﻿namespace TyBNIEditor.Forms
+﻿using TyBNIEditor.Properties;
+
+namespace TyBNIEditor.Forms
 {
     partial class Preferences
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preferences));
             this.ColorSelector = new System.Windows.Forms.ColorDialog();
             this.PreferencesLabel = new System.Windows.Forms.Label();
             this.ColorTablePanel = new System.Windows.Forms.TableLayoutPanel();
@@ -65,7 +68,7 @@
             // 
             // PreferencesLabel
             // 
-            this.PreferencesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.PreferencesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PreferencesLabel.AutoSize = true;
             this.PreferencesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
@@ -121,7 +124,7 @@
             // 
             // MainTextColorLabel
             // 
-            this.MainTextColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MainTextColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.MainTextColorLabel.AutoSize = true;
             this.MainTextColorLabel.Location = new System.Drawing.Point(3, 0);
@@ -133,7 +136,7 @@
             // 
             // BackgroundSuperLightColorLabel
             // 
-            this.BackgroundSuperLightColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BackgroundSuperLightColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.BackgroundSuperLightColorLabel.AutoSize = true;
             this.BackgroundSuperLightColorLabel.Location = new System.Drawing.Point(3, 31);
@@ -145,7 +148,7 @@
             // 
             // BackgroundLightColorLabel
             // 
-            this.BackgroundLightColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BackgroundLightColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.BackgroundLightColorLabel.AutoSize = true;
             this.BackgroundLightColorLabel.Location = new System.Drawing.Point(3, 62);
@@ -157,7 +160,7 @@
             // 
             // BackgroundDarkColorLabel
             // 
-            this.BackgroundDarkColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BackgroundDarkColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.BackgroundDarkColorLabel.AutoSize = true;
             this.BackgroundDarkColorLabel.Location = new System.Drawing.Point(3, 93);
@@ -169,7 +172,7 @@
             // 
             // SectionNamesColorLabel
             // 
-            this.SectionNamesColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SectionNamesColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.SectionNamesColorLabel.AutoSize = true;
             this.SectionNamesColorLabel.Location = new System.Drawing.Point(3, 124);
@@ -181,7 +184,7 @@
             // 
             // FieldNamesColorLabel
             // 
-            this.FieldNamesColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FieldNamesColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.FieldNamesColorLabel.AutoSize = true;
             this.FieldNamesColorLabel.Location = new System.Drawing.Point(3, 155);
@@ -193,7 +196,7 @@
             // 
             // FieldTextColorLabel
             // 
-            this.FieldTextColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FieldTextColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.FieldTextColorLabel.AutoSize = true;
             this.FieldTextColorLabel.Location = new System.Drawing.Point(3, 186);
@@ -205,7 +208,7 @@
             // 
             // KeywordsColorLabel
             // 
-            this.KeywordsColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.KeywordsColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.KeywordsColorLabel.AutoSize = true;
             this.KeywordsColorLabel.Location = new System.Drawing.Point(3, 217);
@@ -217,7 +220,7 @@
             // 
             // NumbersColorLabel
             // 
-            this.NumbersColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.NumbersColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.NumbersColorLabel.AutoSize = true;
             this.NumbersColorLabel.Location = new System.Drawing.Point(3, 248);
@@ -229,8 +232,8 @@
             // 
             // MainTextColor
             // 
-            this.MainTextColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.MainTextColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTextColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MainTextColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -242,8 +245,8 @@
             // 
             // BackgroundSuperLightColor
             // 
-            this.BackgroundSuperLightColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.BackgroundSuperLightColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackgroundSuperLightColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundSuperLightColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -255,8 +258,8 @@
             // 
             // BackgroundLightColor
             // 
-            this.BackgroundLightColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.BackgroundLightColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackgroundLightColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundLightColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -268,8 +271,8 @@
             // 
             // BackgroundDarkColor
             // 
-            this.BackgroundDarkColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.BackgroundDarkColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackgroundDarkColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundDarkColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -281,8 +284,8 @@
             // 
             // SectionNamesColor
             // 
-            this.SectionNamesColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.SectionNamesColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SectionNamesColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SectionNamesColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -294,8 +297,8 @@
             // 
             // FieldNamesColor
             // 
-            this.FieldNamesColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.FieldNamesColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FieldNamesColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.FieldNamesColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -307,8 +310,8 @@
             // 
             // FieldTextColor
             // 
-            this.FieldTextColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.FieldTextColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FieldTextColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.FieldTextColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -320,8 +323,8 @@
             // 
             // KeywordsColor
             // 
-            this.KeywordsColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.KeywordsColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.KeywordsColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.KeywordsColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -333,8 +336,8 @@
             // 
             // NumbersColor
             // 
-            this.NumbersColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.NumbersColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NumbersColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NumbersColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -478,6 +481,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Preferences";
             this.Text = "Preferences";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Preferences_FormClosed);
             this.ColorTablePanel.ResumeLayout(false);
             this.ColorTablePanel.PerformLayout();

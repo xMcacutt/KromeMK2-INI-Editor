@@ -37,6 +37,9 @@ namespace TyBNIEditor
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asTestRKVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asBNILV3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FCTB = new FastColoredTextBoxNS.FastColoredTextBox();
@@ -62,7 +65,8 @@ namespace TyBNIEditor
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.exportToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -79,8 +83,31 @@ namespace TyBNIEditor
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Text = "Save Text";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asTestRKVToolStripMenuItem,
+            this.asBNILV3ToolStripMenuItem});
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            // 
+            // asTestRKVToolStripMenuItem
+            // 
+            this.asTestRKVToolStripMenuItem.Name = "asTestRKVToolStripMenuItem";
+            this.asTestRKVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asTestRKVToolStripMenuItem.Text = "As Test RKV";
+            this.asTestRKVToolStripMenuItem.Click += new System.EventHandler(this.asTestRKVToolStripMenuItem_Click);
+            // 
+            // asBNILV3ToolStripMenuItem
+            // 
+            this.asBNILV3ToolStripMenuItem.Name = "asBNILV3ToolStripMenuItem";
+            this.asBNILV3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asBNILV3ToolStripMenuItem.Text = "As BNI/LV3";
+            this.asBNILV3ToolStripMenuItem.Click += new System.EventHandler(this.asBNILV3ToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -162,8 +189,10 @@ namespace TyBNIEditor
             this.Controls.Add(this.FileNameLabel);
             this.Controls.Add(this.FCTB);
             this.Controls.Add(this.Menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
             this.Name = "Editor";
+            this.Text = "LV3 BNI Editor";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FCTB)).EndInit();
@@ -182,5 +211,8 @@ namespace TyBNIEditor
         private System.Windows.Forms.Label FileNameLabel;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asTestRKVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asBNILV3ToolStripMenuItem;
     }
 }

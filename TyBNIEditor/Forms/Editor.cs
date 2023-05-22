@@ -41,19 +41,6 @@ namespace TyBNIEditor
             popupMenu.Items.Width = 300;
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog fileSelect = new OpenFileDialog
-            {
-                Filter = "LV3 Files (.lv3)|*.LV3|BNI Files (.bni)|*.bni"
-            };
-            DialogResult result = fileSelect.ShowDialog();
-            if (result != DialogResult.OK) return;
-            string path = fileSelect.FileName;
-            FileNameLabel.Text = Path.GetFileName(path);
-            FCTB.Text = string.Join("\n", BNIParser.Import(path));
-        }
-
         public void InitializeColors()
         {
             popupMenu.BackColor = SettingsHandler.Colors.BackgroundSuperLight;
@@ -136,9 +123,74 @@ namespace TyBNIEditor
             Program.Preferences.Show();
         }
 
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileSelect = new OpenFileDialog
+            {
+                Filter = "LV3 Files (.lv3)|*.LV3|BNI Files (.bni)|*.bni|Text Files (.txt)|*.txt"
+            };
+            DialogResult result = fileSelect.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string path = fileSelect.FileName;
+            FileNameLabel.Text = Path.GetFileName(path);
+            if (path.EndsWith(".txt"))
+            {
+                FCTB.Text = File.ReadAllText(path);
+                return;
+            }
+            FCTB.Text = string.Join("\n", BNIParser.Import(path));
+        }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BNICompiler.Export(FCTB.Text.Split('\n'), "./test.lv3.bni");
+            SaveFileDialog fileSelect = new SaveFileDialog
+            {
+                Filter = "Text Files (.txt)|*.txt",
+                FileName = FileNameLabel.Text
+            };
+            DialogResult result = fileSelect.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string path = fileSelect.FileName;
+            if (!path.EndsWith(".txt"))
+            {
+                path += ".txt";
+            }
+            File.WriteAllText(path, FCTB.Text);
+        }
+
+        private void asTestRKVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileSelect = new SaveFileDialog
+            {
+                Filter = "rkv Files (.rkv)|*.rkv",
+                FileName = "Patch_PC.rkv"
+            };
+            DialogResult result = fileSelect.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string path = fileSelect.FileName;
+
+            string lv3Path = Path.Combine(Path.GetDirectoryName(path), FileNameLabel.Text);
+            if (lv3Path.EndsWith(".lv3")) lv3Path += ".bni";
+
+            BNICompiler.Compile(FCTB.Text.Split('\n'), lv3Path);
+
+            RKV2_Tools.RKV rkv = new RKV2_Tools.RKV();
+            rkv.Repack(lv3Path, path);
+            File.Delete(lv3Path);
+        }
+
+        private void asBNILV3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileSelect = new SaveFileDialog
+            {
+                Filter = "LV3 Files (.lv3)|*.LV3|BNI Files (.bni)|*.bni",
+                FileName = FileNameLabel.Text 
+            };
+            if (!FileNameLabel.Text.EndsWith(".bni")) fileSelect.FileName = FileNameLabel.Text + ".bni";
+            DialogResult result = fileSelect.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string path = fileSelect.FileName;
+            BNICompiler.Compile(FCTB.Text.Split('\n'), path);
         }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TyBNIEditor</RootNamespace>
-    <AssemblyName>TyBNIEditor</AssemblyName>
+    <AssemblyName>Ty2 LV3 Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fe_30_sciencefacts.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
@@ -68,6 +75,10 @@
     <Compile Include="Forms\Preferences.Designer.cs">
       <DependentUpon>Preferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="RKVHandler\Addendum.cs" />
+    <Compile Include="RKVHandler\Crc32.cs" />
+    <Compile Include="RKVHandler\Entry.cs" />
+    <Compile Include="RKVHandler\RKV.cs" />
     <Compile Include="Themes\Fonts.cs" />
     <Compile Include="Themes\Themes.cs" />
     <Compile Include="Utility\Colors.cs" />
@@ -132,6 +143,14 @@
     <Content Include="Data\SectionNames.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ScreenShots\sc1.png" />
+    <Content Include="ScreenShots\sc2.png" />
+    <Content Include="ScreenShots\sc3.png" />
+    <Content Include="ScreenShots\sc4.png" />
+    <Content Include="ScreenShots\sc5.png" />
+    <Content Include="ScreenShots\sc6.png" />
+    <Content Include="ScreenShots\sc7.png" />
+    <EmbeddedResource Include="fe_30_sciencefacts.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,5 +11,9 @@ namespace TyBNIEditor
         public List<Field> Fields = new List<Field>();
 
         public List<SubSection> SubSections = new List<SubSection>();
+
+        public ushort RollingStringCountStart;
+
+        public ushort MarkerLineNumber;
     }
 }

@@ -1,4 +1,4 @@
-# Krome MK2 LV3 Editor
+# Krome MK2 INI Editor
 This app was designed to make modifying the lv3 format easier but quickly evolved into a tool to view, modify, and export any file using Krome's ini format
 It is a complex format so this converter does not produce an identical file from an unchanged input.
 However, the files that are produced are valid and can be loaded by the Krome MK2 engine used for Ty the Tasmanian Tiger 2.

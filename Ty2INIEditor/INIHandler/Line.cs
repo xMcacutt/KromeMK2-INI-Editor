@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     internal class Line
     {
@@ -19,5 +19,13 @@ namespace TyBNIEditor
         public ushort DataStartLineIndex;
 
         public ushort MaskNameOffset;
+
+        public bool Handled;
+
+        public string Type;
+
+        public string Text;
+
+        public string[] ChildData;
     }
 }

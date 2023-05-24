@@ -1,6 +1,6 @@
-﻿using TyBNIEditor.Properties;
+﻿using Ty2INIEditor.Properties;
 
-namespace TyBNIEditor.Forms
+namespace Ty2INIEditor.Forms
 {
     partial class Preferences
     {

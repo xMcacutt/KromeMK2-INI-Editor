@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     internal class Fonts
     {

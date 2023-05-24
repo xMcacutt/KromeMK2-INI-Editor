@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TyBNIEditor.Properties;
+using Ty2INIEditor.Properties;
 using System.IO;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     internal class SettingsHandler
     {

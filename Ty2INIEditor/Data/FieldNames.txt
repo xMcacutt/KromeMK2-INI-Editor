@@ -1,0 +1,3999 @@
+﻿#define
+id
+blend
+name A211_Elecalias
+prelit
+scroll
+overlay
+name A211_Elec02alias
+color
+envmap
+ambient
+doublesided
+name act_93_trapDoorSpideralias
+name LightningMaterialalias
+masked
+name A_BilbiesShinyalias
+name a001_Ty02alias
+name a001_Ty04alias
+name a001_TyEyeSpecalias
+name a001_Ty03alias
+name a002_ShazzaEyealias
+name a002_ShazzaEyeSpecalias
+name A003_Maurie_Glassesalias
+Overlay
+name A003_MaurieGlasses02alias
+Blend
+name A003_MaurieEyeSpecalias
+name A004_Glassalias
+name A004_Nosealias
+name A004_Specalias
+name A004_Eyesalias
+name A004_EyeSpecalias
+name A004_maskedalias
+name A005_ProfKarlosGlassesalias
+name A005_ProfKarlosGlasses02alias
+name A005_ProfKarlos_shine_bluealias
+name A005_Lightalias
+name A006_BossCass02alias
+name A006_BossCassEnvalias
+name A007_BossCassRegular02alias
+name A007_BossCassRegularEnvalias
+name A008_Dennis02alias
+name A008_DennisENValias
+name a009_Frill02alias
+name a009_FrilEnvalias
+name A011_Lily_02alias
+name A011_Lily_Glintalias
+name A012_Eyesalias
+name A012_EyeSpecalias
+name A014_Betty_Shinyalias
+name A014_Betty_Envalias
+name A014_Betty_Eyesalias
+name A014_BettyEyeSpecalias
+name a015_Duncan_Eyesalias
+name a015_DuncEyeSpecalias
+name a016_Cy02alias
+name a016_cy01alias
+name a016_cy_shinealias
+name a016_Cy_teethalias
+name A017_Ken_Specalias
+name A017_eyeSpecalias
+name A017_Ken_Bucklealias
+name A017_bucklealias
+name A018_Nosealias
+name A018_Eyesalias
+name A018_Eyespecalias
+name A019_Sneath_eyesalias
+name a020_keith01alias
+name a020_keith02alias
+name a020_KeithMetalalias
+name a020_KeithEyealias
+name a020_keithEyeSpecalias
+aref
+name a021_carnifax_Eyealias
+name a021_carnifax_Eye_Specalias
+name A022_Shade_Shinyalias
+name A022_Shade_Envalias
+name a023_Clarence02alias
+name a023_ClarenceEyeSpecalias
+name a023_Clarence03alias
+name a023_Shinyalias
+name a023_Clarence04alias
+name a023_SkinShinyalias
+name a024_bruce02alias
+name a024_ShinyOverlayalias
+name a024_eyealias
+name a024_BruceEyeShinealias
+name A025_Croc_02alias
+name A025_Croc_EyeSpecalias
+name A026_Leech_envalias
+name A032_Patchy03alias
+name A032_Patchy_Envalias
+name A032_Patchy_glintalias
+name A032_Patchy_glint2alias
+name a037_babyCroc01_specalias
+name a038_UncleJackEyealias
+name a038_UncleJackspecalias
+name a038_UncleJackshinealias
+name a039_Orchidshinealias
+name a039_OrchidEyealias
+name a039_OrchidEyeSpecalias
+name A042_Chopper02alias
+name A042_Chopper02balias
+name A042_ChopperBladealias
+rotate
+address
+name A043_SteveSpecalias
+name A043_SteveEyeSpecalias
+name A043_StevePackSpecalias
+name A043_StevePackSpecBucketalias
+name A048_rex01alias
+name A048_rex02alias
+name A048_rex03alias
+name A049_Elle01alias
+name A049_ElleEyealias
+name A049_ElleGlassalias
+name A049_ElleGlass02alias
+name a051_Fluffy01alias
+name a051_Fluffy02alias
+name a051_FluffyBootShinealias
+name BeerBottleEnvalias
+name EskyIceEnvalias
+name RT_Lampalias
+colorpulse
+name TentEnvalias
+name FootyPostEnvalias
+name BigCrocEnvalias
+name RB_ConeEnvalias
+name RaceB_Envalias
+name reflectoralias
+name GP_Envalias
+sinrotate
+name P0280_B2AirVentEnvdullalias
+name P_Com_MovieCamerashinealias
+envtex
+name SCrate_Shinealias
+name P_Com_Holocom02alias
+name P_Com_JuliusGlassesalias
+name P_Com_JuliusLightbeam2alias
+name P_Com_HolocomShine02alias
+name A053_JuliusHolochronalias
+name A053_JuliusSpecalias
+name A053_JuliusNoise02alias
+name A053_JuliusLightbeamalias
+name a053_JuliusGlassesalias
+name P_Com_Blank_Greenalias
+name a057_CyberShingleSpecalias
+name A060_RhinoBeetleENValias
+name A062_Roach_02alias
+name a065_Pippa01alias
+name A065_Pippa_glintalias
+name a065_Pippa02alias
+name a065_Pippa03alias
+name A065_Pippa_Envalias
+name a065_Pippa04alias
+name a071_PocketFluffyShinealias
+name a071_Fluffyalias
+name a071_pocketfluffymattalias
+name a071_pocketfluffygreyalias
+name a071_PocketFluffyGreyShinealias
+name a072_TrapDoorSpideralias
+name A074_sub02alias
+name A074_sub04alias
+name A075_eyesalias
+name A075_EyeSpecalias
+name A075_Specalias
+name a077_Merveyealias
+name a078_Magpie_Globealias
+name A078_Magpie_lightenvalias
+name a080_RoboCrab_shine_redalias
+name a080_RoboCrabStripesalias
+name A082_ArchyChickEyealias
+name A082_ArchyChickEyeSpecalias
+name A082_ArchyChickShellalias
+name A082_ArchyChickSpecalias
+name A083_TerrenceKartalias
+name A089_BattleBunyip01alias
+name A089_BattleBunyip_specalias
+name A089_BattleBunyip02alias
+name A089_BattleBunyip_flagalias
+name A089_BattleBunyip_glassalias
+name P_Com_Warpalias
+name P_Com_Warp2alias
+name A089_Ty01alias
+name a089_TyEyealias
+name a089_TyEyespecalias
+name A093_SnappyEnvSkinalias
+Envmap
+name A093_Snappy_Clothesalias
+name A093_SnappyEnvalias
+name A093_Snappy_Eyesalias
+name A093_SnappyEyeSpecalias
+name A093_Snappy_Hairalias
+name A095_Glassalias
+name A095_Glass02alias
+name A095_Metalalias
+name A095_Specalias
+name A095_Nosealias
+name A095_NoseSpecalias
+name A096_Robobug_spec01alias
+name A097_Sentinel_lightenvalias
+name A098_FutDrag_Shineyalias
+name A098_FutDragEnvalias
+name A099_FarmCroc_02alias
+name A099_FarmCroc_EyeSpecalias
+name A100_FutureSkinkVisoralias
+name A102_Allosaurus_Eyesalias
+name A102_AllosaurusEyeSpecalias
+name A104_Quinkana_Eyesalias
+name A104_QuinkanaEyeSpecalias
+name A106_Greyspecalias
+name A106_Glassalias
+name A106_BlueSpecalias
+name A106_Glass02alias
+name A106_Ty01alias
+name A106_TyEyealias
+name A106_TyEyeSpecalias
+name A107_Birrell_Shinealias
+name A107_Birrell_Pantsalias
+name A107_BirrellPantSpecalias
+name A107_Birrell_Braceletalias
+name A108_Metalalias
+name A108_MetalEnvalias
+name A108_Bluealias
+name A108_FutreGeckoSpecalias
+name A108_Glassalias
+name A108_Com_EnvmapPosalias
+name A110_worker_Koala_Hatalias
+name A110_worker_Koala_Envalias
+name A111_Specalias
+name A111_LifterBunyip02alias
+name A111_Chrome01alias
+name A111_Glassalias
+name A111_Com_EnvmapPosalias
+name A111_Tyalias
+name A111_TyEyealias
+name A111_TyEyeSpecalias
+name A113_ShadowSilveralias
+name A113_ShadowGlassalias
+name A113_ShadowElecalias
+name A113_ShadowElec02alias
+name A113_ShadowEnginealias
+name A114_DemonFluffyspecalias
+name A114_Ambiantalias
+Prelit
+name A115_Ninjabilly_02alias
+name A115_Specalias
+name A117_Eye_Specalias
+name A117_Hat_Brimalias
+name A118_FemaleTownie01shinealias
+name A118_FemaleTownie01specalias
+name A119_MaleTownie02_Eyesalias
+name A119_MaleTownie02_Metalalias
+name A119_Specalias
+name A119_Metalalias
+name A120_AworkerKoalaalias
+name A120_Greyspecalias
+name A120_ZBlueSpecalias
+name A120_Glass02alias
+name A122_ChockersSpecalias
+name A125_Pantsalias
+name A125_Specalias
+name A126_Bush_rescue_team_hatalias
+name A126_Bushresteam_Envalias
+name A127_Peppa01alias
+name A127_Peppa_glintalias
+name A127_Peppa02alias
+name A127_Peppa03alias
+name A127_Peppa_Envalias
+name A127_Peppa04alias
+name A128_DucoSpecalias
+name A128_CR_MetalSpecalias
+name A128_CR_LightBasealias
+Scroll
+name A129_Seaman_Dennis_Eyesalias
+name A129_Seaman_DennisENValias
+name A130_ShutterBug_glassalias
+name a130_chrome05alias
+name A130_Purplealias
+name A130_PurpleSpecalias
+name A130_Greenalias
+name A130_GreenSpecalias
+name A130_Metalalias
+name A130_Specalias
+name A130_Flashalias
+name A131_Bruno_Ram_Eyesalias
+name A131_Bruno_EyeSpecalias
+name A132_Red_Shinyalias
+name A132_Specalias
+name A132_Red_Eyesalias
+name A132_RedTyEyeSpecalias
+name A132_Red_Nosealias
+name A132_NoseSpecalias
+name A134_MaleTownie02alias
+name A134_EyeSpecalias
+name A136_Can_Ned_Shineyalias
+name A136_CanNedENValias
+name A139_Glassalias
+name A139_Metalalias
+name A139_MetalSpecalias
+name A139_Ducoalias
+name A139_DucoSpecalias
+name A139_Frillalias
+name A139_FlamerSpecalias
+name A140_Gruesomealias
+Doublesided
+name A140_GruesomeEyealias
+name A140_EyeSpecalias
+name A140_GruesomeEvilEyealias
+Rotate
+name A141_LadyGruesomealias
+name A141_LadyGruesomeEyealias
+name A141_EyeSpecalias
+name A141_LadyGruesomeEvilEyealias
+name A148_Sly_Hiresalias
+name A148_Nosealias
+name A148_Eyesalias
+name A148_Eyespecalias
+name A149_Glass02alias
+name A149_Leatheralias
+Color
+name A149_Metalalias
+name A149_Blueglassalias
+name A149_Metalshinealias
+name A149_Leathershinealias
+name A150_FormanNormanSpecalias
+name A150_EyeSpecalias
+name A152_BattleBunyipSP_flagalias
+name A152_BattleBunyipSP_glassalias
+name A153_Eyesalias
+name A153_EyeSpecalias
+name A153_Shinyalias
+name A153_ShinySpecalias
+name A153_Nosealias
+name A153_NoseSpecalias
+name A153_Doublesidedalias
+name CA155_Lensalias
+name Ca155_Glass02alias
+name CA155_DemonFluffyalias
+name CA155_DemonFluffyshinealias
+name A157_CaneToadSpecalias
+name A157_CaneToadenvalias
+name A161_Sheila_Eyesalias
+name A161_EyeSpecalias
+name A161_Sheila_Nosealias
+name A161_NoseSpecalias
+name A162_Nosealias
+name A165_UberFrillVeins01alias
+name A168_Eyesalias
+name A168_EyeSpecalias
+name A168_Nosealias
+name A168_NoseSpecalias
+name A169_Eyesalias
+name A169_EyeSpecalias
+name A169_Nosealias
+name A169_NoseSpecalias
+name A170_Framealias
+name A170_Glassesalias
+name A173_CY512Specalias
+name A173_CY512DullSheenalias
+name A173_CY512Glassalias
+name A173_Com_EnvmapPosalias
+name A176_DawnSheenalias
+name A176_DawnSheen01alias
+name A178_Silkalias
+name A178_Metalalias
+name A178_Eyeshinealias
+name A178_Eyespecalias
+name A178_MetalShinealias
+name A178_SilkShinealias
+name A178_Crystalalias
+name A178_Crystal02alias
+name A179_MascotMark_Dblealias
+name A179_Eyesalias
+name A179_EyeSpecalias
+name A179_Nosealias
+name A179_NoseSpecalias
+name A179_Eyes02alias
+name a182_FireFrill02alias
+name A186_PolyMonkeyDBLalias
+name A186_Glassalias
+name A186_Eyesalias
+name A186_EyeSpecalias
+name A187_Nosealias
+name A187_Eyealias
+name A187_Eyespecalias
+name A187_Bucklealias
+name A188_Di_Eyesalias
+name A188_Eyespecalias
+name A188_Di_Nosealias
+name A189_Eyealias
+name A189_Eyespecalias
+name A189_Nosealias
+name A189_Bucklealias
+name A190_Goldalias
+name A190_Goldspecalias
+name A190_Eyesalias
+name A190_Spikesalias
+name A190_Spikespecalias
+name A191_Bull_SGLalias
+name A192_Glassalias
+name A192_GlassSpecalias
+name A192_Shinyalias
+name A192_ShinySpecalias
+name A192_DBLalias
+name A193_Glassalias
+name A193_GlassSpecalias
+name A193_Bluealias
+name A193_BlueSpecalias
+name A193_DBLalias
+name a195_elderbunyipENValias
+name A198_laseralias
+name A201_laserBigalias
+name A201_Overlayalias
+name A204_Stonealias
+name A204_Woodalias
+name A204_Greyalias
+name A204_Stone_Ralias
+name A204_White_Ralias
+name A204_Red_Ralias
+name A209_BlasterEggGlossalias
+name A209_BlasterEggMattalias
+name A209_BlasterEggCorealias
+name A210_RoboLavaShinealias
+name CSZ3_25_Girderalias
+name CSZ3_27_Grassalias
+name CSZ3_27_Dirtalias
+name SpeechStarCapturealias
+name A220_FutureFrillE1alias
+name A238_JetTrail01alias
+name A238_JetTrail02alias
+name P_Com_TyWingLampalias
+name P_P1_TyWingHoldLightalias
+name P_Com_TruckShinealias
+name RoadTrainShinealias
+name V001_Shazzaalias
+name V001_ShazzaEyealias
+name V001_ShazzaEyeSpecalias
+name V001_Fourbie01alias
+name V001__Com_CarENValias
+name V001_Glassalias
+name V001_Glass02alias
+name v003_Glassalias
+name v003_headlightsalias
+name v003_mirrorsalias
+name V005_Dropship_Cockpit02alias
+name V006_Ty01alias
+name V006_Ty02alias
+name V006_Ty03alias
+name V006_TyGogglesVisoralias
+name V006_TyGogglesVisorShinealias
+name V006_TyGogglesalias
+name V007_Terrencealias
+name V008_carnifaxalias
+name V008_carnifax_Eyealias
+name V008_carnifax_Eye_Specalias
+name v009_JetBoat_Glassalias
+name v009_GlassSpecalias
+name v009_MetalSpecalias
+name v009_PlasticSpecalias
+name v009_JetBoat_Metalalias
+name v009_JetBoat_Plasticalias
+name V012_Shazzaalias
+name V012_ShazzaEyealias
+name V012_ShazzaEyeSpecalias
+name V012_4bb401alias
+name V012_Glassalias
+name V012_Glass02alias
+name V013_TY_WingChromealias
+name V013_Com_CarENValias
+name V013_TY_WingMetalalias
+name V013_Chrome03alias
+name V013_TY_WingLightsalias
+name V013_TY_WingBlinksalias
+name V013_TY_WingLights_Yalias
+name V014_Gunship_Specalias
+name V014_Lightsalias
+name V014_Lights_effectalias
+name V014_Glassalias
+name V016_Glassalias
+name v016_GlassSpecalias
+name v016_Glass02alias
+name v016_Glass02Specalias
+name v016_ShinyGreenalias
+name v016_shinyGreenSpecalias
+name V017_Glassalias
+name V017_Chainlinkalias
+Aref
+name V017_Lightsalias
+name V017_Mirroralias
+name V017_Wheelsalias
+name V017_ChainlinkFrontalias
+name V018_Slyalias
+name V018_Nosealias
+name V018_Eyesalias
+name V018_Eyespecalias
+name V019_Shazza01alias
+name V019_ShazzaEyealias
+name V019_ShazzaEyeSpecalias
+name V020_Dennis01alias
+name V020_Dennis02alias
+name V020_DennisENValias
+name V021_BossCassalias
+name V021_BossCass02alias
+name V021_BossCassEnvalias
+name V022_Fluffy01alias
+name V022_Fluffy02alias
+name V022_FluffyBootShinealias
+name V023_Cy02alias
+name V023_cy01alias
+name V023_cy_shinealias
+name V023_Cy_teethalias
+name V024_frill01alias
+name V025_Stevealias
+name V026_rex01alias
+name V026_rex02alias
+name V026_rex03alias
+name V027_Pippa01alias
+name V027_Pippa_glintalias
+name V027_Pippa02alias
+name V027_Pippa03alias
+name V027_Pippa_Envalias
+name V027_Pippa04alias
+Masked
+name V028_CommonKartPlatealias
+name V029_kenalias
+name V029_Ken_Specalias
+name V029_eyeSpecalias
+name V029_Ken_Bucklealias
+name V029_bucklealias
+name V032_CSTyWingChromealias
+name V032_CSTyWingMetalalias
+name V032_CSTyWingalias
+name V032_CSTyWingBitsalias
+name A194_JohnnoSpecalias
+name A194_Johnnospec01alias
+name c005_Dragonfly_01alias
+name c005_Dragonfly_02alias
+name c005_Dragonfly_03alias
+animate
+name c043_FutureFrillLowalias
+name C044_Eyesalias
+name C044_EyeSpecalias
+name C044_Shellalias
+name C044_ShellSpecalias
+emissive
+name C048_Nanoboss_Specalias
+name C049_NanoSpikealias
+name C049_NanoSpikeNanoalias
+envTexture
+name C054_NanoByte_specalias
+name C054_NanoByteLitAlias
+name C055_ArmstrongShinealias
+name C055_Armstrongblackalias
+name C056_HoverCassSpecalias
+name C056_HoverCassLitalias
+zwrite
+name FlameLavaalias
+name ZappyShinealias
+name Thunderang02alias
+name TRGlassalias
+name ThunderEnvalias
+name LashShinealias
+name R_Lasharang01alias
+name WarpShinealias
+name WarpRangalias
+name WarpEyealias
+name InfraEnvalias
+name InfraBlinkalias
+name XRangShinealias
+name SmashShinealias
+name SmashDullShinealias
+name SmashDullalias
+name KaboomShinealias
+name MegaShinealias
+name R_Megarangalias
+name MegaNeonalias
+name Omeganeonalias
+name OmegaScrollalias
+name DoomShinealias
+name DoomDullalias
+name CyrangGlowalias
+name CyShinealias
+name RZ4_007_SeaTreesalias
+effect
+name RZ4_055_seatreesalias
+noReceiveShadows
+name G021_SunflowerSide_Grassalias
+invisible
+name DeepSeaCoral02alias
+name DeepSeaCoral03alias
+name DeepSeaCoralalias
+name DeepSeaCoral98alias
+name DeepSeaCoral99alias
+name DeepSeaCorZ4alias
+name DuneGrassalias
+name DuneSucculentalias
+name DuneShellsalias
+name PalmGrassalias
+name BeachGrassalias
+name Wheatside_grassalias
+name CornSide_Grassalias
+name SugarCane_grassalias
+name PineappleEdge_grassalias
+name pineapple_grassalias
+name P_Com_RockBlockeralias
+name P_Com_StreakFx_ShpXalias
+name TyWingPanelalias
+clampUV
+name Z1PanelMainalias
+name Z1PanelEnvalias
+name Z1PanelScreen01alias
+name Z1PanelScreen02alias
+name Z1PanelGlowalias
+Colorpulse
+name Z1PanelAgedLookalias
+name RopeONalias
+name RopeOffalias
+name DoorMetalalias
+name TroughWateralias
+name MechGlassalias
+name Submarine02alias
+name Submarine03alias
+name Submarine01alias
+name FX_252_oppositealias
+name vortex_scroll_slowalias
+name vortex_scroll_fastalias
+name FX_131_rotate_leftalias
+name FX_131_rotate_rightalias
+name Coolant_Envalias
+name Coolant_Glassalias
+name CoolCrystal2alias
+name CoolantDomealias
+name MachineEnvalias
+name MachineShortalias
+name MachineLights01alias
+name MachineLights02alias
+name MachineWindowalias
+name MachineSwirlalias
+name MachineGlowalias
+name ShadowDriveEnvalias
+name MSGlassalias
+name MicroScanEnvalias
+clampuv
+name OpalSpawnerENValias
+name TyWingMetalalias
+name GridProcEnvalias
+name Beltalias
+name CogMetalalias
+name CogENValias
+name P_Com_GlassOnalias
+name P_GlassOverlayalias
+name LightOnFlashBalias
+name LightOnFlashalias
+name P_Com_GlassOffalias
+name PlatformGlass01alias
+name P_Com_PlatformRedAlarmGlass01alias
+name PlatformFlash01alias
+name PlatformGlass02alias
+name P_Com_PlatformRedAlarmGlass02alias
+name PlatformFlash02alias
+name SlimeyPrawnsalias
+name P_Com_WetBucketalias
+name InvisiPlatformSeeThroughalias
+noCastShadows
+type
+coeff
+sinscroll
+name InvisiPlatformVisiblealias
+name P_Com_InvisiPlatformboldalias
+name InvisiCrateSeeThroughalias
+name InvisiCrateVisiblealias
+name P_Com_InvisiCrateboldalias
+name ForkLiftShinealias
+name FireBoatShinealias
+name PoliceBoatShinealias
+name P_Com_FlashBluealias
+name fx_215balias
+name NeonGlowalias
+name HarvesterShinealias
+name HarvesterEnvalias
+name RaceIceBergalias
+name Light_Glowalias
+edgefadeout
+name PieShine01alias
+name Pie_MetalShinealias
+name PiePlasticalias
+name CandleSmokealias
+name RoomSmogalias
+name Prawnalias
+name PrawnEnvalias
+name LightRaysalias
+name ExternalGrass01alias
+name ExternalGrass02alias
+name ExternalGrass03alias
+name ExternalGrass04alias
+name ExternalGrass05alias
+name ExternalGrass06alias
+name ceilingpipealias
+name burntpipealias
+name FlashLightFlasheralias
+name GreyGlassOffalias
+name P_Com_PawPrintalias
+name IceBlockalias
+name OpalBagColoralias
+name MetalPlateShinealias
+name milkglassalias
+name milkglassshinealias
+name P_Com_TableShineEnvalias
+name P_Com_HangingLightShinealias
+name Steamalias
+name P_Com_TargetMetalalias
+name P_Com_ButtonENValias
+name RoadsideBinalias
+name RoadsidebinEnvalias
+name PlutoRod_Envalias
+name PlutoGlowalias
+name LightGlowalias
+name FlashAlarmalias
+name LST_Glassalias
+name Hangerwoodalias
+name Hangerwallalias
+name CloudMineSpikealias
+name P_Com_Barnaclealias
+name ExplosiveCargoShinealias
+name P_CartHayalias
+name datanutShinealias
+name DatanutEnvalias
+name Datanutalias
+name DatanutWiresalias
+name DatanutRainbowalias
+name DatanutGlassalias
+name Woodmaskalias
+name P_Com_LanternGlowalias
+name P0703_Com_CarENValias
+name P0703_TyWingBucketLightsalias
+name P0703_TyWingBucketBlinkalias
+name P0703_TyWingBucketWateralias
+name P0703_TyWingBucketWater01alias
+name GraveyardGlowalias
+name PistonShinealias
+name P_Bur_LawnFlamingoshinealias
+name FlamingoEnvalias
+name SprinklerEnvalias
+name SprinklerDullalias
+name STurret_Envalias
+name STurret_Dullalias
+name FrillShield_Dullalias
+name FrillShieldEnvalias
+name BPNode_Glassalias
+name BPNode_Flasheralias
+name BPNode_Envalias
+name BPNode_Dullalias
+name BPNode_Beamalias
+name P_BattleStonealias
+name P_BattleBnypstnalias
+name P_BattleStreakFxalias
+name ChainSawSpecalias
+name ChainSaw_Envalias
+name Chainsaw_Dullalias
+name BuzzSawEnvalias
+name BuzzSawDullalias
+name P_Com_Trucka01Dullalias
+name P_Com_Trucka01Burntalias
+name P_Com_Undercariagealias
+name P_Com_ExplodingCarABurntalias
+name ExpCarBEnvalias
+name P_Com_ExplodingCarBBurntalias
+name ExpCarCEnvalias
+name CopLightsalias
+name CopIndicatorsalias
+name P_Com_ExplodingCarCBurntalias
+name P0527_ExplodingTruckC_dullalias
+name P_Com_ExplodingCarC01Burntalias
+name R8CraneBeltalias
+name R8CraneEnvalias
+name P_Com_KartBonusSpecPlayeralias
+name P_Com_KartBonusSpecRedalias
+name P_Com_KartBonusSpecGreenalias
+name P_Com_KartBonusSpecBluealias
+name P_Com_KartBonusSpecYellowalias
+name P_Com_KartBonusSpecOrangealias
+name P_Com_KartBonusSpecPurplealias
+name P_Com_KartBonusSpeccyanalias
+filter_gc
+mipBias
+name RB_grillalias
+name RB_Shinealias
+name P_com_Buggywindowalias
+name WaterBombalias
+name P0240_LampBulbalias
+name P0240_LampShinealias
+name 250Hookalias
+name matterglassalias
+name FrameReflectionalias
+name P_Com_PickupFrame01alias
+name P_Com_LCDLights2alias
+name P_Com_Explosionalias
+name P_Com_ExplosionFOalias
+edgeFadeOut
+normalPush
+name LogoShinealias
+name SphereShinealias
+name troughwaterfallalias
+name P_Com_TimeBubbleBasealias
+name P_Com_fixacron01alias
+name P_Com_fixacron03alias
+name P_Com_MangGatealias
+name P_Com_Woodalias
+name P_Com_Speedpowerup_scrollalias
+name P_Com_megaalias
+name HookFXalias
+name HookMetalalias
+name SkyHookEnvalias
+name HookShinealias
+name PS_Shinealias
+name PS_HookFXalias
+name P_Cass_WallFanaliasalias
+name P_cass_CassGenShine02alias
+name P_Out_A1MiniRiver_NoGrassalias
+name SurfFlag_Envalias
+name MelonShinealias
+name P_out_CycadLeaf1alias
+name P_Out_WaterFrothbalias
+name P0195_CanopyVinealias
+name P_Man_Telescope02alias
+name hutwindowalias
+name P_Man_CrabPot02alias
+name P_Sea_Hotrockalias
+name P_Sea_LargFernLeafxxalias
+name R8ObsEnvalias
+name R8ObsWindowalias
+name R8ObsWinEnvalias
+name BoilerEnvalias
+name BoilerGlassalias
+name C2TGenvalias
+name SlidePlatalias
+name SlidePlatEnvalias
+name SCGlassalias
+name SCEnvalias
+name P_Man_BarnacledWoodalias
+name WF_Metalalias
+name WF_envalias
+name WF_Water01alias
+name WF_Water02alias
+name WF_Wakealias
+name WT_MetalShinealias
+name WindBladealias
+name LampMetalalias
+name LampBulbalias
+name LampGlowalias
+name VentEnvalias
+name VentLightsalias
+name a073_Glider03alias
+name P_Cur_LeafTileNoTechalias
+name BR_Glassalias
+name BRadio_Envalias
+name BR_Imagealias
+name BR_Staticalias
+name RZ1_015_reedsalias
+name RZ1_014_reedsalias
+name RZ1_014_Coralalias
+name TelephoneEnvalias
+name Z1RadarEnvalias
+name OpticGlowalias
+name pipingalias
+name RRGlassalias
+name RRGlowalias
+name P_Com_RunwayGlass_Yellowalias
+name P_Com_RunwayAlarmGlassalias
+name P_RunwayFlasheralias
+name Z1SL_Glassalias
+name Z1SL_Glowalias
+name longGrass_olalias
+name RZ1_001_Grassalias
+name RZ1_001_rockalias
+name RZ1_004_Grassalias
+name RZ1_027_dsalias
+name RZ1_028_Grassalias
+name RZ1_029_Grassalias
+name rZ1_038_Grassalias
+name rZ1_040_Grassalias
+name rZ1_046_Grassalias
+name RZ1_061_Grassalias
+name RZ1_009_treesalias
+name RZ1_004_treesalias
+name RZ1_061_treesalias
+name HouseSmokealias
+name CogMetal02alias
+name TinSignalias
+name hangar_fx2alias
+name hangar_fx_pulsealias
+name P_Com_SewerLightalias
+name SewerGlowalias
+name P_Com_SewerLightRaysalias
+name waterfall_steamalias
+name P_Bur_LightWallCnrLOverlay01alias
+name P_Bur_LightWallCnrLOverlay03alias
+name P_Bur_LightWallCnrLOverlay02alias
+name P_Bur_SewerSlimealias
+SCROLL
+name TramENValias
+name P_Bur_GraveDirtalias
+name RZ4_007_DenseTreesalias
+name RZ4_007_DenseTreesShortalias
+name RZ2_020_Mossalias
+name RZ3_007_RockWallTreesalias
+name RZ3_052_Nograssalias
+name RZ3_061_Smallalias
+name RZ4_051_Grassalias
+name Z3Gatealias
+name HouseFlamealias
+name FireFlamealias
+name PRB_LampFlashalias
+name PRB_Lampalias
+name PRB_Envalias
+name RZ3_007_nograssalias
+name RZ3_008_Malleealias
+name RZ3_008_Grassalias
+name RZ3_008_manicuredalias
+name RZ3_009_nograssalias
+name RZ3_011_nograssalias
+name RZ3_045_NoGrassalias
+name RZ3_052_NoGrassalias
+name RZ3_053_NoGrassalias
+name RZ3_054_NoGrassalias
+name RZ3_055_NoGrassalias
+name RZ3_056_NoGrassalias
+name Rz3_061_nomanicuredalias
+name Rz3_061_manicuredblendalias
+mipbias
+name HangerWallTrimalias
+name RZ3_007_Z4grassalias
+name RZ4_007_nograssalias
+name Rz4_007_Fartreesalias
+name RZ4_015_Grassalias
+name RZ4_016_GRASSalias
+name RZ4_017_GRASSalias
+name RA2_026_Reedsalias
+name RA2_026_Rocksalias
+name RZ4_032_Reedsalias
+name RZ4_032_Rocksalias
+name RZ4_033_Reedsalias
+name RZ4_033_Rocksalias
+name RZ4_034_Reedsalias
+name RZ4_034_Rocksalias
+name rz4_040_GRASSalias
+name RZ4_041_GRASSalias
+name RZ4_042_gRASSalias
+name rz4_043_GRASSalias
+name RZ4_044_GRASSalias
+name rz4_045_gRASSalias
+name Ra1_000_Grassalias
+name Ra1_001_Grassalias
+name RA1_011alias
+name RA1_019alias
+name RA1_020alias
+name RA1_021alias
+name RA1_025GrassFieldalias
+name RA1_025_CatTailRocksalias
+name Ra1_038alias
+name RA1_040alias
+name RA1_041alias
+name RA1_042alias
+name RA1_054_Grassalias
+name RA1_055_Grassalias
+name RA1_056_Grassalias
+name RA1_057_Grassalias
+name RA1_058_Grassalias
+name RA1_100_CatTailRocksalias
+name RA1_101_NoGrassalias
+name RA1_102_NoGrassalias
+name RA1_103_NoGrassalias
+name RA1_104_NoGrassalias
+name RA1_101_treehillalias
+Effect
+name RA1_008_treehillalias
+name RA1_101_z4grassalias
+name RA1_102_Z4Grassalias
+name RA1_103_Z4Grassalias
+name RA1_104_Z4Grassalias
+name RA1_113_CatTailReedalias
+name RA1_113_RiverRockalias
+name RA1_115_Grassalias
+name RA1_111_Grassalias
+name RA1_110_Grassalias
+name RA1_112_Grassalias
+name RA1_100_Grassalias
+name RA2_005_CatTailRocksalias
+name RA2_006_Grassalias
+name RA2_007_Grassalias
+name RA2_008_Grassalias
+name RA2_009_CatTailReedalias
+name RA2_010_CatTailReedalias
+name RA2_010_RiverRockalias
+name RA2_010_CatTailRocksalias
+name RA2_011_LgeTreesalias
+name RA2_011_MedTreesalias
+name RA2_011_nograssalias
+name RA2_011_Grassalias
+name RA2_011_treehillalias
+name RA2_012_shortalias
+name RA2_012_Thickalias
+name RA2_013_Thickalias
+name RA2_015_Thickalias
+name RA2_017_Grassalias
+name RA2_023_Grassalias
+name Ra2_025alias
+name P_Com_FlashGRalias
+name P_Com_FlashREDalias
+name RA3_003_nograssalias
+name RA3_003_thinalias
+name RA3_005_nograssalias
+name RA3_009_nograssalias
+name RA3_010_nograssalias
+name RA3_011_notreesalias
+name RA3_014_mangshoot2alias
+name RA3_014_nograssalias
+name RA3_019_mangrovealias
+name RA3_019_Mossalias
+name RA3_028alias
+name ra3_037alias
+name RA3_EdgeTreesalias
+name Ra4_001alias
+name RA4_wateralias
+name RA4_Puddlealias
+name RA4_009alias
+name RA4_010alias
+name RA5_011_GrassTreealias
+name RA5_003_NoGrassalias
+name RA5_009_Grassalias
+name RA5_011_MTreeMaxDrawalias
+name RA5_011_Grassalias
+name RB2_001_nocullalias
+name RB2_002_nograssalias
+name RB2_003_nocullalias
+name RB2_035_nocullalias
+name BannerGlowalias
+name Rb3_001alias
+name RB4_002_Grassalias
+name RB4_002_Grass2alias
+name RB4_002_Grass3alias
+name RB4_004_Grassalias
+name TY_A1_003_SheepDipalias
+name RA3_014_manTreesalias
+name Z2_NightCloudalias
+name RE4_06_swirlalias
+name RE4_07_flowalias
+name P_com_lavablobStalias
+name P_Man_LightRayFastalias
+name P_Man_LightRayFasteralias
+name RE4_015_rotatealias
+name Fx_Lava_04_Rotatealias
+name P_com_lavablobStFastalias
+name RE4_08_Slowalias
+name FP_FlashRed1alias
+name FP_FlashRed2alias
+name FP_FlashYellow1alias
+name FP_FlashYellow2alias
+road
+name r1_02_grassedgealias
+name r1_03_Grassshortalias
+name R1_06alias
+name RA2_LavaFlowFastalias
+name RA2_LavaFlowMedalias
+name RA2_LavaFlowSlowalias
+name RA2_LavaFlowSlowestalias
+name RA2_LavaFlowEdgealias
+name RA2_LavaFlowEdgeSlowalias
+name RA2_WaterFlowFastalias
+name RA2_WaterFlowMedalias
+name RA2_WaterFlowSlowalias
+name RR3_002_LongGrassalias
+name RR3_005Grassalias
+name RR3_005_LongGrassalias
+name RR3_006Grassalias
+name RR3_006_LongGrassalias
+name RB2_022_LongGrassalias
+name RB2_023_LongGrassalias
+name RB2_024_LongGrassalias
+name RB2_021_LongGrassalias
+name RB2_025_Oakalias
+name RA1_025aalias
+name Rr9_002_alphaalias
+name city_caustics01alias
+name city_causticsalias
+name Rr8_BigScreenalias
+name TY_A1_003_Treesalias
+name TY_A1_003_Cullalias
+name Holodeck_01_boxgrassalias
+name holodeck_01_doublesidedalias
+name RM13_000_A5Grassalias
+name TY_A1_003_SheepTreealias
+name Fx_Lava_04_NoPooalias
+name RM37_03_Grassalias
+name RM37_003_overlay_maskalias
+name RM37_005_scrollalias
+name RM37_scrolling_lavaalias
+name Env_M37_02_coloraddalias
+name holodeck_grey_scrollalias
+name holodeck_blue_scrollalias
+name holodeck_green_scrollalias
+name holodeck_yellow_scrollalias
+name holodeck_yellow_scroll2alias
+name RM52_023_glassalias
+name RZ4_045_Subalias
+name RZ4_040_Subalias
+name RZ4_043_Subalias
+name RZ4_044_Subalias
+name RZ4_041_Subalias
+name RZ4_042_Subalias
+name RZ4_016_Subalias
+name RZ4_017_Subalias
+name RM64_001_ovralias
+zread
+name bunyipWater_outeralias
+name FX_164_2sidedalias
+name P_Com_CreditsLineCloth02alias
+name Fe_000_LedFlashalias
+name fe_000_fogalias
+name WaterCapturealias
+name act1_41_Cy_2alias
+name act1_41_Cy_3alias
+name Prop_0099_Platform03alias
+name Prop_0594_ToxicBlendalias
+name Prop_0592_collRay1alias
+name Prop_0590_FrameEnvalias
+name Prop_B2_Page_Snow02alias
+Type
+name Reflectoalias
+name Wood_Maskalias
+name Prop_0580_Zapper_Zapalias
+name Prop_0580_FXalias
+name Zapper_Flarealias
+name Red_Tunnel_Flarealias
+name E4_Tunnel_SmallBolts_1alias
+name Prop_0557_E4Door_Plasma2alias
+name holodeck_01_tranzalias
+name TY_C2_TEST03_01alias
+name ice_01alias
+name T0103_01_aalias
+name T0103_01_balias
+name T0103_01_calias
+name T0103_01_dalias
+name T0103_01_ealias
+name T0103_01_falias
+name T0103_01_galias
+name T0103_01_halias
+name T0103_01_ialias
+name T0103_01_jalias
+name T0103_01_Kalias
+name T0103_01_Lalias
+ID
+name T0103_01_malias
+name T0103_01_nalias
+name T0103_01_oalias
+name T0103_01_palias
+name T0103_01_qalias
+name T0103_01_Ralias
+name T0103_01_Salias
+name T0103_01_talias
+name T0103_01_ualias
+name T0103_01_valias
+name T0103_01_walias
+name T0103_01_xalias
+name T0103_01_Yalias
+name T0103_01_zalias
+name T0103_01_aaalias
+name T0103_01_abalias
+name T0103_01_acalias
+name T0103_01_adalias
+name t0103_01_aealias
+name T0103_01_afalias
+name T0103_01_agalias
+name T0103_01_ahalias
+name T0103_01_aialias
+name T0103_01_ajalias
+name T0103_01_akalias
+name T0103_01_alalias
+name Prop_Common_Page_OpalCrust6alias
+name Prop_Common_Count00alias
+name Prop_Common_Count01alias
+name rough_texturealias
+name Prop_Common_SpecularTalalias
+name Prop_Common_SpecMetal_FLMalias
+name stopwatch01alias
+name Page_Forcealias
+name AirOveralias
+name Prop_Common_Page_Stone01alias
+name Prop_A3_Page_Mine_redalias
+name P_Man_B1_AirCanister_3alias
+name reflectorbalias
+name Prop_E1_specularCralias
+name spyegg_glassalias
+name SpyEgg_Envalias
+name prop_0167dualshock02alias
+name red_linealias
+name julius_windowalias
+name Prop_0234_BGAlias
+name GateWoodalias
+name WallBrickalias
+name Z3Fount_Envalias
+name Z3Fount_Water01alias
+name Z3Fount_Water02alias
+name Z3Fount_Wakealias
+name P_M37Flasheralias
+name P_M40Flasheralias
+name P_Com_LightMetalalias
+name P_Com_FanGlassalias
+name P_Com_RedFanGlassalias
+name FanFlasheralias
+name GlassOffalias
+name P_M52Flasheralias
+name UnbarnacledWallsalias
+name UnBarnacledIronalias
+name fx_148balias
+name act_25_julius_glassesalias
+name act_75_shadowBatShinyalias
+name act_75_shadowBatBlackalias
+name Act_31_Sly_02alias
+name Act1_09_Crikey03alias
+name Act1_09_Crikey01alias
+name Act_23_BossCass_02alias
+name neddy_03alias
+name neddy_10alias
+name neddy_11alias
+name neddy_12alias
+name Act_40_bull_00alias
+name act_38_farlappEyealias
+name Act_28_ElleShinyalias
+name frill_06alias
+name frill_02alias
+name frill_13alias
+name frill_14alias
+name Act_02_Croc_02alias
+name Act_07_Frill_02alias
+name Act_07_Frill_03alias
+name Act_01_TY_02alias
+name act_86_elderbunyipENValias
+name Act_92_Roach_02alias
+name Act1_12_speedboat01alias
+name Act1_12_speedboat02alias
+name Act1_12_speedboat03alias
+name Act1_12_speedboat04alias
+indirectwater
+name TY_A1_003_nograssalias
+name TY_A1_004_nograssalias
+name TY_A1_005_nograssalias
+name TY_A1_017_nograssalias
+name TY_A1_044_nograssalias
+name TY_A1_023_nograssalias
+name TY_A1_003_littlegrassalias
+name ty_a1_023_no_grassalias
+name TY_A1_022_Overlayalias
+name ty_a1_051_no_grassalias
+name no_grassalias
+name ty_a2_046_2alias
+name fx_092_blend_1alias
+name FX_092_overlayalias
+name ty_a2_046_overlayalias
+name TY_A2_005_nograssalias
+name TY_A2_008_no_grassalias
+name TY_A2_011_nograssalias
+name TY_A2_012_nograssalias
+name TY_a2_022_grassalias
+name TY_A3_014_nograssalias
+name TY_A3_015_nograssalias
+name TY_A3_016_nograssalias
+name TY_A3_017_nograssalias
+name ty_a3_grasstestalias
+name TY_A4_004alias
+name waterfall_overlay_01_zalias
+name waterfall_overlay_02_zalias
+name TY_HUB_rock_floor2_wateralias
+zWrite
+name TY_Z2_003_grassalias
+name TY_Z2_017_grassalias
+name TY_Z2_018_grassalias
+name TY_A2_005_lessgrassalias
+name TY_C2_010_aalias
+name TY_B2_001_grassalias
+name TY_B2_001_snowalias
+name TY_B3_001_nograssalias
+name TY_B3_002_nograssalias
+Clampuv
+name TY_B3_018_nograssalias
+name TY_B3_019_nograssalias
+name ty_b3_001_FX15alias
+name ty_b3_002_FX15alias
+name ty_b3_018_FX15alias
+name ty_b3_019_FX15alias
+name waterfall_overlay_01_Xalias
+name waterfall_overlay_02_Xalias
+name waterfall_overlay_03_Xalias
+name TY_B3_060_Xalias
+name TY_B3_048_nograssalias
+name TY_C1_008balias
+name TY_C1_008aalias
+name TY_C1_002_reedsalias
+name TY_C1_003balias
+name TY_C1_002_balias
+name ty_a2_005_balias
+name TY_c1_011_reedalias
+name Ty_C2_033_grassalias
+name ty_c2_017_rotatealias
+name ty_c2_017_scrollalias
+name ty_c2_014_grassalias
+name ty_c2_003_grassalias
+name ty_c2_033_grassalias
+name ty_c3_001aalias
+name C3_minigame_causticsalias
+name C3_minigame_caustics_01alias
+name TY_e1_003_wateralias
+,14
+,12
+name fog_01alias
+nocollide
+name ty0101_05_balias
+name downsize0alias
+name downsize1alias
+name downsize2alias
+name downsize3alias
+name downsizeResult0alias
+name downsizeResult1alias
+name downsizeResult2alias
+name downsizeResult3alias
+name blurHalias
+name blurHCapturealias
+name blurValias
+name ssaoalias
+name ssaoResolvealias
+name globalBrightnessalias
+name ty_rt_128_3alias
+name neon_Greenalias
+name TY0101_23_balias
+name gpuParticleSubtractivealias
+name dan_10alias
+face
+color1
+dither
+name cr_35alias
+name waterSlide_sprayalias
+name heatwavealias
+disableColorWrite
+music
+soundfx
+voiceOver
+Sound
+SoundEvent
+Volume
+Range
+Material
+MinRange
+Chance
+MinPitch
+MaxPitch
+DSText
+position
+width
+height
+alignment
+font
+stringId
+UIContainer
+UIModel
+scale
+model
+ExtrasScreen
+UIReference
+target
+MarkerButtonGroup
+rotation
+ThrobButton
+OnActivate
+message
+argument
+PromptGroup
+PromptText
+OnUpPressed
+OnDownPressed
+OnSelectPressed
+OnCancelPressed
+MusicPlayerScreen
+UIImage
+texture
+UIScreen
+ConceptArtScreen
+colour
+text
+NoisyButtonGroup
+UIVideoScreen
+OnButtonPressed
+video
+bFadeIn
+bFadeOut
+bZoom
+bLocalized
+OnComplete
+bWideScreen
+LeaderboardsScreen
+SafeDynamicDSText
+remap
+PlayerSelectScreen
+UIButtonGroup
+NineGridImage
+xBorderSize
+yBorderSize
+uBorderPercent
+vBorderPercent
+MCLoadCheckScreen
+MCText
+OnLeftPressed
+OnRightPressed
+CopyrightScreen
+UIText
+LocalizedVideoScreen
+TitleScreen
+UIAnimatedModel
+MainMenuScreen
+LevelSelectScreen
+LevelSelectButtons
+RaceLevelScreen
+UVs
+OptionButton
+UIButton
+UIRegion
+RaceOptionsScreen
+bClickable
+include
+LanguageSelectScreen
+LoadingScreen
+MCSaveScreen
+MCSelectCardScreen
+MCSelectFileScreen
+MCFileInfo
+MCQueryScreen
+MCActionScreen
+AutosaveWarningScreen
+NewGameSelectFileScreen
+OptionsScreen
+SoundOptionsScreen
+ProgressBar
+GamepadConfigScreen
+ControlConfigScreen
+KBMOptionsScreen
+KBMBindingsScreen
+ScrollingButtonGroup
+ScreenOptionsScreen
+CameraOptionsScreen
+CartControlConfigScreen
+PositionScreen
+PauseMainScreen
+ExitConfirmScreen
+RestartRaceScreen
+TyPauseMap
+GameText
+CallSheetScreen
+GameTotalsScreen
+RangInfoScreen
+ScienceFactsScreen
+CutsceneQuestionScreen
+SkinSelectionScreen
+SimpleCustomizableButton
+disabledScale
+unselectedScale
+selectedScale
+enabled
+RaceResultsScreen
+AliasModel
+bVisible
+xBorderPercent
+TrophyScreen
+acoustic
+Density
+Diffusion
+Gain
+GainHF
+GainLF
+DecayTime
+DecayHFRatio
+DecayLFRatio
+ReflectionsGain
+ReflectionsDelay
+ReflectionsPan0
+ReflectionsPan1
+ReflectionsPan2
+LateReverbGain
+LateReverbDelay
+LateReverbPan0
+LateReverbPan1
+LateReverbPan2
+EchoTime
+EchoDepth
+ModulationTime
+ModulationDepth
+AirAbsorptionGainHF
+HFReference
+LFReference
+RoomRolloffFactor
+DecayHFLimit
+L2
+R2
+L1
+TRIANGLE
+CIRCLE
+CROSS
+SQUARE
+heading
+align
+waitTime
+title
+person
+images
+raichert
+salami
+krome
+dolbyd
+dolbys
+roland
+page
+image
+event
+fact
+body
+name v001_fourbiePlain
+override
+maxDrawDist
+maxUpdateDist
+bInteractive
+bUseLOD
+alias
+noCollideMaterialID
+fadeMaterialID
+noVisibleTargetMaterialID
+collisionMode
+bAddToCollisionManager
+firstPersonCartYOffset
+dragTowardCamera
+dragAwayFromCamera
+fieldOfView
+playerRotateDefaultSpeed
+maxHeroJumpHeight
+jumpTargetAdjustMinOffset
+jumpTargetAdjustMaxOffset
+lockOnPropSearchMask
+lockOnPropMax
+lockOnPropDeadListMax
+maxCameraCollisionInfoItems
+bossZoomOutDistance
+deltaStageType
+closestZDelta
+closestYDelta
+closestTargetYOffset
+middleZDelta
+middleYDelta
+middleTargetYOffset
+furtherestZDelta
+furtherestYDelta
+furtherestTargetYOffset
+bClampTimeMovement
+initialTime
+updatePriority
+CanHandleMissingFiles
+materialID
+bViewWithInfraRang
+eventParticlesOn
+eventParticlesOff
+badfile
+searchMask
+animIntact
+animExplode
+animBurn
+eventFrag
+eventExplode
+bFragable
+bHandleShatterMessage
+voiceDelayTime
+message.mask
+message.actorCode
+message.count
+message.baseIndex
+maxLifeTime
+collideRadius
+speedXZ
+gravity
+rotateTypeYaw
+rotateTypePitch
+spinSpeed
+bOwnedByHero
+bCheckHero
+bCheckWater
+bEnableDropShadow
+bEnableRangTarget
+bEnableLookTarget
+bEnableBounce
+bEnableBounceParticles
+bounceReductionFactor
+bounceParticleScale
+numberOfBounceParticles
+explosionScale
+bAlphaFadeOut
+alphaFadeOutTime
+bScaleFadeIn
+scaleFadeInStart
+scaleFadeInTarget
+scaleFadeInTime
+enableCollisionDelay
+MaterialID
+bCreateDustWhenShatter
+collisionHitMessage
+listSize
+unitSize
+sndHitHero
+sndBounce
+<->
+reactTypes
+CollisionSubObject
+SubObject
+subObjectFlame
+subObjectMore
+radius
+material
+postModel
+postSpacing
+gapSize
+plankModel
+bKnockBackOnClose
+bLockable
+bSeeSpawnContents
+shatter
+bite
+respawnTime
+sndShatter
+power
+upVel
+life
+bounce
+spinrate
+airResistance
+SpeedPercent
+animRescued
+animsIdle
+sndCollect
+sndBeep
+reward
+bUseGroundColor
+bFreezable
+bWaterSurfaceSound
+sndLand
+bayDescriptor
+bFindGroundColour
+bStoreGroundColourResult
+sndWaterSurface
+sndWaterSurfaceMinPitch
+sndWaterSurfaceAdditionalPitch
+sndWaterSurfaceFadeInTime
+sndWaterSurfaceFadeOutTime
+charaColRadius
+charaColOffsetY
+nodePrefix
+refPtPrefix
+subObjectPrefix
+lowPolyModelName
+bGlideSound
+sndGlide
+sndGlideFadeInTime
+sndGlideFadeOutTime
+controlTextParameters
+action
+characterAvatar
+blastLaserDescriptor
+sndWeaponRecharge
+sndMoveInitialPitch
+sndMovePitchChangeTime
+sndMoveJogPitch
+sndMoveRunPitch
+maxPitch
+minPitch
+KDRefPointProperty
+KDParticleSystemProperty
+KDParticleEmitterProperty
+particleType
+origin
+rate
+angle
+minVel
+maxVel
+minRotVel
+maxRotVel
+active
+heightOffset
+mortarName
+maxMortars
+mortarClipSize
+mortarReloadTime
+mortarFireSpeed
+cameraFOV
+maxCameraZoom
+cameraZoomSpeed
+maxHealth
+enterDistance
+dof.noZoom.nearBlur
+dof.noZoom.nearClear
+dof.noZoom.farClear
+dof.noZoom.farBlur
+dof.fullZoom.nearBlur
+dof.fullZoom.nearClear
+dof.fullZoom.farClear
+dof.fullZoom.farBlur
+dof.zoomOffset
+dof.bUse
+bAmbientSound
+bInitialAmbientSoundOn
+sndAmbient
+responseType
+magRange
+fuelDrumDescriptorName
+numResetDescriptors
+bCanRetryAfterSuccess
+resetDescriptor
+minePropName
+counterMaterial
+counterType
+timeLimit
+totalItems
+voiceOverFormat
+voiceOverSoundIDs
+voiceOverDelay
+ShopType
+cost
+RaceMissionID
+RaceLevel
+HealthCounterMaterial
+HealthCount
+bResetPropsOnFailure
+gameDataCollectableType
+bResetMissionOnDeinit
+spawnCystalAfterBiteCount
+MaxActiveEnemies
+bFailOnDeath
+flareModel
+sideWidth
+bSendMessageOnHit
+bLeaveMarkOnHit
+bSpawnEffectsOnHit
+bUsedForDrawOnly
+vScalingPerQuad
+scaleUpDistance
+scaleUpValue
+scaleUpAccuracy
+textureWrapDistance
+bDoDirectionalLighting
+brightnessModifier
+bDoExtraHeroCheck
+sndLaserFire
+sndLaserHit
+sndLaserCutting
+overlayMaterial
+MinMarkDist
+TurnDistance
+RotateRate
+BounceOffRate
+Gravity
+MaxSpeed
+ObjectRadius
+ObjectHeight
+AccelerationRate
+Drag
+RotDrag
+VehicleLength
+HugPath
+BrakingPower
+bUpdateRollWithGround
+bEngineSound
+bSkidSound
+bTerrainSound
+bExtraLoopingSound
+UseRearCollision
+AddDynamicCollision
+powerSlidePitchAddition
+normalSkidVol
+sndVehicleCollision
+DecelerateForTurns
+RaceLineDistance
+RaceLineMultiplier
+IntelligenceLevel
+turnRadiusFactor
+extraGravKickInTime
+ExtraGravMultiplier
+PowerSlideRate
+PowerSlideAccelMulti
+PowerSildeRandTime
+PowerSlideRandAmount
+NumberPumps
+NumberOfWheels
+WheelRadius
+sndLongHornBeep
+sndShortHornBeep
+sndSkid
+sndHitByJeep
+bRepeatSpamHorn
+shadow
+Mass
+EngineDrag
+TurnRadiusFactor
+UseTotalSelfRighting
+KartNumber
+EnginePower
+WheelGrip
+NumberOfGears
+engineSoundEvent
+engineSoundFadeIn
+engineSoundFadeOut
+engineSoundMinPitch
+engineSoundAdditionalPitch
+engineStartupSoundEvent
+skidSoundEvent
+skidSoundFadeInTime
+skidSoundFadeOutTime
+minSkidTurnValue
+minSkidSpeed
+terrainSoundEvent
+terrainSoundVehicleMinSpeed
+terrainSoundMinPitch
+terrainSoundAdditionalPitch
+terrainSoundFadeInTime
+terrainSoundFadeOutTime
+minHandbrakeSndSpeed
+sndTachoGearMax_R
+sndTachoGearMax_1
+sndTachoGearMax_2
+sndTachoGearMax_3
+sndEngineAdditionalPitchGear_R
+sndEngineMinPitchGear_1
+sndEngineAdditionalPitchGear_1
+sndEngineMinPitchGear_2
+sndEngineAdditionalPitchGear_2
+sndEngineMinPitchGear_3
+sndEngineAdditionalPitchGear_3
+sndVehicleMinSpeed
+sndGearChangeTachoRange
+sndGearChangePitchUp
+sndAccReleasePitchUp
+sndMaxTachoRangeForAccRelease
+sndCollision
+sndWallScrape
+wallScrapeFadeInTime
+wallScrapeFadeOutTime
+maxColVolSpeed
+TyAnimFileName
+minHandBrakeSpeed
+bAllowCameraRotation
+bSndWallColCheck
+CamMinFOV
+CamMaxFOV
+RockCoeff
+SandCoeff
+MudCoeff
+DefaultSideFriction
+MudSideFriction
+RockSideFriction
+gpuParticlesOnCollide
+numSubTextures
+textureAnimSpeed
+halfWidth
+halfHeight
+lifetime
+accel
+damping
+Envelope
+Time
+Alpha
+Scale
+drift
+bUseGameCamera
+refPointF
+refPointBL
+refPointBR
+SideWindPower
+friction
+PassesOnFlag
+pitchSmoothFactor
+maxPitchTip
+splineLengthAccuracy
+yawSmoothFactor
+fullExplodeChance
+missileTargetSearchMask
+minSpawnFlakTime
+maxSpawnFlakTime
+ShatterableName
+sndTakeOff
+StopAllTraffic
+unshattered
+M_IceBerg
+shattering
+F_Frag01
+F_Frag02
+F_Frag03
+F_Frag04
+F_Frag05
+F_Frag06
+F_Frag07
+F_Frag08
+F_Frag09
+F_Frag10
+NitroPer
+InvinciblePer
+MissilePer
+IceBombPer
+GuideMissilePer
+ShrinkMissilePer
+StopPer
+bWarpHook
+autoRotate
+sndPowerUp
+KartModelName
+BouncePercent
+JumpSpeedBoost
+JumpSpeedBoostTime
+UpdateVehicleOrientation
+sndGrindRail
+sndIceBombTriggerSnd
+sndIceBombReleaseSnd
+sndInvicibility
+sndSlowDown
+sndCollisionMinSpeed
+sndCollisionMinSpeedVol
+sndCollisionMaxSpeed
+sndScrapeMinSpeed
+sndScrapeMinSpeedPitchAddition
+sndScrapeMaxSpeed
+sndScrapeMaxSpeedPitchAddition
+LevelLoad
+ModelList
+Model
+lowDetailPropName
+lowDetailRange
+PropAttachmentProperty
+KDAnimEventProperty
+script
+FX021_lavarang1
+FX021_lavarang2
+FX021_lavarang3
+FX021_lavarang4
+FX021_lavarang5
+FX021_lavarang6
+FX021_lavarang7
+FX021_lavarang8
+MessageHandlerProperty
+CSFX_sparkout
+bMissileTrail
+AutoSeekTime
+rangHitPhrase.count
+rangHitPhrase.baseIndex
+rangHitPhrase.actorCode
+rangHitPhrase.mask
+refuelRadius
+refuelRate
+detectRadius
+explodeRadius
+explodeRange
+movementRate
+turnRate
+badFile
+shadowBadFile
+propDistanceMultiplier
+amountOfTip
+maxSpeed
+maxAcceleration
+thrust
+helicopterGravity
+torque
+torqueDamping
+extraTurnForce
+tipClamp
+turnCriticalDamp
+propellerMinSpeed
+propellerMaxSpeed
+minFuelTimeLimit
+maxFuelTimeLimit
+engineSound
+hitSound
+sndFuelPickUp
+sndLockon
+bHasTy
+bHasTyOnSide
+bHasRang
+xAxisDot
+FiringRangName
+ammoCount
+targetMinRadius
+ropeMaterial
+ropeLength
+ropeStrength
+tensionDamping
+sndSplashEmpty
+colYOffset
+colRadius
+sndSplashFull
+sndImpact
+FX022_waterdumpEmitter
+hookenabled
+Fire00
+Fire01
+Fire02
+Fire03
+attachPoint
+pontoonModel
+rangerDescriptor
+plugDescriptor
+depthChargeDescriptor
+bSpawnExplosionOnHit
+attachRefPoint
+iconType
+colObjYOffset
+colObjRadius
+sndLaunch
+sndExplode
+bDrawShadowInUpdate
+bHurtEnemy
+knockBackVelocity
+sndFlight
+bPlayBassSfxLp
+bPlayBassSfxWithAmbientSfx
+bUseDropShadow
+Idleanimname
+idleAnimName
+CollisionObject
+sndRetract
+bSampleGround
+bSampleGroundNormal
+bSampleGroundColour
+bSampleGroundMaterialID
+defaultSamplingGroundWidth
+defaultSamplingGroundLength
+defaultSamplingGroundNormalWidth
+defaultSamplingGroundNormalLength
+defaultSamplingGroundColourWidth
+defaultSamplingGroundColourLength
+defaultSamplingGroundMaterialIDWidth
+defaultSamplingGroundMaterialIDLength
+samplingIgnoreMaterials
+bSamplingIgnoreStaticCollision
+bSamplingIgnoreDynamicCollision
+bIntersectingCFCritterObstacles
+bAddCollisionSpheres
+bUseRefPoints
+collisionSphereIndexStart
+collisionSphereIndexEnd
+collisionSpheresMaterialID
+bLighting
+minimumScale
+maximumScale
+materialFrameCount
+materialFPS
+materialFrameWidth
+textureMappingCount
+bTextureMappingRandom
+bDrawDropShadow
+bAnimationMatrixCaching
+bReactToEachOther
+bCauseOtherCrittersToReact
+bReactToOtherCritters
+bReactToMessagingObstacles
+bReactToHero
+bReactToWeapons
+reactionActivateDistance
+reactionMovementDistance
+bReceiveMessagingCapability
+bCanCritterDie
+bDeadCrittersRespawn
+deadCritterRespawnDistance
+deadCritterRespawnDelay
+bDrawUsingBlobs
+bAnimateUsingSubObjects
+bGridEnabled
+bGroupsEnabled
+maximumGroupCount
+bSoundsEnabled
+soundHitByHero
+soundReaction
+movementSettingsWalk.velocityDirection
+movementSettingsWalk.rotationYaw
+movementSettingsWalk.movementSpeed
+movementSettingsWalk.rotationSpeed
+movementSettingsWalk.bSnapToGround
+movementSettingsWalk.bScaleRotationSpeed
+movementSettingsRun.velocityDirection
+movementSettingsRun.rotationYaw
+movementSettingsRun.movementSpeed
+movementSettingsRun.rotationSpeed
+movementSettingsRun.bSnapToGround
+movementSettingsRun.bScaleRotationSpeed
+movementSettingsTurn.velocityDirection
+movementSettingsTurn.rotationYaw
+movementSettingsTurn.movementSpeed
+movementSettingsTurn.rotationSpeed
+movementSettingsTurn.bSnapToGround
+movementSettingsTurn.bScaleRotationSpeed
+movementSettingsTurnInstantly.velocityDirection
+movementSettingsTurnInstantly.rotationYaw
+movementSettingsTurnInstantly.bSnapToGround
+cellCountWidth
+cellCountLength
+maximumCrittersPerCell
+smallestCellDimensions
+movementSpeed
+normalPushAwayRadius
+normalPushAwaySpeed
+heroPushAwayRadius
+heroPushAwaySpeed
+boundsPushAwayRadius
+boundsPushAwaySpeed
+critterSoundSystemEnabled
+soundsForCrittersScattered
+soundsForCrittersIndividual
+soundsForCrittersFormed
+setMaxScatterdSoundDistance
+cutoffForIndividualSounds
+sndScattered
+scatteredLoopingSndDistFront
+scatteredLoopingSndDistRear
+maxScatteredSoundDistance
+totalRotTime
+movementSettingsFly.velocityDirection
+movementSettingsFly.rotationPitch
+movementSettingsFly.rotationYaw
+movementSettingsFly.movementSpeed
+movementSettingsFly.rotationSpeed
+movementSettingsFly.bMaintainUpAxis
+movementSettingsFly.bScaleRotationSpeed
+movementSettingsFlyBackwards.velocityDirection
+movementSettingsFlyBackwards.rotationPitch
+movementSettingsFlyBackwards.rotationYaw
+movementSettingsFlyBackwards.movementSpeed
+movementSettingsFlyBackwards.rotationSpeed
+movementSettingsFlyBackwards.bScaleRotationSpeed
+movementSettingsFlyBackwards.bMaintainUpAxis
+movementSettingsTurnOnTheSpot.velocityDirection
+movementSettingsTurnOnTheSpot.rotationYaw
+movementSettingsTurnOnTheSpot.rotationSpeed
+movementSettingsTurnOnTheSpot.bMaintainUpAxis
+tornadoBoneSystem
+movementSettingsApproach.velocityDirection
+movementSettingsApproach.rotationPitch
+movementSettingsApproach.rotationYaw
+movementSettingsApproach.movementSpeed
+movementSettingsApproach.rotationSpeed
+movementSettingsApproach.bSnapToGround
+movementSettingsApproach.bScaleRotationSpeed
+movementSettingsApproach.bDisableLTWRotation
+movementSettingsApproach.bMaintainUpAxis
+waveBoneSystem
+leftFistNodeIndex
+rightFistNodeIndex
+movementSettingsChase.velocityDirection
+movementSettingsChase.rotationYaw
+movementSettingsChase.movementSpeed
+movementSettingsChase.rotationSpeed
+movementSettingsChase.bSnapToGround
+movementSettingsChase.bScaleRotationSpeed
+movementSettingsCharge.velocityDirection
+movementSettingsCharge.rotationYaw
+movementSettingsCharge.movementSpeed
+movementSettingsCharge.rotationSpeed
+movementSettingsCharge.bSnapToGround
+movementSettingsCharge.bScaleRotationSpeed
+movementSettingsTurnOnTheSpot.bSnapToGround
+KDAnimProperty
+spikePushAwayRadius
+spikePushAwaySpeed
+hudHealthDivisor
+sndFormed
+nanobotBossBoneSystem
+sndPlayFrame_1
+sndPlayFrame_2
+movementSettingsChase.bUsePreCalcCollision
+movementSettingsCharge.bUsePreCalcCollision
+movementSettingsJump.velocityDirection
+movementSettingsJump.rotationPitch
+movementSettingsJump.rotationYaw
+movementSettingsJump.movementSpeed
+movementSettingsJump.jumpHeight
+movementSettingsJump.bUsePreCalcCollision
+movementSettingsTurnInstantly.bUsePreCalcCollision
+movementSettingsTurnOnTheSpot.bUsePreCalcCollision
+nanobotBallBoneSystem
+movementSettingsBounce.velocityDirection
+movementSettingsBounce.rotationYaw
+movementSettingsBounce.movementSpeed
+movementSettingsBounce.jumpDistance
+movementSettingsBounce.jumpHeight
+sndPlayFrame_3
+movementSettingsCreepToward.velocityDirection
+movementSettingsCreepToward.rotationYaw
+movementSettingsCreepToward.movementSpeed
+movementSettingsCreepToward.rotationSpeed
+movementSettingsCreepToward.bSnapToGround
+movementSettingsJump.rotationSpeed
+movementSettingsJump.jumpDistance
+movementSettingsJump.jumpTurnAngle
+movementSettingsFlyPanic.velocityDirection
+movementSettingsFlyPanic.rotationPitch
+movementSettingsFlyPanic.rotationYaw
+movementSettingsFlyPanic.movementSpeed
+movementSettingsFlyPanic.rotationSpeed
+movementSettingsFlyPanic.bScaleRotationSpeed
+movementSettingsFlyReturn.velocityDirection
+movementSettingsFlyReturn.rotationPitch
+movementSettingsFlyReturn.rotationYaw
+movementSettingsFlyReturn.movementSpeed
+movementSettingsFlyReturn.rotationSpeed
+movementSettingsFlyReturn.bScaleRotationSpeed
+bEnemy
+movementSettingsStrafe.velocityDirection
+movementSettingsStrafe.movementSpeed
+movementSettingsStrafe.bSnapToGround
+sndWeaponFire
+sndHitByBunyip
+sndProjectileExplode
+opalSpawnCount
+pretendToBeEnemyMag
+movementSettingsWalk.bSnapToGroundNormal
+movementSettingsRun.bSnapToGroundNormal
+movementSettingsTurn.bSnapToGroundNormal
+movementSettingsTurnInstantly.bSnapToGroundNormal
+bWaterDive
+movementSettingsWaterDive.velocityDirection
+movementSettingsWaterDive.rotationPitch
+movementSettingsWaterDive.rotationYaw
+movementSettingsWaterDive.movementSpeed
+movementSettingsWaterDive.rotationSpeed
+movementSettingsWaterDive.bScaleRotationSpeed
+movementSettingsSwim.velocityDirection
+movementSettingsSwim.rotationPitch
+movementSettingsSwim.rotationYaw
+movementSettingsSwim.movementSpeed
+movementSettingsSwim.rotationSpeed
+movementSettingsSwim.bPerformJitter
+movementSettingsSwim.jitterSpeed
+movementSettingsSwim.jitterScale
+movementSettingsSwim.bScaleRotationSpeed
+movementSettingsSwimFast.velocityDirection
+movementSettingsSwimFast.rotationPitch
+movementSettingsSwimFast.rotationYaw
+movementSettingsSwimFast.movementSpeed
+movementSettingsSwim.bMaintainUpAxis
+movementSettingsSwimFast.rotationSpeed
+movementSettingsSwimFast.bScaleRotationSpeed
+movementSettingsSwimFast.bMaintainUpAxis
+movementSettingsJump.bSnapToGround
+movementSettingsJUmp.bSnapToGroundNormal
+movementSettingsRun.rotationPitch
+movementSettingsHover.bPerformJitter
+movementSettingsHover.jitterSpeed
+movementSettingsHover.jitterScale
+movementSettingsHover.bMaintainUpAxis
+bLanding
+movementSettingsFly.bPerformJitter
+movementSettingsFly.jitterSpeed
+movementSettingsFly.jitterScale
+movementSettingsLand.velocityDirection
+movementSettingsLand.rotationPitch
+movementSettingsLand.rotationYaw
+movementSettingsLand.movementSpeed
+movementSettingsLand.rotationSpeed
+movementSettingsLand.bScaleRotationSpeed
+movementSettingsLand.bMaintainUpAxis
+swayRange
+swayPeriod
+sndSwing
+swingSndPlayPos
+sndWhoosh
+sndWhooshPlayPos
+collapseType
+flameRefPoints
+sndFlame
+postype
+defaultMissionPositionDescriptor
+giveMissionPosDescriptor
+completeMissionPosDescriptor
+numArrows
+arrowScale
+checkRadius
+maxShadowHeight
+maxTilt
+sndSpin
+headMaterial
+m_crate
+shattered
+bExplodable
+shockwaveStartRadius
+shockwaveEndRadius
+explodeType
+m_sign
+lookTarget
+rangTarget
+biteTarget
+alpha
+invisibleMatOverride
+viewWithInfraRangMatOverride
+m_visible
+rangs
+m_smashcrate
+bob
+burn
+eyeMaterial
+m_camera
+m_zpropeller
+m_spyegg
+idleAnim
+activeAnim
+rightDoor
+leftDoor
+SafeSubObjectName
+retractedAnim
+collapsedAnim
+collapsingAnim
+retractingAnim
+timeToCollapse
+timeToRetract
+pressedAnim
+releasedAnim
+bToggle
+bEnableShatterSubObjects
+BreakTimeDelay
+sndMissileLaunch
+sndMissileExplosion
+sndMissileTrail
+shatterPower
+shatterUpVel
+shatterLife
+shatterBounce
+shatterGravity
+shatterSpinrate
+shatterAirResistance
+modelScale
+bLaunchStopOnExplode
+gpuParticlesOnUpdate
+gpuParticlesOnHit
+bSpawnTrail
+UseQuickCollision
+adjustModelYaw
+trailLength
+minSmokeSpawnAmount
+maxSmokeSpawnAmount
+bCrazyGeorgeExplosionSfx
+collisionMessage
+sndRotateLP
+sndSlide
+timeout
+bShadow
+numOpals
+bShadowOnDynamicProp
+bNoRayCollideShadow
+bChronorangable
+biteDamage
+bunyipDamage
+explodeDamage
+alertRange
+remainAlertRange
+startAttackRange
+startMeleeRange
+meleeHitRange
+maxCollisionLOD
+visibleAngle
+heroKnockBackSpeed
+defaultRotSpeedLinear
+defaultRotSpeedSmooth
+bImmortal
+bDieInLava
+bDieInWater
+maxOpalsToSpawn
+rangDamage
+sndHeroHit
+sndLasharangSpin
+bPlayJeepHitSound
+bPlayBothJeepHitSounds
+sootScale
+headSubObjectName
+lookScope
+breakAndTurnTimer
+battleHudDisplayTime
+rotateSpeed
+runSpeed
+runTime
+walkSpeed
+cutsceneSet1
+cutsceneSet2
+cutsceneSet3
+cutsceneSet4
+cutsceneSet5
+runAnimName
+idleCount
+movementGravity
+velDirType
+bAddToHelicopterHud
+cutscenes2AfterMission
+cutscenes3AfterMission
+cutscenes4AfterMission
+specialAnimName
+vulnerableDescriptor
+sound
+MessageSufix
+LoopingPath
+fakeModel
+normalHeadSubObject
+psychoHeadSubObject
+headNode
+headRadius
+btRefPoints
+acceleration
+minEngineSpeedForPitchAdjust
+maxEngineSpeedForPitchAdjust
+minEngineSoundPitch
+maxEngineSoundPitchIncrease
+SndAmbient
+sndHitByHero
+CannonBallName
+ghostScale
+rangType
+NodePrefix
+bUseQuickHeadDetection
+bCanUseEnemyRegion
+attackYOffset
+animSwim
+animFlinchA
+animFlinchB
+animTurn
+animMelee
+animDeath
+sndAlert
+animWalk
+animRun
+animIdle
+animAlert
+animRanged
+animFlinch
+pRangedRefNode
+pMeleeRefNode
+ThrowingWeapon
+underwaterMoveSpeed
+aboveGroundMoveSpeed
+waitAtPathEndBreakRange
+waitAtPathEndBreakDelay
+particleSpawnTime
+collisionSphereName
+maxCollisionLod
+accelRate
+deccelRate
+squashDelay
+hintTime
+startAttackrange
+defaultScale
+fadeInTime
+fadeOutTime
+lifeTime
+scrollSpeed
+effectOnMessageID
+--------------------------------------------------------
+minvelocity
+maxvelocity
+minscale
+maxscale
+minrate
+maxrate
+envelope
+systemWidth
+systemHeight
+systemDepth
+maxParticleAge
+refPoint
+minVelocity
+maxVelocity
+minScale
+maxScale
+minRate
+maxRate
+----------------------------------------------------------
+tweenTime
+behaviour
+startHeight
+flightTime
+sndWarningStartPoint
+sndWarning
+M_Boulder
+bNoBunyipPunch
+bIgnoreExplosion
+M_Outering
+searchmask
+m_icecube
+M_IceCube
+remainingCollision
+M_ManFern
+M_ManFernStump
+M_ManPalm
+M_Stump
+M_GiantPine
+CartIgnore
+M_AntMound
+M_AntMound01
+Smasharangable
+M_TyrePile
+M_HayBale
+mass
+UseSphere
+sndKnock
+bBiteable
+M_RoadsideBin
+M_SpeedSign
+M_FloodMeter
+bUpdateInDraw
+SearchMask
+maxdrawdist
+openSound
+closeSound
+topSubObject
+clothSubObject
+rotationTime
+clothMaterial0
+clothMaterial1
+M_AppleCrate
+Fx015_SteamGeneratorProp
+bobRange
+bobPeriod
+bDrawLightFlash
+leftdoor
+rightdoor
+animShatter
+animShattered
+M_Pipe01
+M_Pipe01_00
+M_Pipe01_01
+M_Pipe01_02
+M_Pipe01_03
+M_Pipe02
+M_Pipe02_00
+M_Pipe02_01
+M_Pipe02_02
+M_Pipe03
+M_Pipe03_00
+M_Pipe03_01
+M_Pipe03_02
+M_Pipe04
+M_Pipe04_00
+M_Pipe04_01
+M_Pipe04_02
+Fx015_SteamSmallProp1
+Fx015_SteamSmallProp2
+Fx015_SteamSmallProp3
+Fx015_SteamSmallProp4
+FX016_SmokeyBoom
+Fx017_FireSmallprop1
+Fx017_FireSmallprop2
+Fx017_FireSmallprop3
+Fx017_FireSmallprop4
+modelMaterial
+aliasMaterial
+M_Trough
+M_FenceMidB
+M_FenceEndB
+FirePropSteam
+Timer
+TimerProperty
+interval
+Flame
+sndExtinguish
+M_Post
+Kaboomarangable
+M_icecube
+sndTargetPressed
+MaxDrawDist
+MaxUpdateDist
+M_PoliceRoadBlock
+maxScissorDist
+M_Trunk
+Dust02
+Dust03
+Dust04
+CamShake
+CamShakeTimer
+DefaultParticleExplosion
+CameraShakeProperty
+range
+shake
+vibrate
+M_Door
+M_FragDoor01
+M_FragDoor02
+M_FragDoor03
+M_FragDoor04
+M_FragDoor05
+M_FragDoor06
+M_FragDoor07
+M_FragDoor08
+M_FragDoor09
+M_FragDoor10
+M_FragDoor11
+M_FragDoor12
+M_FragDoor13
+M_FragDoor14
+M_FragDoor15
+M_FragDoor21
+bBunyipPunchOnly
+M_CarA
+M_CarB
+M_CarC
+M_CarD
+KDScriptProperty
+M_BeachHut
+M_RoadFrag10
+M_Pillar
+M_RoadFrag01
+M_RoadFrag02
+M_RoadFrag03
+M_RoadFrag04
+M_RoadFrag05
+M_RoadFrag07
+M_RoadFrag09
+M_RoadFrag14
+M_RoadFrag11
+M_RoadFrag12
+M_RoadFrag13
+M_RoadFrag16
+M_RoadFrag18
+M_StaticPeices
+M_SmallFrag04
+M_Road
+FX000_DirtyBoom
+M_Debris01
+M_Debris02
+M_Debris03
+M_Debris04
+M_Debris05
+M_Debris06
+M_Debris07
+M_Debris08
+M_Debris09
+M_Debris10
+M_Debris11
+M_Debris12
+M_Debris13
+M_Debris14
+M_Debris15
+M_Debris16
+M_Debris17
+M_Debris18
+M_Debris19
+M_Debris20
+M_Debris21
+M_SmashDebris
+M_Dinghy
+M_speedsign
+M_Sign
+bRandomAnimOffset
+M_GuidePost
+M_Reflectors
+bUseGroundcolor
+maxupdatedist
+sndScaleIn
+sndScaleOut
+surfSoundDistanceFromCamera
+surfSoundRotFromFront
+objectivePointerDescriptors
+rescuePropDescriptor
+bEnableSound
+LaserProp
+animHit
+bRoll
+propName
+RemainingColName
+particle
+pitchSoundAdjust
+sndPitchAdjustTime
+animRetractIdle
+animExtendIdle
+animExtend
+animRetract
+RotateSubObject
+volSoundAdjust
+volAdjustTime
+animBase
+FX011_cartsparks1
+FX011_cartsparks2
+#bAmbientSound
+#bInitialAmbientSoundOn
+#sndAmbient
+UsePlatformObject
+busegroundcolor
+M_Hedge
+M_NoCrater
+M_Crater
+M_RockTor
+M_RockIntact
+M_RockBroken
+M_Fountain
+M_ZAWaterBot
+M_ZAWaterMid
+M_ZAWaterTop
+M_ZBWaterBot
+M_ZBWaterMid
+bUseSimplePhysics
+bDoKnock
+bDoExplosion
+M_Intact
+Shattering
+M_Branch
+M_LeafIntact
+M_ZFlame01
+Shattered
+M_Box
+M_Plank01
+M_Wallbit01
+M_Wallbit02
+M_Awning01
+M_Awning02
+M_Awning03
+M_Roof02
+M_Stump01
+M_Topstair
+M_Stair01
+M_StumpLF
+M_Roofbit02
+M_HouseBody
+M_BL
+M_Steps
+M_Floor
+M_PostR
+M_Roofbit01
+M_FloorL
+M_HouseL
+M_Plank02
+M_RoofApex
+M_ZFlame
+M_FloorR
+M_Front
+M_FrontFloor
+M_FrontPillars
+M_FrontPost00
+M_FrontPost
+M_FrontPost01
+M_HandRailL
+M_HouseR
+M_PorchBit01
+M_Porchpost
+M_Post01
+M_Post02
+M_Rail
+M_Roof
+M_Roof01
+M_Roof03
+M_Roof04
+M_Roof05
+M_Roof06
+M_Spike
+M_Stumps
+M_TopStep
+M_RoofLb
+M_RoofM
+M_Peak03
+M_RoofR
+M_RoofF
+M_SpikeBit
+M_FrontBit
+M_Gable
+M_Plank
+M_HouseRv
+M_WallRB
+M_Awn
+M_RoofL
+M_HouseFront
+M_WallRF
+M_StumpR
+M_FrontPole01
+M_RoofRb
+hitPoints
+M_FL
+M_BR
+M_FR
+M_Burnt
+M_ML
+M_MR
+M_RightDoor
+M_LeftDoor
+M_InnerDoor
+M_PillarR
+M_Bits00
+M_Bits01
+M_Bits02
+M_Bits03
+M_Bits04
+M_Bits05
+M_Wire
+bNoPunchAfterClosing
+BunyipPuncha
+BunyipPunchb
+BunyipPunchc
+lookNode
+aimNode
+projectile
+projectileOrigin
+reloadTime
+aimingError
+walkspeed
+greetingSet
+extraLoopingSoundEvent
+RefPointPrefix
+missileHatch
+FragPieceName
+hitEffectID
+dropAlongPathMag
+bombCount
+dropPointTypeName
+maxDropPointsPerGroup
+UseNormalWayPoints
+WheelNames
+Wheel
+bSndFunctionOnOff
+cannonL01
+cannonr01
+pulsePeriodOff
+pulsePeriodOn
+pulseColourOn
+pulseColourOff
+pulseMaterial
+M_GiantMelon
+Message
+bfragable
+shatterpower
+shatterupVel
+shatterlife
+shatterbounce
+shattergravity
+shatterspinrate
+bDoBoomerangKnock
+bKnockOnExplodeMsg
+bDoBunyipPunch
+M_Object
+StateTime
+M_V017_PrisonTruck
+M_Bowl
+M_WaterJug
+M_Grapes
+CSFX_BigSplash
+bKeepReleasedAnimAfterHit
+animEnable
+KnockBackRefPt
+phase
+propeller
+rudderLeft
+rudderRight
+rudderCenter
+Smoke
+wakeScale
+HeadTurningNode
+PlateNumber
+sndLockingOn
+sndLockedOn
+lockingOnPitch
+cacheWorldspace
+weight
+FX006_fuelsparkleEmitter
+attackBroadcastRadius
+riderReferencePoint
+ropeHoldingLength
+pickUpRadius
+animLeft
+animRight
+physicsType
+MinSpeed
+MinSpeedAcceleration
+minGlideSpeedForPitchAdjust
+maxGlideSpeedForPitchAdjust
+minGlideSoundPitch
+maxGlideSoundPitchIncrease
+bCanLand
+sndPickupReaction
+sndImpactReaction
+sndSplash
+sndUnderWater
+sndDropImpact
+sndDropReaction
+launchPitch
+modelAttachRefPoint
+animManager
+set
+anim
+speed
+sndPickUp
+sndPutDown
+sndCorrectDrop
+disableSubObject
+autoOpen
+M_FlowerPot
+rotateSubObj
+bStopLaunchOnExplode
+bLaunchSndFollow
+M_Pile
+M_B3SmashPillar
+FlameRefPoints
+waterSplashSound
+M_SmashShack
+M_TreeIntact
+M_TreeBroken
+M_BridgeFlat
+minDrawDist
+fadeDist
+M_Poles
+M_Frag01
+M_Frag02
+M_Frag03
+M_Frag04
+M_Frag05
+M_Frag06
+M_Frag07
+M_Frag08
+M_Frag09
+M_Frag10
+M_Base
+M_FallingProp01
+M_SmallPipe
+Fx015_SteamSmallProp
+Fx017_FireSmallprop
+animDisable
+bDisplayAsTrap
+Level
+bWorldRotationInCenter
+bPlayBassOnLand
+M_Crate
+M_RoadHut
+M_StopSign
+M_NoTurnSign
+M_SlipperySign
+M_ConstructionSign
+M_Shovel
+M_Esky
+trailMatName
+sndThrow
+sndThrow02
+sndDeflect
+sndEnemyHit
+aeoRadius
+aeoSpeed
+ropeMatName
+sndThrowFadeOutTime
+maxControllableFlightHeight
+deathTime
+glowMaterial
+musicPickupID
+musicPickupPlayTime
+noBonusPassProp
+bCrazyGeorge
+beepInterval
+beepPitch
+bMagnetic
+meleeLeftRefPt
+meleeRightRefPt
+refPtLeftFist
+refPtRightFist
+animIdle1
+animIdle2
+animAttackIdle1
+animAttackIdle2
+animMelee1
+animMelee2
+animQuickTurn
+animPickupRock
+animThrowRock
+animPickupHugeRock
+animThrowHugeRock
+hugeRockDescriptor
+hugeRockThrowProbability
+bThrows
+animSleep
+animWakeUp
+refPtRightArm1
+refPtLeftArm1
+refPtBody
+cameraColRadius
+cameraColOffset
+FX010_sleepzees
+animAttackIdle
+animBreathEnter
+animBreathLoop
+animBreathExit
+animBlock
+animLoseTorch
+animGetTorch
+chaseAttackDist
+extensionRange
+biteRange
+headDamage
+bodyDamage
+PreFix
+healthParticles
+bInitalAmbientSoundOn
+trapPropName
+housePropName
+IdleCount
+animCower
+sndHitPhrase
+FootPrintMaterialName
+volumeType
+bAddBlipToHud
+bUseParticles
+FX003_Largefire
+Fx001_Steam
+M_CyChargePoint
+smasharangable
+M_MineEntry_
+M_MineEntry02
+M_Rockwall
+M_ZGlow
+remainingSubObject
+M_Rockwall02
+M_FragTors
+M_manFernStump
+M_giantpine
+M_Cycad
+M_Fern
+M_SeaRock
+M_SmashPillar
+SmokeEmitter
+SparksEmitter
+FlashEmitter
+ExplosionFlashEmitter
+ExplosionSmokeEmitter
+ExplosionTendrilEmitter
+ExplosionRingEmitter
+ExplosionSparksEmitter
+FX000_FlashEmitter
+FX000_SparksEmitter
+FX000_DirtEmitter
+FX000_SmokeEmitter
+FX000_rocksEmitter
+FX001_SteamEmitter
+FX002_DustEmitter
+FX002_SplintersEmitter
+FX003_FireLargeEmitter
+FX003_FireSparksEmitter
+FX005_lavablobsEmitter
+FX007_smokeEmitter
+FX008_lavabubblesEmitter
+FX009_rockfireEmitter
+minRot
+maxRot
+FX010_sleepZEmitter
+useYAxis
+FX012_feathersEmitter
+FX012_bluefeathersEmitter
+FX013_greendebrisEmitter
+FX013_panelEmitter
+FX013_machineEmitter
+FX014_sootclodEmitter
+FX014_sootpuffEmitter
+Fx015_SteamGeneratorEmitter
+FX015_SteamSmallEmitter
+Fx017_FireSmallEmitter
+FX018_hotsplatEmitter
+FX019_BlueFlameEmitter
+FX020_paddlesplashEmitter
+FX021_lavafireEmitter
+FX004_SmoketrailEmitter
+FX004_MissileFlameEmitter
+FX006_SmalldustEmitter
+FX007_mediumdustEmitter
+FX008_largedustEmitter
+FX009_leaffallEmitter
+FX010_LaserbeamEmitter
+FX011_SparkEmitter
+FX012_smokescreenEmitter
+FX013_leafblowerEmitter
+FX014_mediumflameEmitter
+FX014_mediumsmokeEmitter
+FX015_splintersEmitter
+FX016_explosionEmitter
+FX016_smokeEmitter
+FX016_smExplosionEmitter
+FX016_smSmokeEmitter
+FX017_watersprayEmitter
+FX018_BigSplashEmitter
+FX019_WatershakeEmitter
+FX020_ChurggleEmitter
+FX021_e4glowEmitter
+FX022_EnginestartEmitter
+FX022_EnginesparkEmitter
+FX023_EngineFireEmitter
+FX023_EngineSmokeEmitter
+FX024_ContrailsEmitter
+FX025_FireworksRedEmitter
+FX026_FireworksPurpleEmitter
+FX027_FireworksYellowEmitter
+FX028_confettiEmitter
+FX029_ExplosionBigEmitter
+FX030_ContrailNewEmitter
+FX031_brokenglassEmitter
+FX032_DirtcloudEmitter
+FX033_sparkoutEmitter
+FX034_patchyleafEmitter
+FX035_opalchunkEmitter
+FX036_risingsteamEmitter
+FX037_risingstoneEmitter
+FX038_BflameEmitter
+FX039_ninjapuffEmitter
+Fx050_ThickSmokeEmitter
+detailRadiusLow
+detailRadiusMedium
+detailRadiusHigh
+maxVisibleRadiusLow
+maxVisibleRadiusMedium
+maxVisibleRadiusHigh
+clumpSizeLow
+clumpSizeMedium
+clumpSizeHigh
+densityLow
+densityMedium
+densityHigh
+pushawayscale
+mincolor
+maxcolor
+upVector
+movement
+animSpeed
+animSpeedRange
+Seed
+AnimSpeedRange
+Movement
+AnimSpeed
+PushawayScale
+VisibilityScale
+NormalFacing
+Randomseed
+MinScale
+MaxScale
+MinRotation
+MaxRotation
+Enable
+MovementFactor
+normalFacing
+minRotation
+maxRotation
+seed
+Distribution
+upvector
+mincale
+nable
+UpVectorX
+UpVectorY
+UpVectorZ
+UpVectorW
+MinColorR
+MinColorG
+MinColorB
+MaxColorR
+MaxColorG
+MaxColorB
+------------------------------------------------
+-------------------------------------------
+mincolorSub
+maxcolorSub
+------------------------------------------------------CoralDefault
+-----------------------------------------------------------
+---------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------CoralM64
+---------------------
+----------------------
+---------------
+-----------------------------
+---------------------------------
+index
+collide
+overtake
+weapon
+global
+minFadingPropAlpha
+maxParticles
+availableFrameTime
+clipPlanes
+lights.dir0
+lights.col0
+lights.dir1
+lights.col1
+lights.dir2
+lights.col2
+lights.ambient
+bShowCheatButtons
+bShowPosButton
+bShowCutscenes
+enemyHitpointsScale
+defaultCollisionMin
+defaultCollisionMax
+sounds.count.global
+sounds.count.environment
+sounds.count.cutscene
+sounds.size.stringCache
+sounds.musicMultiplierForCutscene
+sounds.musicMultiplierForCutscene_XB
+sounds.musicMultiplierForCutscene_GC
+sounds.masterMusicVolume
+sounds.masterMusicVolume_XB
+sounds.masterMusicVolume_GC
+sounds.masterSoundFXVolume
+sounds.maxSndDistForMultiPlayerRace
+sounds.size.total
+sounds.size.global
+sounds.size.environment
+sounds.size.cutscene
+chunks.size.global
+chunks.size.environment
+chunks.size.cutscene
+chunks.size.level
+level
+category
+titleId
+bShowInLevelMenu
+bHubLevel
+bHasRaceMap
+bAllowExitLevel
+raceMapScaleX
+raceMapScaleZ
+raceMapOffsetX
+raceMapOffsetY
+startChunk
+chunkCount
+envChunk
+fogPlanes
+fogCol
+windDir
+levelMap
+saveType
+bilbyIDs
+hiddenFrillIDs
+kromiumOrbIDs
+pictureFrameIDs
+platinumCogIDs
+steveIDs
+chunk
+envDome
+ground
+fftwater
+link
+Music
+bStartLevel
+bDontPlayMusic
+sfxLimit
+bLockedToCam
+camLock
+raceMapYaw
+bBossLevel
+bossCameo
+levelmap
+bUpdateAvailMissions
+noShadowCast
+bLockedOut
+water
+bRaceLevel
+extraRaceChunk
+bHasCarts
+bEnemiesPullCameraOut
+bUnderwaterLevel
+depthClear
+offset
+bCreditsLevel
+missiondata
+items
+item
+titleID
+descID
+status
+subType
+shopID
+TargetDesc
+TDAIcon
+ShopIconName
+ShopCurrencyType
+precondition
+missions
+mission
+itemPrecondition
+itemHeadingID
+itemBodyID
+failureHeadingID
+failureBodyID
+failureActionID
+failureResponseType
+priority
+requireItem
+cutscenes
+numNeeded
+shops
+shop
+P0904_Z2houseE
+A173_CY512
+RB3_04
+P0291_B3GSC_01
+P0292_B3GSC_02
+P0293_B3GSC_03
+P0294_B3GSC_04
+P0295_B3GSC_05
+P0296_B3GSC_06
+A088_Megalodon
+A043_Steve
+TY Theme in B
+A Bit Latin the Day
+Theme Park Theme
+Patchy
+Carmena Goanna
+Fluffy
+We of the Nano-Nano
+Deja Vu
+Cass!!!!!
+CY Arena
+Canopy Capers
+Avine Rescue Now Redux
+Fire Rescue
+Lifter Bunyip R0x0rs
+Cargo Au GoGo
+King Birrel
+Helicopter Feel
+Temple of Carnook
+Lava Cup of Tea
+Ghost Guard
+Crimson TY
+Grub Grab
+Get a Move On
+Ty Electro Theme
+Hot Enough For You?
+50 Foot Squeaver
+Enter the Tasmanian Tiger!
+Mystic Sausage Roll
+Bush Rescue HQ
+Burramudgee
+Attack on Currawong (part 1)
+Attack on Currawong (part 2)
+Battle Bunyip
+Please Sir, I want some Mortar
+Attack on Currawong (part 3)
+Fourbie Too Far Away
+name a001_ty01RegularTy
+textureLayerColor
+wake
+reflectAdd
+reflectMix
+reflectWobble
+subdivisionLevel
+envMapAnimSpeed
+distanceScale
+bDistanceScaleFade
+noiseScale
+wobbleUVScale
+refractWobble
+wave_0_animSpeed
+wave_0_xDir
+wave_0_zDir
+wave_0_height
+wave_0_frequency
+wave_0_phaseShift
+wave_1_animSpeed
+wave_1_xDir
+wave_1_zDir
+wave_1_height
+wave_1_frequency
+wave_1_phaseShift
+directionality
+overallWaveHeight
+patchWidth
+waterDepth
+WaterRed
+WaterGreen
+WaterBlue
+WaterAlpha
+ReflectionBrightness
+ReflectionVariance
+Smoothness
+WindAngle
+WindSpeed
+RandomSeed
+SmallestWaveLength
+LargestWaveLength
+WaveHeight
+WobbleAmount
+FadeOff
+DeadDistance
+BaseExpand
+HeightScaler
+useskymap
+value
+modelList
+weather
+particles
+color0
+color2
+color3
+xVel
+yVel
+zVel
+numParticles
+envAnimRate
+minY
+maxY
+rain
+materialScrollSpeed
+lightning
+numFlashes
+minSpawnDelay
+maxSpawnDelay
+minColor
+maxColor
+innerRadius
+outerRadius
+flashOffTime
+flashOnTime
+enableMask
+shadow_dir
+shadow_fadeTo
+shadow_height
+shadow_d1_nearFar
+shadow_d1_radius
+shadow_d1_ranges
+shadow_d1_bias
+shadow_d2_nearFar
+shadow_d2_radius
+shadow_d2_ranges
+shadow_d2_bias
+shadow_d3_nearFar
+shadow_d3_radius
+shadow_d3_ranges
+shadow_d3_bias
+ssao
+bloom
+hsv
+pos
+cameraIndex
+bUseCollisionInfo
+bStartWithSmasherang
+rot
+zone
+dummy
+name ThunderballEffectpool
+name Opalpool
+name PickupFramepool
+name PlatinumCogpool
+name KromiumOrbpool
+name OpalBagpool
+name WaterSplashpool
+name WoodChunkspool
+name IceCrystalpool
+name RockCrystalpool
+name Explosionpool
+name LavaRingpool
+name ThunderRingpool
+name IceRingpool
+name Icebergpool
+name FX014_Sootpool
+OnSuccess
+targetID
+critterCount
+missionID
+TargetID
+OnFailure
+bEnabled
+bRespondToMissionChanged
+UnavailableScript
+AvailableScript
+WaitingScript
+ActiveScript
+CompletedScript
+FinishedScript
+ClosedScript
+newMusicName
+ExitMusicName
+levelMusicFadeOutTime
+levelMusicFadeInTime
+newMusicFadeOutTime
+newMusicFadeInTime
+bPlayMusicUninterrupted
+AIControlled
+ArchieChild_1
+ArchieChild_2
+ArchieChild_3
+ArchieChild_4
+ArchieChild_5
+ArchieID
+ArchieRoost
+CameraSplineID
+CollectedItemID
+Collide
+CutscenePropID
+DDAValue
+DefaultTrackWidth
+DennisID
+DisableCameraState
+DropPropsName
+E1Level
+EndPoint1
+EndPoint2
+ExtendedTime
+FOV
+FlipDelay
+FrameNumber
+FutureFrillPool
+GrindRailID1
+GrindRailID2
+GrindRailID3
+GrindRailID4
+GrindRailID5
+GrindRailID6
+IgnoreId
+KoalaID
+LoopPaths
+MapNumber
+MapPos
+MapRot
+MarkerPropID
+MaxDistance
+MaxMessageNum
+Message0
+Message1
+Message2
+Message3
+Message4
+Message5
+Message6
+Message7
+Message8
+Message9
+MinMessageNum
+MissionID
+MoveTime
+NeighbourPillar0
+NeighbourPillar1
+NeighbourPillar2
+NeighbourPillar3
+NumDescriptors
+NumInstances
+NumSwapGroups
+NumberOfLaps
+Objective
+ObjectiveID
+ObjectivePropID
+On1stWin
+OnAction
+OnActivation
+OnAttach
+OnBestTime
+OnBoomerangHit
+OnClose
+OnCollected
+OnCompleteMission
+OnCompleteMission2
+OnCompleteMission3
+OnCompleteMission4
+OnCompleteMission5
+OnCompletion
+OnDeath
+OnDefeat
+OnDennisMoved
+OnDetach
+OnDropped
+OnEnd
+OnEndPhaseOne
+OnEndPhaseThree
+OnEndPhaseTwo
+OnEnter
+OnExit
+OnExplosion
+OnExtinguish
+OnFirstActivation
+OnFirstDemonFluffyKilled
+OnGiveMission
+OnGiveMission2
+OnGiveMission3
+OnGiveMission4
+OnGiveMission5
+OnHatch
+OnHint
+OnHint2
+OnHint3
+OnHit
+OnLaunch
+OnLose
+OnNo
+OnNotBestTime
+OnOpen
+OnPickUp
+OnPlay
+OnShatter
+OnStart
+OnStop
+OnTail
+OnTotalReached
+OnYes
+OverlayState
+OvlyBV
+ParticleDistance
+PathOneID
+PathTwoID
+PauseTime
+PlatformID
+PocketFluffyID
+QuakePos
+QuakeRot
+RetractedTime
+Reward
+RotationSpeed
+ShopID
+SpawnEffectName
+Speed
+StartPoint1
+StartPoint2
+StartingAngle
+StayOnTime
+SteveNumber
+StringID
+System
+TargetIDh1
+TotalTickingTime
+Trigger
+WarningSoundDelay
+WorldMinMax
+WorldMinMaxWorldMinMax
+WorldMinMaxh1
+Yaw
+YesNoText
+activationRadius
+afterFailureCutscene
+afterMissionID
+afterMissionIDh1
+aftermissionID
+altCutscene1
+armstrongFieldID
+askAfterFailure
+bActionOnceOnly
+bActivateAtLevelStart
+bActive
+bAddToHUD
+bAlwaysSpawnFlak
+bBlankScreenAfter
+bBurning
+bCanAdlib
+bCanBunyipExit
+bCanExitFromBunyip
+bCanExplodeFromFlak
+bCap
+bChangeDistanceQuickly
+bCollide
+bCollideOn
+bCoolantAutoDecrease
+bCreateShatterProps
+bCutsceneWaitForHero
+bDelayEachMessage
+bDemoShowRetry
+bDestructable
+bDisableGroundAttachment
+bDisablePlayerAdjust
+bDisplayControlsOnEnter
+bDrawAtFullAlpha
+bDrawDuringCutscenes
+bDropBombWhenNearHero
+bDropPropsSpawnOpals
+bE1Patchy
+bEnableHeroOnExit
+bEnterOnceOnly
+bExclaim
+bExitOnceOnly
+bFlock
+bForceAscend
+bFragOnDeath
+bFunctioning
+bGrindable
+bHoverInitially
+bInitiallyActive
+bInitiallyEnabled
+bInitiallyVisible
+bIsFake
+bKnockToSafePos
+bLeaveHeroVisible
+bLevelIntro
+bLevelSpawn
+bLoop
+bLooping
+bMoveOne
+bNonCircular
+bObjPtrDrawArrow
+bOnlyRespondToFunctionOn
+bResetOnChunkEnabled
+bRespawnWhenNotInView
+bRespondToBunyipPunch
+bSaveEnterOnceOnly
+bSetCameraPos
+bSetHeroPos
+bShowAction
+bSingleMove
+bSleepingEnemy
+bSnapLetterbox
+bSnapToInitialPos
+bSpawnDust
+bSpawnsOpals
+bSpecial
+bStartCollapsing
+bStartLocked
+bStartOpen
+bStartsAsOpen
+bStayExtended
+bStopMusicOnRespawn
+bSynkerAnimate
+bSynkerLookAt
+bUseBunyipCameraDistances
+bUseFog
+bUseGrindCamera
+bUseLoadingScreen
+bUseMissionData
+bUseScreenMask
+bWaitForDropPropsToDie
+bWater
+bYesNoOption
+bagType
+bautoStart
+beforeMissionID
+beforemissionID
+bombs
+bonusCrateID
+bosscassFieldID
+box
+bunyipBayID
+bunyipID
+camera
+cameraPYR
+cameraPos
+cameraSource
+cameraTarget
+cameraTargeth1
+cannonNeddyType
+centerPos
+chunkName
+closeTime
+colSpawnType
+collisionCritterFieldID
+completeItem1
+completeItem2
+completeItem3
+completeItem4
+completeItem5
+completeMission1
+completeMission2
+completeMission3
+completeMission4
+completeMission5
+completeMissionID1
+completeMissionID2
+completeMissionID3
+completeMissionID4
+completeMissionID5
+contents
+count
+counterHoldTime
+counterMaterialName
+crashpath
+createCount
+createCounth1
+createPropCount
+createPropName
+crocType
+cutscene
+cutscene1
+dataManager
+delay
+delayFunctionOnTime
+demonFluffy1
+demonFluffy2
+demonFluffy3
+demonFluffyType
+destinationID
+destructableState
+disabledZone
+disguisePropID
+doubleDirection
+dragonType
+drawInReflections
+dropOtherShipsProps
+dropPointGroupID
+dropPropCount
+dropPropsWhenNearProp
+dropShip1
+dropShip2
+dropShip3
+dropShip4
+dummySphere
+embeddedWaypoints0
+embeddedWaypoints1
+enableWater
+enablezone
+endOfPathLaserTarget
+endPt
+enemyType
+eventHeroAtEndOfSpline
+exitMusicName
+extendedTime
+far
+fastSpeedTime
+fireMissionPropOnRecap1
+fireMissionPropOnRecap2
+fireMissionPropOnRecap3
+fireMissionPropOnRecap4
+fireMissionPropOnRecap5
+fixachronCutscene1
+flak
+fogFarPlane
+fogNearPlane
+fogcolor
+followLeaderID
+followPathID
+giveItem1
+giveItem2
+giveItem3
+giveItem4
+giveItem5
+giveMission1
+giveMission2
+giveMission3
+giveMission4
+giveMission5
+giveMissionID1
+giveMissionID2
+giveMissionID3
+giveMissionID4
+giveMissionID5
+greetingCutscene
+gridPosition
+h1
+h2
+h3
+hdr
+headIndex
+helicopterID
+heroLookYaw
+heroPos
+hookID
+hoverCraftFieldID
+hurtHero
+idleType
+innerPlatformID
+jumpPropID
+kensBoatID
+lavaGlobuleFieldID
+lavaStreamID0
+lavaStreamID1
+lavaStreamID2
+lavaStreamID3
+leaderID
+leanAmount
+leaveBattleAreaPathID
+markerPropID
+maxCount
+maxDelay
+maxSpawnAmount
+maxSpawnEffectTime
+maxSpawnItems
+maxSpawnPoints
+maxXZDistance
+metresPerTexture
+midPt
+minDDAValue
+minDelay
+minSpawnEffectTime
+minXZDistance
+missileTargetPath
+missiles
+missionData
+missionIDh1
+missionName
+nanobiteFieldID
+nanobotBallID
+nanobotBossID
+nanobotFieldID
+nanobotSpikeID
+near
+numSides
+objectiveData
+objectiveID
+objectiveName
+offTime
+on100Percent
+onAbort
+onClose
+onCompletion
+onDeath
+onDefeat
+onDefeatEnter
+onEnable
+onEnd
+onFailure
+onFinish
+onFireOut
+onHit
+onIncrement
+onLoaded
+onLoadedEnv
+onLocked
+onNo
+onNotLoaded
+onOpen
+onQueue
+onQueueEnv
+onQueued
+onQueuedEnv
+onStart
+onSuccess
+onTime
+onUnlocked
+onYes
+openTime
+oppositionFieldID
+overlay1
+overlay2
+overlay3
+overlay4
+paramGroup1
+paramGroup2
+paramGroup3
+paramGroup4
+paramGroup5
+paramGroup6
+paramGroups
+pathID
+pathSegment
+pathSegmentID
+patrolPathID
+pitchClamp
+pitchOffset
+planeGroupID
+plankSpacing
+platformID
+point
+raceMessage
+radiush1
+rampTime
+rampTimeh1
+rangeMax
+rangeMin
+resetTime
+retractedTime
+safeAreaPath
+sagAmount
+scaleh1
+shieldID
+shieldID2
+shieldID3
+shopMusicName
+signpost
+spawnAmount
+spawnBehaviour
+spawnCount
+spawnDelay
+spawnID
+spawnRadius
+spawnType
+spawnerID
+spawnpool
+sphere
+splinePath1ID
+splinePath2ID
+splinePath3ID
+startOffset
+swapGroup
+syncLights
+targetZDistance
+textID
+textIDh1
+textureMapping
+throwCar1ID
+throwCar2ID
+throwCar3ID
+timeAttackID
+timeBetweenFastSpins
+tornadoFieldID
+triggerGiveOnRecap1
+triggerGiveOnRecap2
+triggerGiveOnRecap3
+triggerGiveOnRecap4
+triggerGiveOnRecap5
+triggerPoint
+turnRange
+turnSpeed
+twinID
+typeh1
+useLoadingScreen
+vehicleID
+waveFieldID
+waypoint
+waypointh1
+waypoints
+waypoints0
+waypoints1
+waypointsh1
+weaponID
+yawClamp
+zoneh1

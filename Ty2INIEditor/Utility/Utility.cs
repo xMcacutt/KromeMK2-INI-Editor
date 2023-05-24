@@ -2,12 +2,13 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     public static class Utility
     {
@@ -20,6 +21,11 @@ namespace TyBNIEditor
                 endOfString = Array.IndexOf<byte>(bytes, 0x0, position);
             }
             return Encoding.ASCII.GetString(bytes, position, endOfString - position);
+        }
+
+        public static int GetIndentationLevel(string text)
+        {
+            return (text.Length - text.TrimStart().Length) / 2;
         }
 
         public static List<string[]> SplitLines(string[] lines)

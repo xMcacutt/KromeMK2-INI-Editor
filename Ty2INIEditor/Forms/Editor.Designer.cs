@@ -1,7 +1,7 @@
 ﻿using FastColoredTextBoxNS;
 using System.Drawing;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     partial class Editor
     {
@@ -39,7 +39,7 @@ namespace TyBNIEditor
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asTestRKVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asBNILV3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asINIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FCTB = new FastColoredTextBoxNS.FastColoredTextBox();
@@ -75,14 +75,14 @@ namespace TyBNIEditor
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.saveToolStripMenuItem.Text = "Save Text";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -90,24 +90,24 @@ namespace TyBNIEditor
             // 
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.asTestRKVToolStripMenuItem,
-            this.asBNILV3ToolStripMenuItem});
+            this.asINIToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // asTestRKVToolStripMenuItem
             // 
             this.asTestRKVToolStripMenuItem.Name = "asTestRKVToolStripMenuItem";
-            this.asTestRKVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asTestRKVToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.asTestRKVToolStripMenuItem.Text = "As Test RKV";
             this.asTestRKVToolStripMenuItem.Click += new System.EventHandler(this.asTestRKVToolStripMenuItem_Click);
             // 
-            // asBNILV3ToolStripMenuItem
+            // asINIToolStripMenuItem
             // 
-            this.asBNILV3ToolStripMenuItem.Name = "asBNILV3ToolStripMenuItem";
-            this.asBNILV3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asBNILV3ToolStripMenuItem.Text = "As BNI/LV3";
-            this.asBNILV3ToolStripMenuItem.Click += new System.EventHandler(this.asBNILV3ToolStripMenuItem_Click);
+            this.asINIToolStripMenuItem.Name = "asINIToolStripMenuItem";
+            this.asINIToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.asINIToolStripMenuItem.Text = "As INI";
+            this.asINIToolStripMenuItem.Click += new System.EventHandler(this.asINIToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -192,7 +192,7 @@ namespace TyBNIEditor
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
             this.Name = "Editor";
-            this.Text = "LV3 BNI Editor";
+            this.Text = "Ty2 INI Editor";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FCTB)).EndInit();
@@ -213,6 +213,6 @@ namespace TyBNIEditor
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asTestRKVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asBNILV3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asINIToolStripMenuItem;
     }
 }

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TyBNIEditor.Forms
+namespace Ty2INIEditor.Forms
 {
     public partial class Preferences : Form
     {

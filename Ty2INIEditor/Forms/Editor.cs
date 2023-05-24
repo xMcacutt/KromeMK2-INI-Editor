@@ -6,13 +6,14 @@ using System.IO;
 using System.Linq;
 using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
-using TyBNIEditor.Forms;
+using Ty2INIEditor.Forms;
+using Ty2INIEditor.INIHandler;
+using System.Xml.Linq;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     public partial class Editor : Form
     {
-        string _sectionNamesRegexExp;
         string _fieldNamesRegexExp;
         public TextStyle KeywordsStyle;
         public TextStyle SectionNamesStyle;
@@ -31,7 +32,6 @@ namespace TyBNIEditor
             InitializeColors();
             InitializeFonts();
             string[] SectionNames = File.ReadAllLines("./Data/SectionNames.txt");
-            _sectionNamesRegexExp = @"^\b(" + string.Join("|", SectionNames.Select(sn => Regex.Escape(sn))) + @")\b";
             string[] FieldNames = File.ReadAllLines("./Data/FieldNames.txt");
             _fieldNamesRegexExp += @"^\s*\b(" + string.Join("|", FieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
 
@@ -100,7 +100,7 @@ namespace TyBNIEditor
             e.ChangedRange.ClearStyle(NumbersStyle);
             e.ChangedRange.SetStyle(NumbersStyle, @"(?<!\w)(-?\d+(\.\d+)?)(?!\w)");
             e.ChangedRange.SetStyle(KeywordsStyle, @"\b(none|true|false)\b", RegexOptions.IgnoreCase);
-            if (_sectionNamesRegexExp != null) e.ChangedRange.SetStyle(SectionNamesStyle, _sectionNamesRegexExp, RegexOptions.Multiline);
+            e.ChangedRange.SetStyle(SectionNamesStyle, @"name (.+)");
             if (_fieldNamesRegexExp != null)
             {
                 e.ChangedRange.SetStyle(FieldNamesStyle, _fieldNamesRegexExp, RegexOptions.Multiline);
@@ -127,7 +127,7 @@ namespace TyBNIEditor
         {
             OpenFileDialog fileSelect = new OpenFileDialog
             {
-                Filter = "LV3 Files (.lv3)|*.LV3|BNI Files (.bni)|*.bni|Text Files (.txt)|*.txt"
+                Filter = "Config Files (*.ini, *.model, *.mad, *.lv3)|*.*|Text Files (*.txt)|*.txt"
             };
             DialogResult result = fileSelect.ShowDialog();
             if (result != DialogResult.OK) return;
@@ -138,7 +138,7 @@ namespace TyBNIEditor
                 FCTB.Text = File.ReadAllText(path);
                 return;
             }
-            FCTB.Text = string.Join("\n", BNIParser.Import(path));
+            FCTB.Text = string.Join("\n", INIParser.Import(path));
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,28 +169,25 @@ namespace TyBNIEditor
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
 
-            string lv3Path = Path.Combine(Path.GetDirectoryName(path), FileNameLabel.Text);
-            if (lv3Path.EndsWith(".lv3")) lv3Path += ".bni";
-
-            BNICompiler.Compile(FCTB.Text.Split('\n'), lv3Path);
+            string filePath = INICompiler.Compile(FCTB.Text.Split('\n'), path);
 
             RKV2_Tools.RKV rkv = new RKV2_Tools.RKV();
-            rkv.Repack(lv3Path, path);
-            File.Delete(lv3Path);
+            rkv.Repack(filePath, path);
+            File.Delete(filePath);
         }
 
-        private void asBNILV3ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void asINIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog fileSelect = new SaveFileDialog
             {
-                Filter = "LV3 Files (.lv3)|*.LV3|BNI Files (.bni)|*.bni",
+                Filter = "ini File (.*)|*.*",
                 FileName = FileNameLabel.Text 
             };
             if (!FileNameLabel.Text.EndsWith(".bni")) fileSelect.FileName = FileNameLabel.Text + ".bni";
             DialogResult result = fileSelect.ShowDialog();
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
-            BNICompiler.Compile(FCTB.Text.Split('\n'), path);
+            INICompiler.Compile(FCTB.Text.Split('\n'), path);
         }
     }
 }

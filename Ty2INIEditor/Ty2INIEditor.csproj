@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EFECDAAE-B9DC-46B1-B0F8-9C02ABF0846B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TyBNIEditor</RootNamespace>
-    <AssemblyName>Ty2 LV3 Editor</AssemblyName>
+    <RootNamespace>Ty2INIEditor</RootNamespace>
+    <AssemblyName>Ty2 INI Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,13 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BNIHandler\BNI.cs" />
-    <Compile Include="BNIHandler\BNICompiler.cs" />
-    <Compile Include="BNIHandler\BNIParser.cs" />
-    <Compile Include="BNIHandler\Field.cs" />
-    <Compile Include="BNIHandler\Line.cs" />
-    <Compile Include="BNIHandler\Section.cs" />
-    <Compile Include="BNIHandler\SubSection.cs" />
+    <Compile Include="INIHandler\Line.cs" />
     <Compile Include="Controls\FlatComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -75,6 +69,9 @@
     <Compile Include="Forms\Preferences.Designer.cs">
       <DependentUpon>Preferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="INIHandler\INI.cs" />
+    <Compile Include="INIHandler\INICompiler.cs" />
+    <Compile Include="INIHandler\INIParser.cs" />
     <Compile Include="RKVHandler\Addendum.cs" />
     <Compile Include="RKVHandler\Crc32.cs" />
     <Compile Include="RKVHandler\Entry.cs" />
@@ -106,6 +103,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

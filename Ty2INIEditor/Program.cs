@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TyBNIEditor.Forms;
+using Ty2INIEditor.Forms;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor
 {
     internal static class Program
     {

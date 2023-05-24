@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TyBNIEditor
+namespace Ty2INIEditor.INIHandler
 {
-    internal class BNI
+    internal class INI
     {
-        public string BNIPath;
+        public string Path;
 
         public int LineCount;
 
@@ -16,18 +16,10 @@ namespace TyBNIEditor
 
         public int ShortTableOffset;
 
-        public int StringTableEndOffset;
-
         public int SectionCount;
 
         public int DataLength;
 
         public List<Line> Lines = new List<Line>();
-
-        public List<Section> Sections = new List<Section>();
-
-        public HashSet<string> StringHashSet = new HashSet<string>();
-
-        public Dictionary<string, int> StringDictionary = new Dictionary<string, int>();
     }
 }

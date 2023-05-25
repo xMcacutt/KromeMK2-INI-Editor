@@ -48,12 +48,12 @@ namespace Ty2INIEditor.INIHandler
             CompileShortTable();
             INI.SectionCount = INI.Lines.TakeWhile(l => l.Type == "Section").Count();
             INI.LineCount = INI.Lines.Count();
-            INI.DataLength = INI.Lines.Count() * 0x10 + ShortTableBytes.Length + StringTable.ToArray().Length + 0x44;
+            INI.DataLength = INI.Lines.Count() * 0x10 + ShortTableBytes.Length + StringTable.ToArray().Length + 0x4;
             INI.ShortTableOffset = INI.Lines.Count() * 0x10;
             INI.StringTableOffset = INI.ShortTableOffset + ShortTableBytes.Length;
             CompileHeader();
             CompileLines();
-            byte[] Data = HeaderBytes.Concat(LineBytes).Concat(ShortTableBytes).Concat(StringTable.ToArray()).ToArray();
+            byte[] Data = HeaderBytes.Concat(LineBytes).Concat(ShortTableBytes).Concat(StringTable.ToArray()).Concat(new byte[4]).ToArray();
             File.WriteAllBytes(path, Data);
             return path;
         }
@@ -112,7 +112,9 @@ namespace Ty2INIEditor.INIHandler
 
                     string fieldName = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
                     AddStringTableEntry(fieldName);
-                    string[] strings = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Skip(1).ToArray();
+                    string[] strings;
+                    strings = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Skip(1).ToArray();
+                    if (fieldName == "text") strings = new[] { new string(line.Text.TrimEnd().TrimStart().Skip(5).ToArray()) };
                     line.FieldStringCount = (ushort)strings.Length;
                     StringPositions.TryGetValue(fieldName, out int fieldNameOffset);
                     line.FieldNameOffset = (ushort)(fieldNameOffset / 4);
@@ -127,10 +129,11 @@ namespace Ty2INIEditor.INIHandler
                 }
                 if (line.ChildData == null)
                 {
-                    line.DataStartLineIndex = 0xFFFF;
+                    if(line.FieldStringCount != 0xFFFF) line.DataStartLineIndex = 0xFFFF;
                     continue;
                 }
                 line.DataStartLineIndex = (ushort)LineIndex;
+                line.RollingFieldStringCount = 0x0;
                 IndentationLevel++;
                 lines.AddRange(GenerateLines(line.ChildData).ToArray());
                 IndentationLevel--;
@@ -140,12 +143,11 @@ namespace Ty2INIEditor.INIHandler
 
         public static void AddStringTableEntry(string text)
         {
-            string entry = text.TrimStart();
+            string entry = text.TrimEnd().TrimStart();
             if (!StringPositions.ContainsKey(entry))
             {
                 StringPositions.Add(entry, StringTable.Count);
                 StringTable.AddRange(Encoding.ASCII.GetBytes(entry));
-                StringTable.Add((byte)0);
                 StringTable.AddRange(new byte[4 - StringTable.Count % 4]);
             }
         }
@@ -176,14 +178,15 @@ namespace Ty2INIEditor.INIHandler
                 byte[] path = Encoding.ASCII.GetBytes(INI.Path);
                 byte[] pathPadding = new byte[0x20 - path.Length];
                 path = path.Concat(pathPadding).ToArray();
-                byte[] padding = Enumerable.Repeat((byte)0xFF, 0xC).ToArray();
                 stream.Write(path, 0, 0x20);
                 stream.Write(new byte[] { 0x64, 0x00, 0x00, 0x00, }, 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.LineCount), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.DataLength), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.StringTableOffset), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.ShortTableOffset), 0, 4);
-                stream.Write(padding, 0, 0xC);
+                stream.Write(BitConverter.GetBytes(INI.DataLength - 4), 0, 4);
+                stream.Write(new byte[] { 0x1, 0x0, 0x0, 0x0 }, 0, 4);
+                stream.Write(BitConverter.GetBytes(INI.DataLength - 2), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.SectionCount), 0, 4);
                 HeaderBytes = stream.ToArray();
             }

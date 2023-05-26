@@ -43,7 +43,7 @@ namespace Ty2INIEditor.INIHandler
                 if (!path.EndsWith(".bni")) path += ".bni";
             }
 
-            data = data.Skip(1).Select(s => string.Concat(s.Where(c => !char.IsControl(c)))).Where(s => !string.IsNullOrEmpty(s)).ToArray();
+            data = data.Skip(1).Select(s => string.Concat(s.Where(c => !char.IsControl(c)))).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
             INI.Lines.AddRange(GenerateLines(data));
             CompileShortTable();
             INI.SectionCount = INI.Lines.TakeWhile(l => l.Type == "Section").Count();

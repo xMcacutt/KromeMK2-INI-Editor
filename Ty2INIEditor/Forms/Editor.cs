@@ -183,7 +183,8 @@ namespace Ty2INIEditor
                 Filter = "ini File (.*)|*.*",
                 FileName = FileNameLabel.Text 
             };
-            if (!FileNameLabel.Text.EndsWith(".bni")) fileSelect.FileName = FileNameLabel.Text + ".bni";
+            if (FCTB.Text.Split('\n').Length != 0) fileSelect.FileName = Path.GetFileName(FCTB.Text.Split('\n')[0]);
+            else if (!FileNameLabel.Text.EndsWith(".bni")) fileSelect.FileName = FileNameLabel.Text + ".bni";
             DialogResult result = fileSelect.ShowDialog();
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;

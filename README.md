@@ -24,7 +24,9 @@ This will save the text in the editor window to a .txt file to make editing easy
 #### Export As INI
 This will compile the text in the editor window into an ini file.
 
-Note that the .lv3 and .bni formats are identical but for the game to load the file it must have the extension .bni
+Note that for the game to load these files they must have the extension .bni after their normal extension.
+
+Some files are temperamental on the most recent version of the game. UI files in particular are very sensitive to changes and will often crash the game.
 
 This save option should primarily be used for collating completed edits for multiple files ready for repacking them into a .rkv.
 

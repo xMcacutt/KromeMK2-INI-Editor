@@ -15,11 +15,7 @@ namespace Ty2INIEditor
         public static string ReadString(byte[] bytes, int position)
         {
             int endOfString = Array.IndexOf<byte>(bytes, 0x0, position);
-            while(endOfString == position) 
-            { 
-                position += 1;
-                endOfString = Array.IndexOf<byte>(bytes, 0x0, position);
-            }
+            if (endOfString == position) return string.Empty;
             return Encoding.ASCII.GetString(bytes, position, endOfString - position);
         }
 

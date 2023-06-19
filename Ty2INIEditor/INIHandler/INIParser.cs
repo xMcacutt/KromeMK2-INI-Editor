@@ -46,6 +46,7 @@ namespace Ty2INIEditor.INIHandler
                     FieldNameOffset = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x4),
                     RollingFieldStringCount = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x6),
                     DataStartLineIndex = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x8),
+                    MaskNameOffset = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0xA)
                 };
                 INI.Lines.Add(line);
             }
@@ -83,6 +84,10 @@ namespace Ty2INIEditor.INIHandler
                     {
                         int stringTableOffset = BitConverter.ToInt16(Data, INI.ShortTableOffset + (line.RollingFieldStringCount + i) * 2);
                         lineText += $" {Utility.ReadString(Data, INI.StringTableOffset + stringTableOffset * 4)}";
+                    }
+                    if (line.MaskNameOffset != 0xFFFF)
+                    {
+                        lineText += $@" \{Utility.ReadString(Data, INI.StringTableOffset + line.MaskNameOffset * 4)}\";
                     }
                     Text.Add(lineText);
                 }

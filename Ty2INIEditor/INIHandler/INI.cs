@@ -20,6 +20,12 @@ namespace Ty2INIEditor.INIHandler
 
         public int DataLength;
 
+        public int HashTableOffset;
+
+        public int BinarySearchTableOffset;
+
+        public int HashDivisor;
+
         public List<Line> Lines = new List<Line>();
     }
 }

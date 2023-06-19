@@ -16,7 +16,20 @@ namespace Ty2INIEditor
         {
             int endOfString = Array.IndexOf<byte>(bytes, 0x0, position);
             if (endOfString == position) return string.Empty;
-            return Encoding.ASCII.GetString(bytes, position, endOfString - position);
+            string s =  Encoding.ASCII.GetString(bytes, position, endOfString - position);
+            return s.Replace(" ", @"__");
+        }
+
+        public static uint CalculateHash(string str, uint div)
+        {
+            uint hash = 0;
+            uint len = (uint)str.Length;
+            int idx = 0;
+            for (int i = 0; i < len; i++)
+            {
+                hash = (uint)((hash * 0x11) + (str[i] | 0x20));
+            }
+            return hash % div;
         }
 
         public static int GetIndentationLevel(string text)

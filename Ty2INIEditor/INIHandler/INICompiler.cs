@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,6 +17,7 @@ namespace Ty2INIEditor.INIHandler
         public static Dictionary<string, int> StringPositions;
         public static List<byte> StringTable;
         public static List<ushort> ShortList;
+        public static List<(string, int)> SectionNames;
         public static ushort RollingStringCount;
         public static int LineIndex;
         public static int IndentationLevel;
@@ -24,12 +26,15 @@ namespace Ty2INIEditor.INIHandler
         public static byte[] ShortTableBytes;
         public static byte[] HeaderBytes;
         public static byte[] LineBytes;
+        public static byte[] HashTableBytes;
+        public static byte[] BinarySearchTableBytes;
 
         public static string Compile(string[] data, string path)
         {
             INI = new INI();
             StringTable = new List<byte>();
-            ShortList= new List<ushort>();
+            ShortList = new List<ushort>();
+            SectionNames = new List<(string, int)>();
             RollingStringCount = 0;
             StringPositions = new Dictionary<string, int>();
             IndentationLevel = 0;
@@ -46,14 +51,18 @@ namespace Ty2INIEditor.INIHandler
             data = data.Skip(1).Select(s => string.Concat(s.Where(c => !char.IsControl(c)))).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
             INI.Lines.AddRange(GenerateLines(data));
             CompileShortTable();
-            INI.SectionCount = INI.Lines.TakeWhile(l => l.Type == "Section").Count();
+            INI.SectionCount = INI.Lines.Where(l => l.Type == "Section").Count();
+            CompileHashTable();
+            CompileBinarySearchTable();
             INI.LineCount = INI.Lines.Count();
-            INI.DataLength = INI.Lines.Count() * 0x10 + ShortTableBytes.Length + StringTable.ToArray().Length + 0x4;
+            INI.DataLength = INI.Lines.Count() * 0x10 + ShortTableBytes.Length + StringTable.ToArray().Length + HashTableBytes.Length + BinarySearchTableBytes.Length;
             INI.ShortTableOffset = INI.Lines.Count() * 0x10;
             INI.StringTableOffset = INI.ShortTableOffset + ShortTableBytes.Length;
+            INI.HashTableOffset = INI.StringTableOffset + StringTable.ToArray().Length;
+            INI.BinarySearchTableOffset = INI.HashTableOffset + HashTableBytes.Length;
             CompileHeader();
             CompileLines();
-            byte[] Data = HeaderBytes.Concat(LineBytes).Concat(ShortTableBytes).Concat(StringTable.ToArray()).Concat(new byte[4]).ToArray();
+            byte[] Data = HeaderBytes.Concat(LineBytes).Concat(ShortTableBytes).Concat(StringTable.ToArray()).Concat(HashTableBytes).Concat(BinarySearchTableBytes).ToArray();
             File.WriteAllBytes(path, Data);
             return path;
         }
@@ -104,6 +113,8 @@ namespace Ty2INIEditor.INIHandler
                     AddStringTableEntry(sectionName);
                     StringPositions.TryGetValue(sectionName, out int sectionNameOffset);
                     line.SectionNameOffset = (ushort)(sectionNameOffset / 4);
+
+                    SectionNames.Add((sectionName, i));
                 }
                 if (line.Type == "Field")
                 {
@@ -115,17 +126,29 @@ namespace Ty2INIEditor.INIHandler
                     string[] strings;
                     strings = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Skip(1).ToArray();
                     if (fieldName == "text") strings = new[] { new string(line.Text.TrimEnd().TrimStart().Skip(5).ToArray()) };
+                    if (strings.Length > 0 && strings[strings.Length - 1].StartsWith(@"\"))
+                    {
+                        Console.WriteLine(strings[strings.Length - 1]);
+                        string mask = strings[strings.Length - 1];
+                        strings = strings.Take(strings.Length - 1).ToArray();
+                        mask = mask.Replace(@"\", "");
+                        AddStringTableEntry(mask);
+                        StringPositions.TryGetValue(mask, out int maskNameOffset);
+                        line.MaskNameOffset = (ushort)(maskNameOffset / 4);
+                    }
                     line.FieldStringCount = (ushort)strings.Length;
                     StringPositions.TryGetValue(fieldName, out int fieldNameOffset);
                     line.FieldNameOffset = (ushort)(fieldNameOffset / 4);
 
                     line.RollingFieldStringCount = RollingStringCount;
-                    foreach (string s in strings)
+                    foreach (string str in strings)
                     {
+                        string s = str.Replace("__", " ");
                         RollingStringCount++;
                         AddStringTableEntry(s);
                         AddShortTableEntry(s);
                     }
+                    if (strings.Length == 0) line.RollingFieldStringCount = 0;
                 }
                 if (line.ChildData == null)
                 {
@@ -133,7 +156,6 @@ namespace Ty2INIEditor.INIHandler
                     continue;
                 }
                 line.DataStartLineIndex = (ushort)LineIndex;
-                line.RollingFieldStringCount = 0x0;
                 IndentationLevel++;
                 lines.AddRange(GenerateLines(line.ChildData).ToArray());
                 IndentationLevel--;
@@ -184,9 +206,9 @@ namespace Ty2INIEditor.INIHandler
                 stream.Write(BitConverter.GetBytes(INI.DataLength), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.StringTableOffset), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.ShortTableOffset), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.DataLength - 4), 0, 4);
-                stream.Write(new byte[] { 0x1, 0x0, 0x0, 0x0 }, 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.DataLength - 2), 0, 4);
+                stream.Write(BitConverter.GetBytes(INI.HashTableOffset), 0, 4);
+                stream.Write(BitConverter.GetBytes(INI.HashDivisor), 0, 4);
+                stream.Write(BitConverter.GetBytes(INI.BinarySearchTableOffset), 0, 4);
                 stream.Write(BitConverter.GetBytes(INI.SectionCount), 0, 4);
                 HeaderBytes = stream.ToArray();
             }
@@ -208,6 +230,45 @@ namespace Ty2INIEditor.INIHandler
                     stream.Write(padding, 0, 4);
                 }
                 LineBytes = stream.ToArray();
+            }
+        }
+
+        public static void CompileHashTable()
+        {
+            INI.HashDivisor = (int)Math.Round(INI.SectionCount * 1.33f, 0);
+            SortedDictionary<uint, (string, int)> map = new SortedDictionary<uint, (string, int)>();
+            foreach (var entry in SectionNames)
+            {
+                uint hash = Utility.CalculateHash(entry.Item1, (uint)INI.HashDivisor);
+                if (hash > INI.HashDivisor) hash = 0;
+                while (map.Keys.Contains(hash))
+                {
+                    hash++;
+                    if (hash > INI.HashDivisor - 1) hash = 0;
+                }
+                map.Add(hash, entry);
+            }
+            using (MemoryStream stream = new MemoryStream())
+            {
+                for (uint i = 0; i < map.Last().Key + 1; i++)
+                {
+                    if (map.TryGetValue(i, out (string, int) entry)) stream.Write(BitConverter.GetBytes(entry.Item2), 0, 2);
+                    else stream.Write(new byte[] {0xFF, 0xFF}, 0, 2);
+                }
+                HashTableBytes = stream.ToArray();
+            }
+        }
+
+        public static void CompileBinarySearchTable()
+        {
+            SectionNames.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+            using (MemoryStream stream = new MemoryStream())
+            {
+                foreach (var entry in SectionNames)
+                {
+                    stream.Write(BitConverter.GetBytes(entry.Item2), 0, 2);
+                }
+                BinarySearchTableBytes = stream.ToArray();
             }
         }
     }

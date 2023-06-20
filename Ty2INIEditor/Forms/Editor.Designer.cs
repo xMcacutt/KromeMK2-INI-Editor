@@ -42,8 +42,10 @@ namespace Ty2INIEditor
             this.asINIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchAppendCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FCTB = new FastColoredTextBoxNS.FastColoredTextBox();
             this.FileNameLabel = new System.Windows.Forms.Label();
+            this.closeFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FCTB)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +68,8 @@ namespace Ty2INIEditor
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.exportToolStripMenuItem,
+            this.closeFileToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -75,14 +78,14 @@ namespace Ty2INIEditor
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save Text";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -92,7 +95,7 @@ namespace Ty2INIEditor
             this.asTestRKVToolStripMenuItem,
             this.asINIToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // asTestRKVToolStripMenuItem
@@ -112,7 +115,8 @@ namespace Ty2INIEditor
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
+            this.preferencesToolStripMenuItem,
+            this.batchAppendCurrentToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -120,9 +124,16 @@ namespace Ty2INIEditor
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            // 
+            // batchAppendCurrentToolStripMenuItem
+            // 
+            this.batchAppendCurrentToolStripMenuItem.Name = "batchAppendCurrentToolStripMenuItem";
+            this.batchAppendCurrentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.batchAppendCurrentToolStripMenuItem.Text = "Batch Append Current";
+            this.batchAppendCurrentToolStripMenuItem.Click += new System.EventHandler(this.batchAppendCurrentToolStripMenuItem_Click);
             // 
             // FCTB
             // 
@@ -180,6 +191,13 @@ namespace Ty2INIEditor
             this.FileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.FileNameLabel.UseCompatibleTextRendering = true;
             // 
+            // closeFileToolStripMenuItem
+            // 
+            this.closeFileToolStripMenuItem.Name = "closeFileToolStripMenuItem";
+            this.closeFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeFileToolStripMenuItem.Text = "Close File";
+            this.closeFileToolStripMenuItem.Click += new System.EventHandler(this.closeFileToolStripMenuItem_Click);
+            // 
             // Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +232,7 @@ namespace Ty2INIEditor
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asTestRKVToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asINIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem batchAppendCurrentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
     }
 }

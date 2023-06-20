@@ -128,7 +128,6 @@ namespace Ty2INIEditor.INIHandler
                     if (fieldName == "text") strings = new[] { new string(line.Text.TrimEnd().TrimStart().Skip(5).ToArray()) };
                     if (strings.Length > 0 && strings[strings.Length - 1].StartsWith(@"\"))
                     {
-                        Console.WriteLine(strings[strings.Length - 1]);
                         string mask = strings[strings.Length - 1];
                         strings = strings.Take(strings.Length - 1).ToArray();
                         mask = mask.Replace(@"\", "");
@@ -236,6 +235,11 @@ namespace Ty2INIEditor.INIHandler
         public static void CompileHashTable()
         {
             INI.HashDivisor = (int)Math.Round(INI.SectionCount * 1.33f, 0);
+            if(SectionNames.Count == 0)
+            {
+                HashTableBytes = new byte[] { 0x0, 0x0 };
+                return;
+            }
             SortedDictionary<uint, (string, int)> map = new SortedDictionary<uint, (string, int)>();
             foreach (var entry in SectionNames)
             {
@@ -261,6 +265,11 @@ namespace Ty2INIEditor.INIHandler
 
         public static void CompileBinarySearchTable()
         {
+            if (SectionNames.Count == 0)
+            {
+                BinarySearchTableBytes = new byte[] { 0x0, 0x0 };
+                return;
+            }
             SectionNames.Sort((x, y) => x.Item1.CompareTo(y.Item1));
             using (MemoryStream stream = new MemoryStream())
             {

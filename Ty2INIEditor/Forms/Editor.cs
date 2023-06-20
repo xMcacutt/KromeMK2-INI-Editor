@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using Ty2INIEditor.Forms;
 using Ty2INIEditor.INIHandler;
 using System.Xml.Linq;
+using WK.Libraries.BetterFolderBrowserNS;
 
 namespace Ty2INIEditor
 {
@@ -156,6 +157,7 @@ namespace Ty2INIEditor
                 path += ".txt";
             }
             File.WriteAllText(path, FCTB.Text);
+            MessageBox.Show("Text Saved.");
         }
 
         private void asTestRKVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,6 +176,7 @@ namespace Ty2INIEditor
             RKV2_Tools.RKV rkv = new RKV2_Tools.RKV();
             rkv.Repack(filePath, path);
             File.Delete(filePath);
+            MessageBox.Show("RKV Generated.");
         }
 
         private void asINIToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,6 +191,50 @@ namespace Ty2INIEditor
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
             INICompiler.Compile(FCTB.Text.Split('\n'), path);
+            MessageBox.Show("INI Generated.");
+        }
+
+        private void batchAppendCurrentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FCTB.Text))
+            {
+                MessageBox.Show("No Text To Append.", "Alert");
+                return;
+            }
+            
+            BetterFolderBrowser fbd = new BetterFolderBrowser();
+            fbd.Title = "Select Input Folder";
+            DialogResult result = fbd.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string[] allowedExtensions = { ".lv3", ".bni", ".model", ".mad", ".ini", ".ui",  };
+            string inputPath = fbd.SelectedPath;
+            string[] files = Directory.GetFiles(inputPath);
+            // Check if any file doesn't have an allowed extension using LINQ
+            bool badFiles = files.Any(file => !allowedExtensions.Contains(Path.GetExtension(file)));
+            if (badFiles)
+            {
+                MessageBox.Show("Invalid File Extensions In Input Directory.");
+                return;
+            }
+            fbd.Title = "Select Output Folder";
+            result = fbd.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string outputPath = fbd.SelectedPath;
+            foreach(string file in files)
+            {
+                string text = string.Join("\n", INIParser.Import(file));
+                text += "\n\n" + FCTB.Text;
+                string fileName = Path.GetFileName(file);
+                if (!fileName.EndsWith(".bni")) fileName += ".bni";
+                INICompiler.Compile(text.Split('\n'), Path.Combine(outputPath, fileName));
+            }
+            MessageBox.Show("Appended Text And Generated INIs");
+        }
+
+        private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FCTB.Clear();
+            FileNameLabel.Text = "No File Open";
         }
     }
 }

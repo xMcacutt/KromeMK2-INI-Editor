@@ -10,6 +10,8 @@ using Ty2INIEditor.Forms;
 using Ty2INIEditor.INIHandler;
 using System.Xml.Linq;
 using WK.Libraries.BetterFolderBrowserNS;
+using System.Threading.Tasks;
+using System.IO.Pipes;
 
 namespace Ty2INIEditor
 {
@@ -46,6 +48,28 @@ namespace Ty2INIEditor
             popupMenu.Items.Width = 300;
 
             if (filePath != "") OpenFile(filePath);
+
+            Task.Run(() => ListenForFilePaths());
+        }
+
+        private void ListenForFilePaths()
+        {
+            while (true)
+            {
+                using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("FileLoadingPipe", PipeDirection.In))
+                {
+
+                    pipeServer.WaitForConnection();
+                    using (StreamReader reader = new StreamReader(pipeServer))
+                    {
+                        string filePath = reader.ReadLine();
+                        if (!string.IsNullOrEmpty(filePath))
+                        {
+                            OpenFile(filePath);
+                        }
+                    }
+                }
+            }
         }
 
         public void InitializeColors()

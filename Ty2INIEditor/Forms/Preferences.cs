@@ -242,7 +242,7 @@ namespace Ty2INIEditor.Forms
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 RestoreDirectory = true,
-                InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Themes"),
+                InitialDirectory = Path.Combine(Program.BaseDirectory, "Themes"),
                 Filter = "Theme json (*.json)|*.json",
                 Title = "Save Theme"
             };
@@ -251,7 +251,7 @@ namespace Ty2INIEditor.Forms
                 string selectedFilePath = saveFileDialog.FileName;
                 string fileName = Path.GetFileNameWithoutExtension(selectedFilePath);
                 SettingsHandler.Save(fileName);
-                if (Path.GetDirectoryName(selectedFilePath) == Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Themes"))
+                if (Path.GetDirectoryName(selectedFilePath) == Path.Combine(Program.BaseDirectory, "Themes"))
                 {
                     if (!Themes.ThemeNames.Contains(fileName))
                     {

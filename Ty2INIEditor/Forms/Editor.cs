@@ -23,7 +23,7 @@ namespace Ty2INIEditor
         public TextStyle FieldTextStyle;
         AutocompleteMenu popupMenu;
 
-        public Editor()
+        public Editor(string filePath)
         {
             Fonts.Setup();
             Themes.Load();
@@ -32,14 +32,20 @@ namespace Ty2INIEditor
             popupMenu = new AutocompleteMenu(FCTB);
             InitializeColors();
             InitializeFonts();
-            string[] SectionNames = File.ReadAllLines("./Data/SectionNames.txt");
-            string[] FieldNames = File.ReadAllLines("./Data/FieldNames.txt");
-            _fieldNamesRegexExp += @"^\s*\b(" + string.Join("|", FieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
+            string baseDirectory = Program.BaseDirectory;
+            string sectionNamesFilePath = Path.Combine(baseDirectory, "Data/sectionNames.txt");
+            string fieldNamesFilePath = Path.Combine(baseDirectory, "Data/fieldNames.txt");
+
+            string[] sectionNames = File.ReadAllLines(sectionNamesFilePath);
+            string[] fieldNames = File.ReadAllLines(fieldNamesFilePath);
+            _fieldNamesRegexExp += @"^\s*\b(" + string.Join("|", fieldNames.Select(fn => Regex.Escape(fn))) + @")\b";
 
             popupMenu.MinFragmentLength = 2;
-            popupMenu.Items.SetAutocompleteItems(SectionNames.Concat(FieldNames).ToArray());
+            popupMenu.Items.SetAutocompleteItems(sectionNames.Concat(fieldNames).ToArray());
             popupMenu.Items.MaximumSize = new Size(300, 400);
             popupMenu.Items.Width = 300;
+
+            if (filePath != "") OpenFile(filePath);
         }
 
         public void InitializeColors()
@@ -142,6 +148,23 @@ namespace Ty2INIEditor
             FCTB.Text = string.Join("\n", INIParser.Import(path));
         }
 
+        public void OpenFile(string path)
+        {
+            string[] allowedExtensions = { ".lv3", ".bni", ".model", ".mad", ".ini", ".ui", ".sound", ".txt" };
+            if (!allowedExtensions.Any(ext => path.EndsWith(ext, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show("Invalid File Extension", "Alert");
+                return;
+            }
+            FileNameLabel.Text = Path.GetFileName(path);
+            if (path.EndsWith(".txt"))
+            {
+                FCTB.Text = File.ReadAllText(path);
+                return;
+            }
+            FCTB.Text = string.Join("\n", INIParser.Import(path));
+        }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog fileSelect = new SaveFileDialog
@@ -157,7 +180,7 @@ namespace Ty2INIEditor
                 path += ".txt";
             }
             File.WriteAllText(path, FCTB.Text);
-            MessageBox.Show("Text Saved.");
+            MessageBox.Show("Text Saved", "Success");
         }
 
         private void asTestRKVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,7 +199,7 @@ namespace Ty2INIEditor
             RKV2_Tools.RKV rkv = new RKV2_Tools.RKV();
             rkv.Repack(filePath, path);
             File.Delete(filePath);
-            MessageBox.Show("RKV Generated.");
+            MessageBox.Show("RKV Generated", "Success");
         }
 
         private void asINIToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,14 +214,14 @@ namespace Ty2INIEditor
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
             INICompiler.Compile(FCTB.Text.Split('\n'), path);
-            MessageBox.Show("INI Generated.");
+            MessageBox.Show("INI Generated", "Success");
         }
 
         private void batchAppendCurrentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(FCTB.Text))
             {
-                MessageBox.Show("No Text To Append.", "Alert");
+                MessageBox.Show("No Text To Append", "Alert");
                 return;
             }
             
@@ -206,14 +229,14 @@ namespace Ty2INIEditor
             fbd.Title = "Select Input Folder";
             DialogResult result = fbd.ShowDialog();
             if (result != DialogResult.OK) return;
-            string[] allowedExtensions = { ".lv3", ".bni", ".model", ".mad", ".ini", ".ui",  };
+            string[] allowedExtensions = { ".lv3", ".bni", ".model", ".mad", ".ini", ".ui", ".sound" };
             string inputPath = fbd.SelectedPath;
             string[] files = Directory.GetFiles(inputPath);
             // Check if any file doesn't have an allowed extension using LINQ
             bool badFiles = files.Any(file => !allowedExtensions.Contains(Path.GetExtension(file)));
             if (badFiles)
             {
-                MessageBox.Show("Invalid File Extensions In Input Directory.");
+                MessageBox.Show("Invalid File Extensions In Input Directory", "Alert");
                 return;
             }
             fbd.Title = "Select Output Folder";
@@ -228,7 +251,7 @@ namespace Ty2INIEditor
                 if (!fileName.EndsWith(".bni")) fileName += ".bni";
                 INICompiler.Compile(text.Split('\n'), Path.Combine(outputPath, fileName));
             }
-            MessageBox.Show("Appended Text And Generated INIs");
+            MessageBox.Show("Appended Text And Generated INIs", "Success");
         }
 
         private void closeFileToolStripMenuItem_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace Ty2INIEditor
         public static Colors Colors { get; set; }
         public static void Setup()
         {
-            string json = File.ReadAllText("./Themes/Colors.json");
+            string json = File.ReadAllText(Path.Combine(Program.BaseDirectory, "Themes/Colors.json"));
             Colors = JsonConvert.DeserializeObject<Colors>(json);
             Colors.Setup();
         }
@@ -22,18 +22,18 @@ namespace Ty2INIEditor
         public static void Save(string name)
         {
             string json = JsonConvert.SerializeObject(Colors, Formatting.Indented);
-            File.WriteAllText($"./Themes/{name}.json", json);
+            File.WriteAllText(Path.Combine(Program.BaseDirectory, $"Themes/{name}.json"), json);
         }
 
         public static void Accept()
         {
             string json = JsonConvert.SerializeObject(Colors, Formatting.Indented);
-            File.WriteAllText("./Themes/Colors.json", json);
+            File.WriteAllText(Path.Combine(Program.BaseDirectory, "Themes/Colors.json"), json);
         }
 
         public static void Load(string name)
         {
-            string json = File.ReadAllText($"./Themes/{name}.json");
+            string json = File.ReadAllText(Path.Combine(Program.BaseDirectory, $"Themes/{name}.json"));
             Colors = JsonConvert.DeserializeObject<Colors>(json);
             Colors.Setup();
             Program.Editor.InitializeColors();

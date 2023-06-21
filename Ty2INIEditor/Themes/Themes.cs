@@ -13,7 +13,7 @@ namespace Ty2INIEditor
 
         public static void Load()
         {
-            foreach(string s in Directory.GetFiles("./Themes"))
+            foreach(string s in Directory.GetFiles(Path.Combine(Program.BaseDirectory, "Themes")))
             {
                 if (s.EndsWith(".json") && Path.GetFileNameWithoutExtension(s) != "Colors")
                 {

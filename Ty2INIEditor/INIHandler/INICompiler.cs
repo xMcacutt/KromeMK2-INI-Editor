@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ty2INIEditor.INIHandler
 {
@@ -76,11 +77,19 @@ namespace Ty2INIEditor.INIHandler
             {
                 Line line = new Line();
                 line.Text = data[i];
+                line.FieldStringCount = 0;
+                line.RollingFieldStringCount = 0;
+                line.FieldNameOffset = 0xFFFF;
+                line.SectionNameOffset = 0xFFFF;
                 line.MaskNameOffset = 0xFFFF;
                 if (Utility.GetIndentationLevel(data[i]) == IndentationLevel)
                 {
-                    if (data[i].TrimStart().StartsWith("name ")) line.Type = "Section";
-                    else line.Type = "Field";
+                    if (data[i].TrimStart().StartsWith("name "))
+                    {
+                        line.SectionNameOffset = 0xFFFE;
+                        if (data[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length > 2) line.FieldNameOffset = 0xFFFE;
+                    }
+                    else line.FieldNameOffset = 0xFFFE;
 
                     if(i < data.Length - 1)
                     {
@@ -102,26 +111,20 @@ namespace Ty2INIEditor.INIHandler
             for(int i = 0; i < lineCount; i++)
             {
                 Line line = lines[i];
-                if (line.Type == "Section")
+                if (line.SectionNameOffset == 0xFFFE)
                 {
-                    //Section
-                    line.FieldStringCount = 0;
-                    line.RollingFieldStringCount = 0;
-                    line.FieldNameOffset = 0xFFFF;
-
-                    string sectionName = line.Text.Split(' ')[1];
+                    line.Type = "Section";
+                    string sectionName = line.Text.Split(' ')[1].Replace(@"___", " ");
                     AddStringTableEntry(sectionName);
                     StringPositions.TryGetValue(sectionName, out int sectionNameOffset);
                     line.SectionNameOffset = (ushort)(sectionNameOffset / 4);
-
                     SectionNames.Add((sectionName, i));
+                    line.Text = string.Join(" ", line.Text.Split(' ').Skip(2).ToArray());
                 }
-                if (line.Type == "Field")
+                if (line.FieldNameOffset == 0xFFFE)
                 {
                     //FIELD
-                    line.SectionNameOffset = 0xFFFF;
-
-                    string fieldName = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    string fieldName = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0].Replace("___", " ");
                     AddStringTableEntry(fieldName);
                     string[] strings;
                     strings = line.Text.TrimStart().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Skip(1).ToArray();
@@ -142,7 +145,7 @@ namespace Ty2INIEditor.INIHandler
                     line.RollingFieldStringCount = RollingStringCount;
                     foreach (string str in strings)
                     {
-                        string s = str.Replace("__", " ");
+                        string s = str.Replace("___", " ");
                         RollingStringCount++;
                         AddStringTableEntry(s);
                         AddShortTableEntry(s);

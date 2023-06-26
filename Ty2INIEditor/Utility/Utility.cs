@@ -17,7 +17,7 @@ namespace Ty2INIEditor
             int endOfString = Array.IndexOf<byte>(bytes, 0x0, position);
             if (endOfString == position) return string.Empty;
             string s =  Encoding.ASCII.GetString(bytes, position, endOfString - position);
-            return s.Replace(" ", @"__");
+            return s.Replace(" ", @"___");
         }
 
         public static uint CalculateHash(string str, uint div)

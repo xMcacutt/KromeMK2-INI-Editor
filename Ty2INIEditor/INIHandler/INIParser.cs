@@ -62,7 +62,6 @@ namespace Ty2INIEditor.INIHandler
             {
                 if (LinesToSkip.Contains(LineIndex)) continue;
                 Line line = INI.Lines[LineIndex];
-
                 if (line.Handled) continue;
                 line.Handled = true;
                 if (line.FieldStringCount == 0xFFFF)
@@ -70,12 +69,12 @@ namespace Ty2INIEditor.INIHandler
                     if(lineIndexStack.Count > 0) LineIndex = lineIndexStack.Pop();
                     continue;
                 }
+
                 string lineText = new string(' ', lineIndexStack.Count * 2);
                 if (line.SectionNameOffset != 0xFFFF)
                 {
                     Text.Add(lineText);
-                    lineText += "name " + Utility.ReadString(Data, INI.StringTableOffset + (line.SectionNameOffset * 4));
-                    Text.Add(lineText);
+                    lineText += "name " + Utility.ReadString(Data, INI.StringTableOffset + (line.SectionNameOffset * 4)) + " ";
                 }
                 if (line.FieldNameOffset != 0xFFFF)
                 {
@@ -89,13 +88,13 @@ namespace Ty2INIEditor.INIHandler
                     {
                         lineText += $@" \{Utility.ReadString(Data, INI.StringTableOffset + line.MaskNameOffset * 4)}\";
                     }
-                    Text.Add(lineText);
                 }
                 if (line.DataStartLineIndex != 0xFFFF)
                 {
                     lineIndexStack.Push(LineIndex);
                     LineIndex = line.DataStartLineIndex - 1;
                 }
+                Text.Add(lineText);
             }
         }
     }

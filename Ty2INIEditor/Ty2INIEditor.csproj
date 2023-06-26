@@ -60,8 +60,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TradeWright.TabControlExtra, Version=2.0.1.0, Culture=neutral, PublicKeyToken=f4d0df7e5886cbe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\TradeWright.TabControlExtra.2.0.1\lib\net45\TradeWright.TabControlExtra.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ProjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectManager.Designer.cs">
+      <DependentUpon>ProjectManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="INIHandler\Line.cs" />
     <Compile Include="Controls\FlatComboBox.cs">
       <SubType>Component</SubType>
@@ -75,6 +84,7 @@
     <Compile Include="INIHandler\INI.cs" />
     <Compile Include="INIHandler\INICompiler.cs" />
     <Compile Include="INIHandler\INIParser.cs" />
+    <Compile Include="Projects\Project.cs" />
     <Compile Include="RKVHandler\Addendum.cs" />
     <Compile Include="RKVHandler\Crc32.cs" />
     <Compile Include="RKVHandler\Entry.cs" />
@@ -94,6 +104,9 @@
     <Compile Include="Utility\Utility.cs" />
     <EmbeddedResource Include="Forms\Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectManager.resx">
+      <DependentUpon>ProjectManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Preferences.resx">
       <DependentUpon>Preferences.cs</DependentUpon>
@@ -142,6 +155,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\SectionNames.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ini.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\lv3.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\mad.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\model.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\sound.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\txt.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\ui.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\unk.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ScreenShots\sc1.png" />

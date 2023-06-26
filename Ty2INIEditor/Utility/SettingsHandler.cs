@@ -36,8 +36,7 @@ namespace Ty2INIEditor
             string json = File.ReadAllText(Path.Combine(Program.BaseDirectory, $"Themes/{name}.json"));
             Colors = JsonConvert.DeserializeObject<Colors>(json);
             Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
         }
     }
 }

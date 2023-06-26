@@ -96,8 +96,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.MainTextRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             MainTextColor.BackColor = ColorSelector.Color;
         }
 
@@ -111,8 +110,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.BackgroundSuperLightRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             BackgroundSuperLightColor.BackColor = ColorSelector.Color;
         }
 
@@ -126,8 +124,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.BackgroundLightRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             BackgroundLightColor.BackColor = ColorSelector.Color;
         }
 
@@ -141,8 +138,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.BackgroundDarkRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             BackgroundDarkColor.BackColor = ColorSelector.Color;
         }
 
@@ -156,8 +152,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.SectionNamesRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             SectionNamesColor.BackColor = ColorSelector.Color;
         }
 
@@ -171,8 +166,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.FieldNamesRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             FieldNamesColor.BackColor = ColorSelector.Color;
         }
 
@@ -186,8 +180,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.FieldTextRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             FieldTextColor.BackColor = ColorSelector.Color;
         }
 
@@ -201,8 +194,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.KeywordsRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             KeywordsColor.BackColor = ColorSelector.Color;
         }
 
@@ -216,8 +208,7 @@ namespace Ty2INIEditor.Forms
             }
             SettingsHandler.Colors.NumbersRGB = new int[] { ColorSelector.Color.R, ColorSelector.Color.G, ColorSelector.Color.B };
             SettingsHandler.Colors.Setup();
-            Program.Editor.InitializeColors();
-            Program.Preferences.InitializeColors();
+            Program.InitializeAllColors();
             NumbersColor.BackColor = ColorSelector.Color;
         }
 

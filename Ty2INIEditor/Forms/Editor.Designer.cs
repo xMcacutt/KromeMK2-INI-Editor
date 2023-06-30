@@ -41,11 +41,13 @@ namespace Ty2INIEditor
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asTestRKVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asINIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchAppendCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.FileTC = new TradeWright.UI.Forms.TabControlExtra();
+            this.projectManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +70,8 @@ namespace Ty2INIEditor
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.exportToolStripMenuItem,
+            this.saveToProjectToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -77,14 +80,14 @@ namespace Ty2INIEditor
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.saveToolStripMenuItem.Text = "Save Text";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -94,7 +97,7 @@ namespace Ty2INIEditor
             this.asTestRKVToolStripMenuItem,
             this.asINIToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // asTestRKVToolStripMenuItem
@@ -111,10 +114,19 @@ namespace Ty2INIEditor
             this.asINIToolStripMenuItem.Text = "As INI";
             this.asINIToolStripMenuItem.Click += new System.EventHandler(this.asINIToolStripMenuItem_Click);
             // 
+            // saveToProjectToolStripMenuItem
+            // 
+            this.saveToProjectToolStripMenuItem.Enabled = false;
+            this.saveToProjectToolStripMenuItem.Name = "saveToProjectToolStripMenuItem";
+            this.saveToProjectToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.saveToProjectToolStripMenuItem.Text = "Save To Project";
+            this.saveToProjectToolStripMenuItem.Click += new System.EventHandler(this.saveToProjectToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.preferencesToolStripMenuItem,
+            this.projectManagerToolStripMenuItem,
             this.batchAppendCurrentToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -216,6 +228,14 @@ namespace Ty2INIEditor
             this.FileTC.SelectedIndex = 0;
             this.FileTC.Size = new System.Drawing.Size(929, 503);
             this.FileTC.TabIndex = 4;
+            this.FileTC.TabIndexChanged += new System.EventHandler(this.FileTC_TabIndexChanged);
+            // 
+            // projectManagerToolStripMenuItem
+            // 
+            this.projectManagerToolStripMenuItem.Name = "projectManagerToolStripMenuItem";
+            this.projectManagerToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.projectManagerToolStripMenuItem.Text = "Project Manager";
+            this.projectManagerToolStripMenuItem.Click += new System.EventHandler(this.projectManagerToolStripMenuItem_Click);
             // 
             // Editor
             // 
@@ -250,6 +270,8 @@ namespace Ty2INIEditor
         private System.Windows.Forms.ToolStripMenuItem asINIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem batchAppendCurrentToolStripMenuItem;
         private Panel MainPanel;
-        private TradeWright.UI.Forms.TabControlExtra FileTC;
+        public TradeWright.UI.Forms.TabControlExtra FileTC;
+        private ToolStripMenuItem saveToProjectToolStripMenuItem;
+        private ToolStripMenuItem projectManagerToolStripMenuItem;
     }
 }

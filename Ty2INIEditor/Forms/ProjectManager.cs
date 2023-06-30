@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Ty2INIEditor.Controls;
+using WK.Libraries.BetterFolderBrowserNS;
 
 namespace Ty2INIEditor.Forms
 {
     public partial class ProjectManager : Form
     {
-        public Project CurrentProject;
+        private Project _currentProject;
+
+        public Project CurrentProject
+        {
+            get
+            {
+                return _currentProject;
+            }
+            set
+            {
+                _currentProject = value;
+                editProjectToolStripMenuItem.Enabled = _currentProject != null;
+                addToolStripMenuItem.Enabled = _currentProject != null;
+                sortToolStripMenuItem.Enabled = _currentProject != null;
+                Program.Editor.SetMenuItemsEnabled(_currentProject != null);
+            }
+        }
         bool _dropDownOpen;
         Dictionary<string, string> _iconMappings;
 
@@ -28,6 +40,7 @@ namespace Ty2INIEditor.Forms
         public ProjectManager()
         {
             InitializeComponent();
+            ProjectMenuBar.Renderer = new CustomToolStripRenderer();
             InitializeColors();
             InitializeFonts();
             if (_iconMappings != null) return;
@@ -70,38 +83,48 @@ namespace Ty2INIEditor.Forms
             ProjectDescription.Text = CurrentProject.Description;
             foreach(string file in CurrentProject.FileNames)
             {
-                if (file == "New File") continue;
-                Label fileNameLabel = new Label
-                {
-                    Text = file,
-                    ForeColor = SettingsHandler.Colors.MainText,
-                    Font = Fonts.SmallUI,
-                    TextAlign = ContentAlignment.MiddleLeft,
-                    Dock = DockStyle.Fill,
-                    Margin = new Padding(3, 0, 3, 0)
-                };
-                fileNameLabel.DoubleClick += fileName_DoubleClick;
-                fileNameLabel.Name = file;
-                ProjectFilesTable.Controls.Add(fileNameLabel, 1, ProjectFilesTable.RowCount - 1);
-                string extension = Path.GetExtension(file).TrimStart('.');
-                string iconFileName = _iconMappings.ContainsKey(extension) ? _iconMappings[extension] : "unk.ico";
-                Image image = new Icon(Path.Combine(Program.BaseDirectory, "Icons", iconFileName), new Size(16,16)).ToBitmap();
-                PictureBox pictureBox = new PictureBox
-                {
-                    Image = image,
-                    Size = new Size(16, 16),
-                    SizeMode = PictureBoxSizeMode.StretchImage
-                };
-                ProjectFilesTable.Controls.Add(pictureBox, 0, ProjectFilesTable.RowCount - 1);
-                ProjectFilesTable.RowCount += 1;
-                ProjectFilesTable.AutoScroll = ProjectFilesTable.RowCount > 13;
-                ProjectFilesTable.HorizontalScroll.Visible = false;
+                InitializeFile(file);
             }
         }
 
+        public void InitializeFile(string file)
+        {
+            if (file == "New File") return;
+            Label fileNameLabel = new Label
+            {
+                Text = file,
+                ForeColor = SettingsHandler.Colors.MainText,
+                Font = Fonts.SmallUI,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Dock = DockStyle.Fill,
+                Margin = new Padding(3, 0, 3, 0)
+            };
+            fileNameLabel.DoubleClick += fileName_DoubleClick;
+            fileNameLabel.Name = file;
+            ProjectFilesTable.Controls.Add(fileNameLabel, 1, ProjectFilesTable.RowCount - 1);
+            string extension = Path.GetFileName(file).Split('.')[1];
+            string iconFileName = _iconMappings.ContainsKey(extension) ? _iconMappings[extension] : "unk.ico";
+            Image image = new Icon(Path.Combine(Program.BaseDirectory, "Icons", iconFileName), new Size(16, 16)).ToBitmap();
+            PictureBox pictureBox = new PictureBox
+            {
+                Image = image,
+                Size = new Size(16, 16),
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
+            ProjectFilesTable.Controls.Add(pictureBox, 0, ProjectFilesTable.RowCount - 1);
+            ProjectFilesTable.RowCount += 1;
+            ProjectFilesTable.AutoScroll = ProjectFilesTable.RowCount > 13;
+            ProjectFilesTable.HorizontalScroll.Visible = false;
+        }
 
         private void openProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Program.Editor.FileTC.TabPages.Count != 1 || Program.Editor.FileTC.SelectedTab.Text != "New File")
+            {
+                var mbResult = MessageBox.Show("Opening a project will cause all open tabs to close.\nAre you sure you want to open a project?", "Alert", MessageBoxButtons.YesNo);
+                if (mbResult == DialogResult.No) return;
+                else Program.Editor.CloseTabs();
+            }
             OpenFileDialog fileSelect = new OpenFileDialog
             {
                 Filter = "MK2Proj files (.mk2proj)|*.mk2proj"
@@ -128,15 +151,14 @@ namespace Ty2INIEditor.Forms
         {
             Label fileName = sender as Label;
             string filePath = Path.Combine(CurrentProject.DirectoryPath, fileName.Text);
+            Console.WriteLine(filePath);
             if (!File.Exists(filePath))
             {
                 MessageBox.Show("Sorry, that file does not exist.\nIt was likely removed without its mk2proj entry being deleted.\nThe entry will now be removed.", "Alert");
                 List<string> lines = File.ReadAllLines(CurrentProject.mk2projPath).ToList();
                 lines.RemoveAll(line => line == fileName.Text);
                 File.WriteAllLines(CurrentProject.mk2projPath, lines);
-                int rowIndex = ProjectFilesTable.GetRow(fileName);
-                ProjectFilesTable.RowStyles.RemoveAt(rowIndex);
-
+                ProjectFilesTable.RemoveRow(ProjectFilesTable.GetRow(fileName));
                 return;
             }
             Program.Editor.InitializeTab(filePath);
@@ -147,25 +169,128 @@ namespace Ty2INIEditor.Forms
             ActiveControl = null;
         }
 
-        private void projectToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        private void addFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProjectMenuBar.ForeColor = SettingsHandler.Colors.BackgroundDark;
+            OpenFileDialog fileSelect = new OpenFileDialog
+            {
+                Filter = "All Files|*.*"
+            };
+            DialogResult result = fileSelect.ShowDialog();
+            if (result != DialogResult.OK) return;
+            string path = fileSelect.FileName;
+            string name = Path.GetFileName(path);
+            if (Directory.GetFiles(CurrentProject.DirectoryPath).Contains(name))
+            {
+                MessageBox.Show("This file already exists in the project", "Alert");
+                return;
+            }
+            File.Copy(path, Path.Combine(CurrentProject.DirectoryPath, name));
+            InitializeFile(name);
+            CurrentProject.AddFile(name);
         }
 
-        private void projectToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        public void ClearFilesTable()
         {
-            ProjectMenuBar.ForeColor = SettingsHandler.Colors.MainText;
-            _dropDownOpen = false;
+            ProjectFilesTable.Controls.Clear();
+            ProjectFilesTable.RowCount = 1;
         }
 
-        private void projectToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        public void LoadFilesTable()
         {
-            if(!_dropDownOpen) ProjectMenuBar.ForeColor = SettingsHandler.Colors.MainText;
+            foreach (string file in CurrentProject.FileNames)
+            {
+                InitializeFile(file);
+            }
         }
 
-        private void projectToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _dropDownOpen = true;
+            if(Program.Editor.FileTC.TabPages.Count != 1 || Program.Editor.FileTC.SelectedTab.Text != "New File")
+            {
+                var mbResult = MessageBox.Show("Creating a new project will cause all open tabs to close.\nAre you sure you want to create a project?", "Alert", MessageBoxButtons.YesNo);
+                if (mbResult == DialogResult.No) return;
+                else Program.Editor.CloseTabs();
+            }
+            Program.Editor.CloseTabs();
+            if (Program.ProjectSettings == null || Program.ProjectSettings.IsDisposed) Program.ProjectSettings = new ProjectSettings();
+            Program.ProjectSettings.Initialize(null, false); 
+            Program.ProjectSettings.Show();
+        }
+
+        private void editProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.Editor.FileTC.TabPages.Count != 1 || Program.Editor.FileTC.SelectedTab.Text != "New File")
+            {
+                var mbResult = MessageBox.Show("Editing the current project will cause all open tabs to close.\nAre you sure you want to edit the project?", "Alert", MessageBoxButtons.YesNo);
+                if (mbResult == DialogResult.No) return;
+                else Program.Editor.CloseTabs();
+            }
+            if (Program.ProjectSettings == null || Program.ProjectSettings.IsDisposed) Program.ProjectSettings = new ProjectSettings();
+            Program.ProjectSettings.Initialize(CurrentProject, true);
+            Program.ProjectSettings.Show();
+        }
+
+        private void byNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentProject.SortFiles(SortingType.Name);
+            ClearFilesTable();
+            LoadFilesTable();
+        }
+
+        private void byFileTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentProject.SortFiles(SortingType.Extension);
+            ClearFilesTable();
+            LoadFilesTable();
+        }
+
+        internal void UpdateDetails()
+        {
+            ProjectName.Text = CurrentProject.Name;
+            ProjectDescription.Text = CurrentProject.Description;
+        }
+
+        private void ProjectFilesTable_DragDrop(object sender, DragEventArgs e)
+        {
+            if (CurrentProject == null) return;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                foreach (string path in files)
+                {
+                    string name = Path.GetFileName(path);
+                    if (Directory.GetFiles(CurrentProject.DirectoryPath).Contains(name))
+                    {
+                        MessageBox.Show("This file already exists in the project", "Alert");
+                        continue;
+                    }
+                    File.Copy(path, Path.Combine(CurrentProject.DirectoryPath, name));
+                    InitializeFile(name);
+                    CurrentProject.AddFile(name);
+                }
+            }
+        }
+
+        private void ProjectFilesTable_DragEnter(object sender, DragEventArgs e)
+        {
+            if(CurrentProject != null) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void ProjectManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.ProjectManager.Hide();
+            e.Cancel = true;
+        }
+
+        private void exportToRKVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BetterFolderBrowser fbd = new BetterFolderBrowser();
+            fbd.Title = "Select Output Folder";
+            DialogResult result = fbd.ShowDialog();
+            if (result != DialogResult.OK) return;
+            RKV rkv = new RKV();
+            rkv.Repack(CurrentProject.DirectoryPath, fbd.SelectedPath);
+            MessageBox.Show("RKV Generated", "Success");
         }
     }
 }

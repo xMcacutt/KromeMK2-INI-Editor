@@ -17,6 +17,7 @@ namespace Ty2INIEditor
     {
         public static Editor Editor;
         public static ProjectManager ProjectManager;
+        public static ProjectSettings ProjectSettings;
         public static Preferences Preferences;
         public static string BaseDirectory;
         public static string FieldNamesRegEx;
@@ -64,6 +65,7 @@ namespace Ty2INIEditor
             ProjectManager.InitializeColors();
             Preferences.InitializeColors();
             Editor.InitializeColors();
+            ProjectSettings.InitializeColors();
         }
     }
 }

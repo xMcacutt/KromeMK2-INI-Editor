@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectManager));
             this.WindowLayoutTable = new System.Windows.Forms.TableLayoutPanel();
-            this.ProjectFilesTable = new System.Windows.Forms.TableLayoutPanel();
             this.ProjectDetailsTable = new System.Windows.Forms.TableLayoutPanel();
             this.ProjectName = new System.Windows.Forms.Label();
             this.ProjectDescription = new System.Windows.Forms.RichTextBox();
@@ -38,13 +37,14 @@
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byFileTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectFilesTable = new Ty2INIEditor.RCTableLayoutPanel();
+            this.exportToRKVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowLayoutTable.SuspendLayout();
             this.ProjectDetailsTable.SuspendLayout();
             this.ProjectMenuBar.SuspendLayout();
@@ -67,24 +67,6 @@
             this.WindowLayoutTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.WindowLayoutTable.Size = new System.Drawing.Size(406, 235);
             this.WindowLayoutTable.TabIndex = 0;
-            // 
-            // ProjectFilesTable
-            // 
-            this.ProjectFilesTable.AutoSize = true;
-            this.ProjectFilesTable.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
-            this.ProjectFilesTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ProjectFilesTable.ColumnCount = 2;
-            this.ProjectFilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.ProjectFilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.ProjectFilesTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectFilesTable.Location = new System.Drawing.Point(5, 66);
-            this.ProjectFilesTable.Margin = new System.Windows.Forms.Padding(5);
-            this.ProjectFilesTable.MaximumSize = new System.Drawing.Size(0, 300);
-            this.ProjectFilesTable.Name = "ProjectFilesTable";
-            this.ProjectFilesTable.RowCount = 1;
-            this.ProjectFilesTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.ProjectFilesTable.Size = new System.Drawing.Size(396, 164);
-            this.ProjectFilesTable.TabIndex = 0;
             // 
             // ProjectDetailsTable
             // 
@@ -111,9 +93,8 @@
             this.ProjectName.Location = new System.Drawing.Point(5, 5);
             this.ProjectName.Margin = new System.Windows.Forms.Padding(5);
             this.ProjectName.Name = "ProjectName";
-            this.ProjectName.Size = new System.Drawing.Size(68, 13);
+            this.ProjectName.Size = new System.Drawing.Size(0, 13);
             this.ProjectName.TabIndex = 0;
-            this.ProjectName.Text = "ProjectName";
             // 
             // ProjectDescription
             // 
@@ -129,7 +110,7 @@
             this.ProjectDescription.Size = new System.Drawing.Size(386, 18);
             this.ProjectDescription.TabIndex = 1;
             this.ProjectDescription.TabStop = false;
-            this.ProjectDescription.Text = "ProjectDescription";
+            this.ProjectDescription.Text = "";
             this.ProjectDescription.TextChanged += new System.EventHandler(this.ProjectDescription_TextChanged);
             this.ProjectDescription.Enter += new System.EventHandler(this.ProjectDescription_Enter);
             // 
@@ -149,40 +130,33 @@
             this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
             this.openProjectToolStripMenuItem,
-            this.saveProjectToolStripMenuItem,
-            this.editProjectToolStripMenuItem});
+            this.editProjectToolStripMenuItem,
+            this.exportToRKVToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
             this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.projectToolStripMenuItem.Text = "Project";
-            this.projectToolStripMenuItem.DropDownClosed += new System.EventHandler(this.projectToolStripMenuItem_DropDownClosed);
-            this.projectToolStripMenuItem.DropDownOpened += new System.EventHandler(this.projectToolStripMenuItem_DropDownOpened);
-            this.projectToolStripMenuItem.MouseEnter += new System.EventHandler(this.projectToolStripMenuItem_MouseEnter);
-            this.projectToolStripMenuItem.MouseLeave += new System.EventHandler(this.projectToolStripMenuItem_MouseLeave);
             // 
             // newProjectToolStripMenuItem
             // 
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newProjectToolStripMenuItem.Text = "New Project";
+            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
             // 
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.openProjectToolStripMenuItem_Click);
             // 
-            // saveProjectToolStripMenuItem
-            // 
-            this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.saveProjectToolStripMenuItem.Text = "Add File To Project";
-            // 
             // editProjectToolStripMenuItem
             // 
+            this.editProjectToolStripMenuItem.Enabled = false;
             this.editProjectToolStripMenuItem.Name = "editProjectToolStripMenuItem";
-            this.editProjectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.editProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editProjectToolStripMenuItem.Text = "Edit Project";
+            this.editProjectToolStripMenuItem.Click += new System.EventHandler(this.editProjectToolStripMenuItem_Click);
             // 
             // filesToolStripMenuItem
             // 
@@ -195,15 +169,18 @@
             // 
             // addToolStripMenuItem
             // 
+            this.addToolStripMenuItem.Enabled = false;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
             // 
             // sortToolStripMenuItem
             // 
             this.sortToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.byNameToolStripMenuItem,
             this.byFileTypeToolStripMenuItem});
+            this.sortToolStripMenuItem.Enabled = false;
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
             this.sortToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.sortToolStripMenuItem.Text = "Sort..";
@@ -213,12 +190,42 @@
             this.byNameToolStripMenuItem.Name = "byNameToolStripMenuItem";
             this.byNameToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.byNameToolStripMenuItem.Text = "By Name";
+            this.byNameToolStripMenuItem.Click += new System.EventHandler(this.byNameToolStripMenuItem_Click);
             // 
             // byFileTypeToolStripMenuItem
             // 
             this.byFileTypeToolStripMenuItem.Name = "byFileTypeToolStripMenuItem";
             this.byFileTypeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.byFileTypeToolStripMenuItem.Text = "By File Type";
+            this.byFileTypeToolStripMenuItem.Click += new System.EventHandler(this.byFileTypeToolStripMenuItem_Click);
+            // 
+            // ProjectFilesTable
+            // 
+            this.ProjectFilesTable.AllowDrop = true;
+            this.ProjectFilesTable.AutoSize = true;
+            this.ProjectFilesTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ProjectFilesTable.ColumnCount = 2;
+            this.ProjectFilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ProjectFilesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ProjectFilesTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectFilesTable.Location = new System.Drawing.Point(5, 66);
+            this.ProjectFilesTable.Margin = new System.Windows.Forms.Padding(5);
+            this.ProjectFilesTable.MaximumSize = new System.Drawing.Size(0, 300);
+            this.ProjectFilesTable.Name = "ProjectFilesTable";
+            this.ProjectFilesTable.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
+            this.ProjectFilesTable.RowCount = 1;
+            this.ProjectFilesTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ProjectFilesTable.Size = new System.Drawing.Size(396, 164);
+            this.ProjectFilesTable.TabIndex = 0;
+            this.ProjectFilesTable.DragDrop += new System.Windows.Forms.DragEventHandler(this.ProjectFilesTable_DragDrop);
+            this.ProjectFilesTable.DragEnter += new System.Windows.Forms.DragEventHandler(this.ProjectFilesTable_DragEnter);
+            // 
+            // exportToRKVToolStripMenuItem
+            // 
+            this.exportToRKVToolStripMenuItem.Name = "exportToRKVToolStripMenuItem";
+            this.exportToRKVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToRKVToolStripMenuItem.Text = "Export To RKV";
+            this.exportToRKVToolStripMenuItem.Click += new System.EventHandler(this.exportToRKVToolStripMenuItem_Click);
             // 
             // ProjectManager
             // 
@@ -231,11 +238,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.ProjectMenuBar;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ProjectManager";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = " Project Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProjectManager_FormClosing);
             this.WindowLayoutTable.ResumeLayout(false);
             this.WindowLayoutTable.PerformLayout();
             this.ProjectDetailsTable.ResumeLayout(false);
@@ -250,14 +257,13 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel WindowLayoutTable;
-        private System.Windows.Forms.TableLayoutPanel ProjectFilesTable;
+        private RCTableLayoutPanel ProjectFilesTable;
         private System.Windows.Forms.TableLayoutPanel ProjectDetailsTable;
         private System.Windows.Forms.Label ProjectName;
         private System.Windows.Forms.MenuStrip ProjectMenuBar;
         private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveProjectToolStripMenuItem;
         private System.Windows.Forms.RichTextBox ProjectDescription;
         private System.Windows.Forms.ToolStripMenuItem editProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
@@ -265,5 +271,6 @@
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem byNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem byFileTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToRKVToolStripMenuItem;
     }
 }

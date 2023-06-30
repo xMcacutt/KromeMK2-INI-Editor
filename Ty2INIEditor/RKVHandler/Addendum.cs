@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RKV2_Tools
+namespace Ty2INIEditor
 {
     public class Addendum
     {

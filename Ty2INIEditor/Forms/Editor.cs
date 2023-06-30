@@ -8,14 +8,11 @@ using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 using Ty2INIEditor.Forms;
 using Ty2INIEditor.INIHandler;
-using System.Xml.Linq;
 using WK.Libraries.BetterFolderBrowserNS;
 using System.Threading.Tasks;
 using System.IO.Pipes;
 using System.Collections.Generic;
-using Ty2INIEditor.Properties;
-using TradeWright.UI.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Ty2INIEditor.Controls;
 
 namespace Ty2INIEditor
 {
@@ -27,7 +24,6 @@ namespace Ty2INIEditor
         public TextStyle NumbersStyle;
         public TextStyle FieldTextStyle;
         public List<string> OpenFilePaths = new List<string>();
-        AutocompleteMenu popupMenu;
 
         public Editor(string filePath)
         {
@@ -36,6 +32,7 @@ namespace Ty2INIEditor
             SettingsHandler.Setup();
 
             InitializeComponent();
+            MainMenuStrip.Renderer = new CustomToolStripRenderer();
             InitializeProject(filePath);
             InitializeTab(filePath);
             FileTC.TabClosing += new EventHandler<TabControlCancelEventArgs>(FileTC_Closing);
@@ -46,24 +43,15 @@ namespace Ty2INIEditor
 
         public static void InitializeProject(string filePath)
         {
+            if (Program.ProjectManager != null && Program.ProjectManager.CurrentProject != null) Program.ProjectManager.ClearFilesTable();
+            if (Program.ProjectManager == null || Program.ProjectManager.IsDisposed) Program.ProjectManager = new ProjectManager();
             Project project;
-            if (filePath.EndsWith(".mk2proj")) project = Project.LoadProjectFromFile(filePath);
-            else
+            if (filePath.EndsWith(".mk2proj")) 
             {
-                project = new Project()
-                {
-                    Name = "New Project " + DateTime.Now,
-                    Description = "Description",
-                    FileNames = new string[] { "New File" }
-                };
+                project = Project.LoadProjectFromFile(filePath);
+                Program.ProjectManager.CurrentProject = project;
+                Program.ProjectManager.LoadProject();
             }
-            if(Program.ProjectManager == null || Program.ProjectManager.IsDisposed) 
-            { 
-                Program.ProjectManager = new ProjectManager();
-            }
-            Program.ProjectManager.CurrentProject = project;
-            Program.ProjectManager.LoadProject();
-
             Program.ProjectManager.Shown += (sender, e) =>
             {
                 Point startLoc = Program.Editor.Location;
@@ -71,6 +59,12 @@ namespace Ty2INIEditor
                 Program.ProjectManager.Location = startLoc;
             };
             Program.ProjectManager.Show();
+        }
+
+        public void CloseTabs()
+        {
+            FileTC.TabPages.Clear();
+            InitializeTab("");
         }
 
         public void InitializeTab(string filePath)
@@ -121,12 +115,11 @@ namespace Ty2INIEditor
                 IndentBackColor = SettingsHandler.Colors.BackgroundSuperLight,
                 BackColor = SettingsHandler.Colors.BackgroundLight,
                 CaretColor = SettingsHandler.Colors.MainText,
-                Font = Fonts.Standard
+                Font = new Font(Fonts.Standard.FontFamily, Fonts.Standard.Size)
             };
             FCTB.TextChanged += new EventHandler<TextChangedEventArgs>(FCTB_TextChanged);
-            FCTB.KeyDown += new KeyEventHandler(FCTB_KeyDown);
 
-            popupMenu = new AutocompleteMenu(FCTB);
+            AutocompleteMenu popupMenu = new AutocompleteMenu(FCTB);
             popupMenu.MinFragmentLength = 2;
             popupMenu.Items.SetAutocompleteItems(Program.KnownStrings);
             popupMenu.Items.MaximumSize = new Size(300, 400);
@@ -222,6 +215,7 @@ namespace Ty2INIEditor
         {
             FileTC.Font = Fonts.SmallUI;
             Menu.Font = Fonts.SmallUI;
+            foreach(ToolStripMenuItem item in Menu.Items) item.Font = Fonts.SmallUI;
         }
 
         private void FileTC_Closing(object sender, TabControlCancelEventArgs e)
@@ -266,15 +260,6 @@ namespace Ty2INIEditor
             {
                 e.ChangedRange.SetStyle(FieldNamesStyle, Program.FieldNamesRegEx, RegexOptions.Multiline);
                 e.ChangedRange.SetStyle(FieldTextStyle, Program.FieldNamesRegEx + @"(?!\s*$).*", RegexOptions.Multiline);
-            }
-        }
-
-        private void FCTB_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Control && popupMenu != null)
-            {
-                popupMenu.Show();
-                e.Handled = true;
             }
         }
 
@@ -327,7 +312,7 @@ namespace Ty2INIEditor
 
             string filePath = INICompiler.Compile(FileTC.SelectedTab.Controls[0].Text.Split('\n'), path);
 
-            RKV2_Tools.RKV rkv = new RKV2_Tools.RKV();
+            RKV rkv = new RKV();
             rkv.Repack(filePath, path);
             File.Delete(filePath);
             MessageBox.Show("RKV Generated", "Success");
@@ -345,6 +330,7 @@ namespace Ty2INIEditor
             if (result != DialogResult.OK) return;
             string path = fileSelect.FileName;
             INICompiler.Compile(FileTC.SelectedTab.Controls[0].Text.Split('\n'), path);
+            FileTC.SelectedTab.Text = FileTC.SelectedTab.Text.Replace("*", "");
             MessageBox.Show("INI Generated", "Success");
         }
 
@@ -383,6 +369,47 @@ namespace Ty2INIEditor
                 INICompiler.Compile(text.Split('\n'), Path.Combine(outputPath, fileName));
             }
             MessageBox.Show("Appended Text And Generated INIs", "Success");
+        }
+
+        private void FileTC_TabIndexChanged(object sender, EventArgs e)
+        {
+            if (FileTC.SelectedTab.Controls.Count != 0) FileTC.SelectedTab.Controls[0].Focus();
+
+        }
+
+        private void saveToProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filePath;
+            if(FileTC.SelectedTab.Name.StartsWith(Program.ProjectManager.CurrentProject.DirectoryPath))
+            {
+                filePath = FileTC.SelectedTab.Name;    
+                INICompiler.Compile(FileTC.SelectedTab.Controls[0].Text.Split('\n'), FileTC.SelectedTab.Name);
+                FileTC.SelectedTab.Text = FileTC.SelectedTab.Text.Replace("*", "");
+                return;
+            }
+            MessageBox.Show(FileTC.SelectedTab.Name);
+            if (!Directory.GetFiles(Program.ProjectManager.CurrentProject.DirectoryPath).Contains(FileTC.SelectedTab.Name) && 
+                Directory.GetFiles(Program.ProjectManager.CurrentProject.DirectoryPath)
+                           .Select(Path.GetFileName)
+                           .Contains(Path.GetFileName(FileTC.SelectedTab.Name)))
+            {
+                MessageBox.Show("Cannot save this file to the current project as a file with the same name already exists in the project.\n\nEither save this file as ini and manually replace the file in the project directory or open the project's version of the file and copy your changes across.", "Alert");
+                return;
+            }
+            filePath = Path.Combine(Program.ProjectManager.CurrentProject.DirectoryPath, Path.GetFileName(FileTC.SelectedTab.Name));
+            if (!filePath.EndsWith(".bni")) filePath += ".bni";
+            INICompiler.Compile(FileTC.SelectedTab.Controls[0].Text.Split('\n'), filePath);
+            FileTC.SelectedTab.Text = FileTC.SelectedTab.Text.Replace("*", "");
+        }
+
+        public void SetMenuItemsEnabled(bool enabled)
+        {
+            saveToProjectToolStripMenuItem.Enabled = enabled;
+        }
+
+        private void projectManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.ProjectManager.Show();
         }
     }
 }

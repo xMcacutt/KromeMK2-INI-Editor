@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,7 +25,6 @@ namespace Ty2INIEditor
         {
             uint hash = 0;
             uint len = (uint)str.Length;
-            int idx = 0;
             for (int i = 0; i < len; i++)
             {
                 hash = (uint)((hash * 0x11) + (str[i] | 0x20));
@@ -57,5 +57,16 @@ namespace Ty2INIEditor
             return splitArrays;
         }
 
+        public static string GetRelativePath(string inputDir, string file)
+        {
+            var inputDirParts = inputDir.TrimEnd(Path.DirectorySeparatorChar).Split(Path.DirectorySeparatorChar);
+            var fileParts = file.TrimEnd(Path.DirectorySeparatorChar).Split(Path.DirectorySeparatorChar);
+
+            int commonIndex = inputDirParts.Zip(fileParts, (a, b) => a.Equals(b, StringComparison.OrdinalIgnoreCase)).TakeWhile(x => x).Count();
+
+            var relativePath = string.Join(Path.DirectorySeparatorChar.ToString(), Enumerable.Repeat("..", inputDirParts.Length - commonIndex).Concat(fileParts.Skip(commonIndex)));
+
+            return relativePath;
+        }
     }
 }

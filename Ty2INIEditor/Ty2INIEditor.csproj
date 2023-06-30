@@ -65,11 +65,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CustomToolStripRenderer.cs" />
+    <Compile Include="Controls\RCTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\ProjectManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ProjectManager.Designer.cs">
       <DependentUpon>ProjectManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProjectSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectSettings.Designer.cs">
+      <DependentUpon>ProjectSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="INIHandler\Line.cs" />
     <Compile Include="Controls\FlatComboBox.cs">
@@ -88,6 +98,9 @@
     <Compile Include="RKVHandler\Addendum.cs" />
     <Compile Include="RKVHandler\Crc32.cs" />
     <Compile Include="RKVHandler\Entry.cs" />
+    <Compile Include="RKVHandler\FileExtAlias.cs" />
+    <Compile Include="RKVHandler\FileNameComparer.cs" />
+    <Compile Include="RKVHandler\FilePathComparer.cs" />
     <Compile Include="RKVHandler\RKV.cs" />
     <Compile Include="Themes\Fonts.cs" />
     <Compile Include="Themes\Themes.cs" />
@@ -110,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Preferences.resx">
       <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectSettings.resx">
+      <DependentUpon>ProjectSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -139,7 +139,11 @@ namespace Ty2INIEditor
             {
                 tab.Name = filePath;
                 if (filePath.EndsWith(".txt")) FCTB.Text = File.ReadAllText(filePath);
-                else FCTB.Text = string.Join("\n", INIParser.Import(filePath));
+                else
+                {
+                    FCTB.Text = string.Join("\n", INIParser.Import(filePath));
+                    tab.Tag = SettingsHandler.Settings.LittleEndian ? "Little" : "Big";
+                }
                 tab.Text = Path.GetFileName(filePath);
             }
         }

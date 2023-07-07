@@ -41,6 +41,8 @@ namespace Ty2INIEditor.INIHandler
             IndentationLevel = 0;
             LineIndex = 0;
 
+            SettingsHandler.Settings.LittleEndian = Program.Editor.FileTC.SelectedTab.Tag.Equals("Little");
+
             INI.Path = Regex.Replace(data[0], @"\p{C}+", "");
 
             if(path.EndsWith(".rkv"))
@@ -186,9 +188,9 @@ namespace Ty2INIEditor.INIHandler
         {
             using (MemoryStream stream = new MemoryStream())
             {
-                foreach (ushort u in ShortList)
+                foreach (ushort @short in ShortList)
                 {
-                    stream.Write(BitConverter.GetBytes(u), 0, 2);
+                    stream.Write(DataRead.GetBytes(@short), 0, 2);
                 }
                 ShortTableBytes = stream.ToArray();
             }
@@ -196,22 +198,21 @@ namespace Ty2INIEditor.INIHandler
 
         public static void CompileHeader()
         {
-
             using (MemoryStream stream = new MemoryStream())
             {
                 byte[] path = Encoding.ASCII.GetBytes(INI.Path);
                 byte[] pathPadding = new byte[0x20 - path.Length];
                 path = path.Concat(pathPadding).ToArray();
                 stream.Write(path, 0, 0x20);
-                stream.Write(new byte[] { 0x64, 0x00, 0x00, 0x00, }, 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.LineCount), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.DataLength), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.StringTableOffset), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.ShortTableOffset), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.HashTableOffset), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.HashDivisor), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.BinarySearchTableOffset), 0, 4);
-                stream.Write(BitConverter.GetBytes(INI.SectionCount), 0, 4);
+                stream.Write(DataRead.GetBytes(0x64), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.LineCount), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.DataLength), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.StringTableOffset), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.ShortTableOffset), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.HashTableOffset), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.HashDivisor), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.BinarySearchTableOffset), 0, 4);
+                stream.Write(DataRead.GetBytes(INI.SectionCount), 0, 4);
                 HeaderBytes = stream.ToArray();
             }
         }
@@ -223,12 +224,12 @@ namespace Ty2INIEditor.INIHandler
                 byte[] padding = new byte[4];
                 foreach (Line line in INI.Lines)
                 {
-                    stream.Write(BitConverter.GetBytes(line.FieldStringCount), 0, 2);
-                    stream.Write(BitConverter.GetBytes(line.SectionNameOffset), 0, 2);
-                    stream.Write(BitConverter.GetBytes(line.FieldNameOffset), 0, 2);
-                    stream.Write(BitConverter.GetBytes(line.RollingFieldStringCount), 0, 2);
-                    stream.Write(BitConverter.GetBytes(line.DataStartLineIndex), 0, 2);
-                    stream.Write(BitConverter.GetBytes(line.MaskNameOffset), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.FieldStringCount), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.SectionNameOffset), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.FieldNameOffset), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.RollingFieldStringCount), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.DataStartLineIndex), 0, 2);
+                    stream.Write(DataRead.GetBytes(line.MaskNameOffset), 0, 2);
                     stream.Write(padding, 0, 4);
                 }
                 LineBytes = stream.ToArray();
@@ -259,7 +260,7 @@ namespace Ty2INIEditor.INIHandler
             {
                 for (uint i = 0; i < map.Last().Key + 1; i++)
                 {
-                    if (map.TryGetValue(i, out (string, int) entry)) stream.Write(BitConverter.GetBytes(entry.Item2), 0, 2);
+                    if (map.TryGetValue(i, out (string, int) entry)) stream.Write(DataRead.GetBytes(entry.Item2), 0, 2);
                     else stream.Write(new byte[] {0xFF, 0xFF}, 0, 2);
                 }
                 HashTableBytes = stream.ToArray();
@@ -278,7 +279,7 @@ namespace Ty2INIEditor.INIHandler
             {
                 foreach (var entry in SectionNames)
                 {
-                    stream.Write(BitConverter.GetBytes(entry.Item2), 0, 2);
+                    stream.Write(DataRead.GetBytes(entry.Item2), 0, 2);
                 }
                 BinarySearchTableBytes = stream.ToArray();
             }

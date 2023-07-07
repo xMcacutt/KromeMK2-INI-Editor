@@ -65,7 +65,7 @@ namespace Ty2INIEditor
             ProjectManager.InitializeColors();
             Preferences.InitializeColors();
             Editor.InitializeColors();
-            ProjectSettings.InitializeColors();
+            if(ProjectSettings != null) ProjectSettings.InitializeColors();
         }
     }
 }

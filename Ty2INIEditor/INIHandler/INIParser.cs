@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using FastColoredTextBoxNS;
 using static System.Net.Mime.MediaTypeNames;
+using Ty2INIEditor.INIHandler;
 
-namespace Ty2INIEditor.INIHandler
+namespace Ty2INIEditor
 {
     internal class INIParser
     {
@@ -21,14 +22,15 @@ namespace Ty2INIEditor.INIHandler
         public static string[] Import(string path)
         {
             Data = File.ReadAllBytes(path);
+            SettingsHandler.Settings.LittleEndian = Data[0x20] == 0x64;
             INI = new INI
             {
                 Path = Utility.ReadString(Data, 0),
-                LineCount = BitConverter.ToInt32(Data, 0x24),
-                DataLength = BitConverter.ToInt32(Data, 0x28),
-                StringTableOffset = 0x44 + BitConverter.ToInt32(Data, 0x2C),
-                ShortTableOffset = 0x44 + BitConverter.ToInt32(Data, 0x30),
-                SectionCount = BitConverter.ToInt32(Data, 0x40)
+                LineCount = DataRead.ToInt32(Data, 0x24),
+                DataLength = DataRead.ToInt32(Data, 0x28),
+                StringTableOffset = 0x44 + DataRead.ToInt32(Data, 0x2C),
+                ShortTableOffset = 0x44 + DataRead.ToInt32(Data, 0x30),
+                SectionCount = DataRead.ToInt32(Data, 0x40)
             };
             ReadLines();
             GenerateSections();
@@ -39,15 +41,13 @@ namespace Ty2INIEditor.INIHandler
         {
             for (int i = 0; i < INI.LineCount; i++)
             {
-                Line line = new Line()
-                {
-                    FieldStringCount = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10)),
-                    SectionNameOffset = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x2),
-                    FieldNameOffset = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x4),
-                    RollingFieldStringCount = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x6),
-                    DataStartLineIndex = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0x8),
-                    MaskNameOffset = BitConverter.ToUInt16(Data, 0x44 + (i * 0x10) + 0xA)
-                };
+                Line line = new Line();
+                line.FieldStringCount = DataRead.ToUInt16(Data, 0x44 + (i * 0x10));
+                line.SectionNameOffset = DataRead.ToUInt16(Data, 0x44 + (i * 0x10) + 0x2);
+                line.FieldNameOffset = DataRead.ToUInt16(Data, 0x44 + (i * 0x10) + 0x4);
+                line.RollingFieldStringCount = DataRead.ToUInt16(Data, 0x44 + (i * 0x10) + 0x6);
+                line.DataStartLineIndex = DataRead.ToUInt16(Data, 0x44 + (i * 0x10) + 0x8);
+                line.MaskNameOffset = DataRead.ToUInt16(Data, 0x44 + (i * 0x10) + 0xA);
                 INI.Lines.Add(line);
             }
         }
@@ -81,7 +81,7 @@ namespace Ty2INIEditor.INIHandler
                     lineText += Utility.ReadString(Data, INI.StringTableOffset + (line.FieldNameOffset * 4));
                     for (int i = 0; i < line.FieldStringCount; i++)
                     {
-                        int stringTableOffset = BitConverter.ToInt16(Data, INI.ShortTableOffset + (line.RollingFieldStringCount + i) * 2);
+                        int stringTableOffset = DataRead.ToInt16(Data, INI.ShortTableOffset + (line.RollingFieldStringCount + i) * 2);
                         lineText += $" {Utility.ReadString(Data, INI.StringTableOffset + stringTableOffset * 4)}";
                     }
                     if (line.MaskNameOffset != 0xFFFF)
